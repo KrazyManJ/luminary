@@ -1,2 +1,6 @@
-cmake-build-debug
+# CLION PROJECT FOLDER
 .idea
+# CMAKE BUILD FOLDER
+cmake-build-debug
+# DIAGRAMS BACKUP
+**/*.drawio.bkp
