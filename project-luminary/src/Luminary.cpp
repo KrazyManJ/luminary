@@ -1,8 +1,3 @@
-//
-// Created by KrazyManJ on 22.11.2023.
-//
-
-#include <iostream>
 #include "Luminary.h"
 #include "ConsoleHandler.h"
 
@@ -14,7 +9,7 @@ void Luminary::initialize() {
 }
 
 void Luminary::startLoop() {
-    while (s_run){
+    while (s_run) {
         auto *input = ConsoleHandler::handleKeyboardInput();
         // Processing
         if (input->getKey() == K_ESC) Luminary::exit();
