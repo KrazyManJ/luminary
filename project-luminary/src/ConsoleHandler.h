@@ -1,6 +1,7 @@
 //
 // Created by KrazyManJ on 22.11.2023.
 //
+#define K_ESC 27
 
 #ifndef PROJECT_LUMINARY_CONSOLEHANDLER_H
 #define PROJECT_LUMINARY_CONSOLEHANDLER_H

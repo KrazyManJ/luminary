@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(project_luminary main.cpp
         src/ConsoleHandler.cpp
-        src/ConsoleHandler.h)
+        src/ConsoleHandler.h
+        src/Luminary.cpp
+        src/Luminary.h)
