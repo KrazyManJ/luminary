@@ -3,8 +3,8 @@ project(project_luminary)
 
 set(CMAKE_CXX_STANDARD 17)
 
+file(GLOB_RECURSE source_list "src/**.cpp" "src/**.h")
+
 add_executable(project_luminary main.cpp
-        src/ConsoleHandler.cpp
-        src/ConsoleHandler.h
-        src/Luminary.cpp
-        src/Luminary.h)
+        ${source_list}
+)
