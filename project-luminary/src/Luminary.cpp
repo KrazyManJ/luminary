@@ -13,6 +13,7 @@ void Luminary::startLoop() {
         auto *input = ConsoleHandler::handleKeyboardInput();
         // Processing
         if (input->getKey() == K_ESC) Luminary::exit();
+        delete input;
     }
 }
 
