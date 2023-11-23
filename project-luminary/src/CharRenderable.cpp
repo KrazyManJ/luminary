@@ -1,0 +1,1 @@
+#include "CharRenderable.h"

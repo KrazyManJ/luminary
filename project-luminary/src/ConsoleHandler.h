@@ -5,7 +5,7 @@
 
 
 #include <string>
-#include "Position.h"
+#include "structs/Position.h"
 
 class ConsoleHandler {
 public:
