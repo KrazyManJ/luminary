@@ -1,5 +1,6 @@
 # CLION PROJECT FOLDER
-.idea
+exercise_lessons/**/*.idea
+**/.idea/discord.xml
 # CMAKE BUILD FOLDER
 cmake-build-debug
 # DIAGRAMS BACKUP
