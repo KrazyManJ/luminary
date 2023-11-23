@@ -17,7 +17,7 @@ class Player: public CharRenderable{
 public:
     Player(Position position);
     //void addAttack(PlayerAttack* newAttack);
-    void calculateHealth(unsigned int incomingDamage);
+    void dealDamage(unsigned int incomingDamage);
     void useHeal(unsigned int healIndex);
     //Inventory* getInventory();
 };
