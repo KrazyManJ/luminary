@@ -7,20 +7,25 @@
 #include <string>
 
 class ConsoleHandler {
-private:
+public:
     class KeyEvent {
     private:
         unsigned int m_key;
         bool m_arrowEscaped;
-    public:
+
         KeyEvent(unsigned int key, bool arrowEscaped);
+
+        /**
+         * Makes it accessible to ConsoleHandler
+         */
+        friend class ConsoleHandler;
+
+    public:
 
         unsigned int getKey();
 
         bool isArrowEscaped();
     };
-
-public:
 
     enum ConsoleFormatType {
         RESET, ITALIC, BLINKING, INVERTED, UNDERLINE, STRIKETHROUGH
