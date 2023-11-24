@@ -1,17 +1,14 @@
-//
-// Created by Martin on 23.11.2023.
-//
-
 #ifndef PROJECT_LUMINARY_PLAYER_H
 #define PROJECT_LUMINARY_PLAYER_H
 
 #include "structs/Position.h"
 #include "CharRenderable.h"
+#include "PlayerAttack.h"
 
 class Player: public CharRenderable{
     Position m_position;
     float m_health;
-    //PlayerAttack* m_attacks[4];
+    PlayerAttack* m_attacks[4];
     //Inventory* m_inventory;
 
 public:
