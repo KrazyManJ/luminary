@@ -3,8 +3,8 @@
 Player::Player(Position position){
     m_position = position;
     m_health = 100;
-    //m_attacks = {nullptr, nullptr, nullptr, nullptr};
-    //m_inventory = new Inventory();
+    m_attacks = new PlayerAttack*[4];
+    m_inventory = new Inventory();
 }
 
 void Player::dealDamage(unsigned int incomingDamage) {
@@ -12,7 +12,7 @@ void Player::dealDamage(unsigned int incomingDamage) {
 }
 
 void Player::useHeal(unsigned int healIndex) {
-    //Heal heal = inventory->getHeal(healIndex);
+    //Heal* heal = m_inventory->getHeal(healIndex);
     //m_health += heal->getHealValue();
-    //inventory->deleteHeal(healIndex);
+    //m_inventory->deleteHeal(healIndex);
 }
