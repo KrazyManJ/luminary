@@ -1,7 +1,8 @@
 #include "src/Luminary.h"
+#include "src/window/MainMenuWindow.h"
 
 int main() {
-    Luminary::initialize();
-    Luminary::startLoop();
+    auto* luminary = new Luminary(new MainMenuWindow());
+    luminary->startLoop();
     return 0;
 }

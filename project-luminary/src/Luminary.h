@@ -2,15 +2,25 @@
 #define PROJECT_LUMINARY_LUMINARY_H
 
 
+#include "window/Window.h"
+
 class Luminary {
 private:
-    static bool s_run;
+    static Luminary* s_instance;
+    Window* m_activeWindow;
+    bool m_run;
 public:
-    static void initialize();
+    explicit Luminary(Window* startingWindow);
 
-    static void startLoop();
+    static Luminary* getInstance();
 
-    static void exit();
+    void startLoop();
+
+    void exit();
+
+    Window* getActiveWindow();
+
+    void setActiveWindow(Window* window);
 };
 
 

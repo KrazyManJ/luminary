@@ -1,22 +1,39 @@
 #include "Luminary.h"
 #include "ConsoleHandler.h"
 
-bool Luminary::s_run = true;
+Luminary* Luminary::s_instance = nullptr;
 
-void Luminary::initialize() {
+Luminary::Luminary(Window* startingWindow) {
+    s_instance = this;
+    m_run = true;
+    m_activeWindow = startingWindow;
     ConsoleHandler::setConsoleTitle("Luminary");
     ConsoleHandler::disableCursorVisibility();
 }
 
+Luminary *Luminary::getInstance() {
+    return s_instance;
+}
+
+
 void Luminary::startLoop() {
-    while (s_run) {
+    while (m_run) {
         auto *input = ConsoleHandler::handleKeyboardInput();
-        // Processing
-        if (input->getKey() == K_ESC) Luminary::exit();
+        getActiveWindow()->onInput(input);
+
+        getActiveWindow()->render();
         delete input;
     }
 }
 
 void Luminary::exit() {
-    s_run = false;
+    m_run = false;
+}
+
+Window *Luminary::getActiveWindow() {
+    return m_activeWindow;
+}
+
+void Luminary::setActiveWindow(Window *window) {
+    m_activeWindow = window;
 }

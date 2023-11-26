@@ -1,8 +1,19 @@
-#define K_ESC 27
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "OCUnusedMacroInspection"
 
 #ifndef PROJECT_LUMINARY_CONSOLEHANDLER_H
 #define PROJECT_LUMINARY_CONSOLEHANDLER_H
 
+#define KEY_ESC 27
+#define KEY_ARROW_UP 72
+#define KEY_ARROW_DOWN 80
+#define KEY_ARROW_LEFT 75
+#define KEY_ARROW_RIGHT 77
+#define KEY_W 119
+#define KEY_A 97
+#define KEY_S 115
+#define KEY_D 100
+#define KEY_E 101
 
 #include <string>
 #include "structs/Position.h"
@@ -56,3 +67,5 @@ public:
 
 
 #endif //PROJECT_LUMINARY_CONSOLEHANDLER_H
+
+#pragma clang diagnostic pop
