@@ -5,6 +5,7 @@
 #include "CharRenderable.h"
 #include "PlayerAttack.h"
 #include "Inventory.h"
+#include "CharData.h"
 
 class Player: public CharRenderable{
     Position m_position;
@@ -13,7 +14,7 @@ class Player: public CharRenderable{
     Inventory* m_inventory;
 
 public:
-    Player(Position position);
+    Player(Position position, CharData* charData);
     void addAttack(PlayerAttack* newAttack);
     void dealDamage(unsigned int incomingDamage);
     void useHeal(unsigned int healIndex);

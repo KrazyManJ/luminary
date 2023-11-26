@@ -1,0 +1,10 @@
+#ifndef PROJECT_LUMINARY_WEAPON_H
+#define PROJECT_LUMINARY_WEAPON_H
+
+
+class Weapon {
+
+};
+
+
+#endif //PROJECT_LUMINARY_WEAPON_H

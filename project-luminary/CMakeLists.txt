@@ -7,4 +7,8 @@ file(GLOB_RECURSE source_list "src/**.cpp" "src/**.h")
 
 add_executable(project_luminary main.cpp
         ${source_list}
+        src/Heal.cpp
+        src/Heal.h
+        src/Weapon.cpp
+        src/Weapon.h
 )
