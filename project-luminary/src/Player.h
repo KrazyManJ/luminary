@@ -9,7 +9,7 @@
 
 class Player: public CharRenderable{
     Position m_position;
-    float m_health;
+    int m_health;
     PlayerAttack** m_attacks;
     Inventory* m_inventory;
 
