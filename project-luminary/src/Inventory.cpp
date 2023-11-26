@@ -17,3 +17,14 @@ void Inventory::deleteWeapon(unsigned int indexOfWeapon) {
     delete m_weapons.at(indexOfWeapon);
     m_weapons.erase(m_weapons.begin()+indexOfWeapon);
 }
+
+Inventory::~Inventory() {
+    for(Weapon* weapon: m_weapons){
+        delete weapon;
+    }
+    m_weapons.clear();
+    for(Heal* heal: m_heals){
+        delete heal;
+    }
+    m_heals.clear();
+}

@@ -11,4 +11,8 @@ add_executable(project_luminary main.cpp
         src/Heal.h
         src/Weapon.cpp
         src/Weapon.h
+        src/ItemEntity.cpp
+        src/ItemEntity.h
+        src/Item.cpp
+        src/Item.h
 )

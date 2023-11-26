@@ -1,0 +1,10 @@
+#ifndef PROJECT_LUMINARY_ITEM_H
+#define PROJECT_LUMINARY_ITEM_H
+
+
+class Item {
+
+};
+
+
+#endif //PROJECT_LUMINARY_ITEM_H
