@@ -3,10 +3,11 @@
 
 
 #include "Window.h"
+#include "../Cycler.h"
 
 class MainMenuWindow : public Window {
 private:
-    unsigned int keypressed;
+    Cycler* m_menuCycler;
 public:
     MainMenuWindow();
 

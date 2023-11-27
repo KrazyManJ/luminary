@@ -20,7 +20,9 @@ public:
 
     Window* getActiveWindow();
 
-    void setActiveWindow(Window* window);
+    void openWindow(Window* window, bool keepPrevious = false);
+
+    void clearWindowContent();
 };
 
 
