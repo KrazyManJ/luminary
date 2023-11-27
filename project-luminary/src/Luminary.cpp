@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Luminary.h"
 #include "ConsoleHandler.h"
 
@@ -9,6 +10,7 @@ Luminary::Luminary(Window* startingWindow) {
     m_activeWindow = startingWindow;
     ConsoleHandler::setConsoleTitle("Luminary");
     ConsoleHandler::disableCursorVisibility();
+    startingWindow->render();
 }
 
 Luminary *Luminary::getInstance() {
@@ -17,6 +19,16 @@ Luminary *Luminary::getInstance() {
 
 
 void Luminary::startLoop() {
+    ConsoleHandler::setCursorPosition(0,25+1);
+    std::cout
+    << ConsoleHandler::getColorChar(0x111111,ConsoleHandler::BACKGROUND)
+    << std::string(80+1,' ');
+    for (int i = 0; i < 25+1; i++){
+        ConsoleHandler::setCursorPosition(80+1,i);
+        std::cout
+        << ConsoleHandler::getColorChar(0x111111,ConsoleHandler::BACKGROUND)
+        << " " << ConsoleHandler::getFormatChar(ConsoleHandler::RESET);
+    }
     while (m_run) {
         auto *input = ConsoleHandler::handleKeyboardInput();
         getActiveWindow()->onInput(input);
@@ -34,6 +46,14 @@ Window *Luminary::getActiveWindow() {
     return m_activeWindow;
 }
 
-void Luminary::setActiveWindow(Window *window) {
+void Luminary::openWindow(Window *window, bool keepPrevious) {
+    if (!keepPrevious) clearWindowContent();
+    else ConsoleHandler::setCursorPosition(0,0);
     m_activeWindow = window;
+}
+
+void Luminary::clearWindowContent() {
+    ConsoleHandler::setCursorPosition(0,0);
+    for(int i = 0; i < Window::HEIGHT; i++) std::cout << std::string(Window::WIDTH, ' ') << std::endl;
+    ConsoleHandler::setCursorPosition(0,0);
 }
