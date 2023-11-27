@@ -7,6 +7,11 @@ Player::Player(Position position, CharData* charData) : CharRenderable(charData)
     m_inventory = new Inventory();
 }
 
+void Player::setPosition(signed char x, signed char y) {
+    m_position.x += x;
+    m_position.y += y;
+}
+
 void Player::addAttack(PlayerAttack *newAttack) {
     char indexOfAttack = 0;
     while(m_attacks[indexOfAttack]!= nullptr){
@@ -27,4 +32,21 @@ void Player::useHeal(unsigned int healIndex) {
 
 Inventory* Player::getInventory() {
     return m_inventory;
+}
+
+void Player::makeMovement(MovementDirection movementDirection) {
+    switch (movementDirection) {
+        case RIGHT:
+            setPosition(1,0);
+            break;
+        case LEFT:
+            setPosition(-1,0);
+            break;
+        case UP:
+            setPosition(0,-1);
+            break;
+        case DOWN:
+            setPosition(0,1);
+            break;
+    }
 }

@@ -6,5 +6,5 @@ ItemEntity::ItemEntity(Item *item, bool isTransparent, Position position, CharDa
 }
 
 Item *ItemEntity::pickUp() {
-    return nullptr;
+    return m_item;
 }

@@ -1,0 +1,8 @@
+#ifndef PROJECT_LUMINARY_MOVEMENT_H
+#define PROJECT_LUMINARY_MOVEMENT_H
+
+enum MovementDirection{
+    RIGHT, LEFT, UP, DOWN
+};
+
+#endif //PROJECT_LUMINARY_MOVEMENT_H

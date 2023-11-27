@@ -6,12 +6,14 @@
 #include "PlayerAttack.h"
 #include "Inventory.h"
 #include "CharData.h"
+#include "enums/MovementDirection.h"
 
 class Player: public CharRenderable{
     Position m_position;
     int m_health;
     PlayerAttack** m_attacks;
     Inventory* m_inventory;
+    void setPosition(signed char x, signed char y);
 
 public:
     Player(Position position, CharData* charData);
@@ -19,6 +21,7 @@ public:
     void dealDamage(unsigned int incomingDamage);
     void useHeal(unsigned int healIndex);
     Inventory* getInventory();
+    void makeMovement(MovementDirection movementDirection);
 };
 
 

@@ -24,4 +24,9 @@ add_executable(project_luminary main.cpp
         src/Game.h
         src/CharData.h
         src/CharData.cpp
+        src/Player.h
+        src/enums/MovementDirections.h
+        src/Player.cpp
+        src/ItemEntity.h
+        src/ItemEntity.cpp
 )
