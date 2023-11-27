@@ -18,6 +18,10 @@ void Inventory::deleteWeapon(unsigned int indexOfWeapon) {
     m_weapons.erase(m_weapons.begin()+indexOfWeapon);
 }
 
+Heal *Inventory::getHeal(unsigned int indexOfHeal) {
+    return m_heals.at(indexOfHeal);
+}
+
 Inventory::~Inventory() {
     for(Weapon* weapon: m_weapons){
         delete weapon;

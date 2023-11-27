@@ -15,7 +15,8 @@ public:
     void addHeal(Heal* newHeal);
     void deleteHeal(unsigned int indexOfHeal);
     void deleteWeapon(unsigned int indexOfWeapon);
-    ~Inventory()
+    Heal* getHeal(unsigned int indexOfHeal);
+    ~Inventory();
 };
 
 
