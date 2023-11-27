@@ -2,8 +2,16 @@
 #define PROJECT_LUMINARY_ITEM_H
 
 
-class Item {
+#include <string>
+#include "CharData.h"
 
+class Item {
+    std::string m_name;
+protected:
+    Item(std::string name, CharData *charData);
+
+public:
+    void setName(std::string name) {};
 };
 
 
