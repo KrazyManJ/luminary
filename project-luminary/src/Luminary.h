@@ -6,21 +6,21 @@
 
 class Luminary {
 private:
-    static Luminary* s_instance;
-    Window* m_activeWindow;
+    static Luminary *s_instance;
+    Window *m_activeWindow;
     bool m_run;
 public:
-    explicit Luminary(Window* startingWindow);
+    explicit Luminary(Window *startingWindow);
 
-    static Luminary* getInstance();
+    static Luminary *getInstance();
 
     void startLoop();
 
     void exit();
 
-    Window* getActiveWindow();
+    Window *getActiveWindow();
 
-    void openWindow(Window* window, bool keepPrevious = false);
+    void openWindow(Window *window, bool keepPrevious = false);
 
     void clearWindowContent();
 };

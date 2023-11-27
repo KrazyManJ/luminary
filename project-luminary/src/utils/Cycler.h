@@ -7,7 +7,7 @@ private:
     unsigned int m_index;
     unsigned int m_max;
 public:
-    Cycler(unsigned int maxIndex);
+    explicit Cycler(unsigned int maxIndex);
 
     void goUp();
 

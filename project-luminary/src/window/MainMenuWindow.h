@@ -3,11 +3,11 @@
 
 
 #include "Window.h"
-#include "../Cycler.h"
+#include "../utils/Cycler.h"
 
 class MainMenuWindow : public Window {
 private:
-    Cycler* m_menuCycler;
+    Cycler *m_menuCycler;
 public:
     MainMenuWindow();
 

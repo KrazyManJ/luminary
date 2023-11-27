@@ -12,9 +12,23 @@ void CharData::addFormat(ConsoleHandler::ConsoleFormatType format) {
 
 std::string CharData::toFullChar() {
     std::string result;
-    if (m_backgroundColor < COLOR_NONE) result += ConsoleHandler::getColorChar(m_backgroundColor, ConsoleHandler::BACKGROUND);
-    if (m_foregroundColor < COLOR_NONE) result += ConsoleHandler::getColorChar(m_foregroundColor, ConsoleHandler::FOREGROUND);
-    for (ConsoleHandler::ConsoleFormatType type : m_formats)
-        result+=ConsoleHandler::getFormatChar(type);
+    if (m_backgroundColor < COLOR_NONE)
+        result += ConsoleHandler::getColorChar(m_backgroundColor, ConsoleHandler::BACKGROUND);
+    if (m_foregroundColor < COLOR_NONE)
+        result += ConsoleHandler::getColorChar(m_foregroundColor, ConsoleHandler::FOREGROUND);
+    for (ConsoleHandler::ConsoleFormatType type: m_formats)
+        result += ConsoleHandler::getFormatChar(type);
     return result + m_character + ConsoleHandler::getFormatChar(ConsoleHandler::RESET);
+}
+
+void CharData::setBackgroundColor(unsigned int color) {
+    m_backgroundColor = color;
+}
+
+void CharData::setForegroundColor(unsigned int color) {
+    m_foregroundColor = color;
+}
+
+void CharData::setChar(char character) {
+    m_character = character;
 }

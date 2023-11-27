@@ -14,8 +14,16 @@ private:
     std::vector<ConsoleHandler::ConsoleFormatType> m_formats;
 public:
     CharData(char character, unsigned int backgroundColor, unsigned int foregroundColor);
+
     void addFormat(ConsoleHandler::ConsoleFormatType format);
+
     std::string toFullChar();
+
+    void setBackgroundColor(unsigned int color);
+
+    void setForegroundColor(unsigned int color);
+
+    void setChar(char character);
 };
 
 
