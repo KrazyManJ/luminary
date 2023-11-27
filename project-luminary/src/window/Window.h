@@ -6,9 +6,14 @@
 
 class Window {
 public:
+    static const unsigned int WIDTH = 80;
+    static const unsigned int HEIGHT = 25;
+
     virtual void render() = 0;
 
     virtual void onInput(ConsoleHandler::KeyEvent *evt) = 0;
+
+    virtual ~Window();
 };
 
 
