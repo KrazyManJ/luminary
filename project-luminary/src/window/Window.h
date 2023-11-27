@@ -13,7 +13,7 @@ public:
 
     virtual void onInput(ConsoleHandler::KeyEvent *evt) = 0;
 
-    virtual ~Window()=0;
+    virtual ~Window();
 };
 
 

@@ -6,6 +6,7 @@
 #include "CharData.h"
 
 class Item {
+private:
     std::string m_name;
 protected:
     Item(std::string name, CharData *charData);
