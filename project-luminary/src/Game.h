@@ -10,7 +10,8 @@
 class Game : public Window {
 private:
     std::vector<std::vector<Map*>> m_mapMatrix;
-    Position m_currentMap;
+    Position m_currentMapPos;
+    Player* m_player;
 public:
     static Game* debugGame();
 
