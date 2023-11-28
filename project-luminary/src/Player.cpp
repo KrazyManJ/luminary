@@ -8,7 +8,7 @@ Player::Player(Position position, CharData* charData) : CharRenderable(charData)
 }
 
 void Player::setPosition(Position newPosition) {
-    m_position = newPostion
+    m_position = newPosition;
 }
 
 void Player::addAttack(PlayerAttack *newAttack) {
@@ -25,7 +25,7 @@ void Player::dealDamage(unsigned int incomingDamage) {
 
 void Player::useHeal(unsigned int healIndex) {
     Heal* heal = m_inventory->getHeal(healIndex);
-    m_health += heal->getHealValue();
+    // m_health += heal->getHealValue();
     m_inventory->deleteHeal(healIndex);
 }
 
