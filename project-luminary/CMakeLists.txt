@@ -24,4 +24,6 @@ add_executable(project_luminary main.cpp
         src/Game.h
         src/CharData.h
         src/CharData.cpp
+        src/MapObject.cpp
+        src/MapObject.h
 )

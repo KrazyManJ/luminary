@@ -6,6 +6,8 @@
 class CharRenderable {
 protected:
     CharRenderable(CharData* charData);
+
+    std::string renderChar();
 };
 
 
