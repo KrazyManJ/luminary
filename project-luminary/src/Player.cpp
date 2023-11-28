@@ -49,3 +49,7 @@ void Player::makeMovement(MovementDirection movementDirection) {
             break;
     }
 }
+
+Position Player::getPosition() {
+    return m_position;
+}
