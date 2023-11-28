@@ -13,7 +13,7 @@ class Player: public CharRenderable{
     int m_health;
     PlayerAttack** m_attacks;
     Inventory* m_inventory;
-    void setPosition(signed char x, signed char y);
+    void setPosition(Position newPosition);
 
 public:
     Player(Position position, CharData* charData);

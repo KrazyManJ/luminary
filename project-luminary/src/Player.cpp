@@ -7,9 +7,8 @@ Player::Player(Position position, CharData* charData) : CharRenderable(charData)
     m_inventory = new Inventory();
 }
 
-void Player::setPosition(signed char x, signed char y) {
-    m_position.x += x;
-    m_position.y += y;
+void Player::setPosition(Position newPosition) {
+    m_position = newPostion
 }
 
 void Player::addAttack(PlayerAttack *newAttack) {
@@ -37,16 +36,16 @@ Inventory* Player::getInventory() {
 void Player::makeMovement(MovementDirection movementDirection) {
     switch (movementDirection) {
         case RIGHT:
-            setPosition(1,0);
+            m_position.x++;
             break;
         case LEFT:
-            setPosition(-1,0);
+            m_position.x--;
             break;
         case UP:
-            setPosition(0,-1);
+            m_position.y--;
             break;
         case DOWN:
-            setPosition(0,1);
+            m_position.y++;
             break;
     }
 }
