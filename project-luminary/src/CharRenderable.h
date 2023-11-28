@@ -4,6 +4,8 @@
 #include "CharData.h"
 
 class CharRenderable {
+private:
+    CharData* m_data;
 protected:
     CharRenderable(CharData* charData);
 

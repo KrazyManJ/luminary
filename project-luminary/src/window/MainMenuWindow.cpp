@@ -40,7 +40,7 @@ void MainMenuWindow::render() {
 void MainMenuWindow::onInput(ConsoleHandler::KeyEvent *evt) {
     if (evt->getKey() == KEY_ENTER) {
         if (m_menuCycler->getIndex() == 0) {
-            Luminary::getInstance()->openWindow(new Game());
+            Luminary::getInstance()->openWindow(Game::debugGame());
             delete this;
         } else if (m_menuCycler->getIndex() == 1) {
 
