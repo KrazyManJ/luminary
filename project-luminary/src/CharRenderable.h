@@ -4,11 +4,10 @@
 #include "CharData.h"
 
 class CharRenderable {
-private:
-    CharData* m_data;
 protected:
+    CharData* m_data;
     CharRenderable(CharData* charData);
-
+public:
     std::string renderChar();
 };
 
