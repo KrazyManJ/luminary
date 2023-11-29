@@ -35,4 +35,5 @@ add_executable(project_luminary main.cpp
         src/MapObject.cpp
         src/MapObject.h
         src/palettes/ColorPalette.h
+        src/palettes/CharPalette.h
 )
