@@ -2,7 +2,7 @@
 #define PROJECT_LUMINARY_HEAL_H
 
 #include "Item.h"
-#include "CharRenderable.h"
+#include "../console/CharRenderable.h"
 
 class Heal: public Item {
 private:

@@ -3,8 +3,8 @@
 
 
 #include <string>
-#include "CharData.h"
-#include "CharRenderable.h"
+#include "../console/CharData.h"
+#include "../console/CharRenderable.h"
 
 class Item :public CharRenderable{
 private:

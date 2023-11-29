@@ -1,6 +1,6 @@
 
 #include "MapObject.h"
-#include "CharRenderable.h"
+#include "../console/CharRenderable.h"
 
 MapObject::MapObject(CharData* charData, CharData* lightCharData, bool isObstacle) : CharRenderable(charData){
     m_lightCharData = lightCharData;

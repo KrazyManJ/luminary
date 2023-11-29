@@ -1,10 +1,10 @@
 #ifndef PROJECT_LUMINARY_ITEMENTITY_H
 #define PROJECT_LUMINARY_ITEMENTITY_H
 
-#include "Item.h"
-#include "InteractiveObject.h"
-#include "CharData.h"
-#include "structs/Position.h"
+#include "../inventory/Item.h"
+#include "../map/InteractiveObject.h"
+#include "../console/CharData.h"
+#include "../structs/Position.h"
 
 class ItemEntity: public InteractiveObject{
 private:

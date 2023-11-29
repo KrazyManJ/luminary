@@ -1,6 +1,6 @@
 #include "Player.h"
-#include "palettes/ColorPalette.h"
-#include "palettes/CharPalette.h"
+#include "../palettes/ColorPalette.h"
+#include "../palettes/CharPalette.h"
 
 Player::Player(Position position) : CharRenderable(new CharData(CharPalette::PLAYER,ColorPalette::FG_PLAYER,ColorPalette::BG_PLAYER)){
     m_position = position;

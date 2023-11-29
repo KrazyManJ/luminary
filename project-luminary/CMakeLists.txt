@@ -10,8 +10,8 @@ file(GLOB_RECURSE source_list "src/**.cpp" "src/**.h")
 
 # this executable is for testing purposes
 add_executable(project_luminary main.cpp
-        src/ConsoleHandler.h
-        src/ConsoleHandler.cpp
+        src/console/ConsoleHandler.h
+        src/console/ConsoleHandler.cpp
         src/Luminary.h
         src/Luminary.cpp
         src/window/Window.h
@@ -22,26 +22,26 @@ add_executable(project_luminary main.cpp
         src/utils/Cycler.h
         src/Game.cpp
         src/Game.h
-        src/CharData.h
-        src/CharData.cpp
-        src/Map.cpp
-        src/Map.h
-        src/Player.cpp
-        src/Player.h
-        src/CharRenderable.cpp
-        src/CharRenderable.h
-        src/CharRenderable.cpp
-        src/CharRenderable.h
-        src/MapObject.cpp
-        src/MapObject.h
-        src/Inventory.h
-        src/Inventory.cpp
-        src/Enemy.h
-        src/Enemy.cpp
+        src/console/CharData.h
+        src/console/CharData.cpp
+        src/map/Map.cpp
+        src/map/Map.h
+        src/player/Player.cpp
+        src/player/Player.h
+        src/console/CharRenderable.cpp
+        src/console/CharRenderable.h
+        src/console/CharRenderable.cpp
+        src/console/CharRenderable.h
+        src/map/MapObject.cpp
+        src/map/MapObject.h
+        src/inventory/Inventory.h
+        src/inventory/Inventory.cpp
+#        src/Enemy.h
+#        src/Enemy.cpp
         src/palettes/ColorPalette.h
         src/palettes/CharPalette.h
         src/map/InteractiveObject.cpp
         src/map/InteractiveObject.h
-        src/ItemEntity.cpp
-        src/ItemEntity.h
+        src/map/ItemEntity.cpp
+        src/map/ItemEntity.h
 )

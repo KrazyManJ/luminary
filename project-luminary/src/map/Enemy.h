@@ -1,8 +1,8 @@
 #ifndef PROJECT_LUMINARY_ENEMY_H
 #define PROJECT_LUMINARY_ENEMY_H
 
-#include "InteractiveObject.h"
-#include "CharData.h"
+#include "../InteractiveObject.h"
+#include "../console/CharData.h"
 
 class Enemy: public InteractiveObject{
     int m_health;

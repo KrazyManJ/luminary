@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Luminary.h"
-#include "ConsoleHandler.h"
+#include "console/ConsoleHandler.h"
 
 Luminary *Luminary::s_instance = nullptr;
 

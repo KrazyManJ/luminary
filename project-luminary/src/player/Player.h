@@ -1,12 +1,12 @@
 #ifndef PROJECT_LUMINARY_PLAYER_H
 #define PROJECT_LUMINARY_PLAYER_H
 
-#include "structs/Position.h"
-#include "CharRenderable.h"
+#include "../structs/Position.h"
+#include "../console/CharRenderable.h"
 #include "PlayerAttack.h"
-#include "Inventory.h"
-#include "CharData.h"
-#include "enums/MovementDirection.h"
+#include "../inventory/Inventory.h"
+#include "../console/CharData.h"
+#include "../enums/MovementDirection.h"
 
 class Player: public CharRenderable{
     Position m_position;

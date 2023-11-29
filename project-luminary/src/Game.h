@@ -4,16 +4,16 @@
 
 #include <vector>
 #include "window/Window.h"
-#include "Map.h"
-#include "Player.h"
+#include "map/Map.h"
+#include "player/Player.h"
 
 class Game : public Window {
 private:
-    std::vector<std::vector<Map*>> m_mapMatrix;
+    std::vector<std::vector<Map *>> m_mapMatrix;
     Position m_currentMapPos;
-    Player* m_player;
+    Player *m_player;
 public:
-    static Game* debugGame();
+    static Game *debugGame();
 
     void render() override;
 

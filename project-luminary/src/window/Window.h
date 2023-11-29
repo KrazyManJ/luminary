@@ -2,7 +2,7 @@
 #define PROJECT_LUMINARY_WINDOW_H
 
 
-#include "../ConsoleHandler.h"
+#include "../console/ConsoleHandler.h"
 
 class Window {
 public:

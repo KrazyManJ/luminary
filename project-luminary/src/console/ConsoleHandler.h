@@ -17,7 +17,7 @@
 #define KEY_E 101
 
 #include <string>
-#include "structs/Position.h"
+#include "../structs/Position.h"
 
 class ConsoleHandler {
 public:

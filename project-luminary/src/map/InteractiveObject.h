@@ -3,7 +3,7 @@
 #define PROJECT_LUMINARY_INTERACTIVEOBJECT_H
 
 
-#include "../CharRenderable.h"
+#include "../console/CharRenderable.h"
 
 class InteractiveObject : public CharRenderable {
 protected:
