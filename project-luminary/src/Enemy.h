@@ -9,10 +9,10 @@ class Enemy: public InteractiveObject{
     unsigned int m_damage;
 
 public:
-    Enemy(int health, unsigned int damage, CharData* charData, CharData* lightCharData);
+    Enemy(Position position, int health, unsigned int damage, CharData* charData);
     int getHealth();
     unsigned int getDamage();
-    void dealHealth(unsigned int incomingDamage);
+    void dealDamage(unsigned int incomingDamage);
 };
 
 

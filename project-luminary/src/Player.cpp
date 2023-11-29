@@ -1,6 +1,7 @@
 #include "Player.h"
+#include "palettes/ColorPalette.h"
 
-Player::Player(Position position) : CharRenderable(new CharData('*',COLOR_NONE,COLOR_NONE)){
+Player::Player(Position position) : CharRenderable(new CharData('*',ColorPalette::FG_PLAYER,ColorPalette::BG_PLAYER)){
     m_position = position;
     m_health = 100;
     m_attacks = new PlayerAttack*[4];

@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-11-29T15:35:35.405Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="Zz5r6tClOwHd1bpfPvHJ" version="22.1.5" type="device" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-11-29T15:56:33.064Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="FF8NGUvKm69wUUiaizPW" version="22.1.5" type="device" pages="3">
   <diagram id="9jlX-87bRNyqnyLkYuuC" name="UML Diagram">
-    <mxGraphModel dx="2178" dy="1181" grid="1" gridSize="10" guides="0" tooltips="1" connect="0" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1194" dy="937" grid="1" gridSize="10" guides="0" tooltips="1" connect="0" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -523,7 +523,7 @@
         <mxCell id="if6bvaiVuXyFPU6r5-wz-3" value="+ getDamage(): unsigned int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="mQGTBcwGhf4JdJvPdo2v-1" vertex="1">
           <mxGeometry y="134" width="520" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="if6bvaiVuXyFPU6r5-wz-4" value="+ calculateHealth(incomingDamage: unsigned int): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="mQGTBcwGhf4JdJvPdo2v-1" vertex="1">
+        <mxCell id="if6bvaiVuXyFPU6r5-wz-4" value="+ dealDamage(incomingDamage: unsigned int): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="mQGTBcwGhf4JdJvPdo2v-1" vertex="1">
           <mxGeometry y="160" width="520" height="26" as="geometry" />
         </mxCell>
         <mxCell id="if6bvaiVuXyFPU6r5-wz-5" value="PlayerAttack" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=1;" parent="1" vertex="1">
@@ -820,11 +820,12 @@
           <mxGeometry y="52" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="xxyzLviYHrESveKzVA20-31" value="position determined&lt;br&gt;by" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;shadow=0;strokeWidth=1;endArrow=block;endFill=1;endSize=10;jumpStyle=gap;startSize=10;" parent="1" source="_iJ86yeFP56x5VFlEozU-2" target="F0cUvmxl_z4MLPTvjhV4-1" edge="1">
-          <mxGeometry x="0.3592" y="-30" relative="1" as="geometry">
+          <mxGeometry x="0.0788" relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="1920" y="400" />
+              <mxPoint x="1920" y="280" />
             </Array>
-            <mxPoint x="-30" y="30" as="offset" />
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="xxyzLviYHrESveKzVA20-40" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;shadow=0;strokeWidth=1;endArrow=block;endFill=0;endSize=10;jumpStyle=gap;startSize=10;" parent="1" source="_iJ86yeFP56x5VFlEozU-2" target="IvaEGnaUYuV3LZCd6p6z-14" edge="1">
@@ -1019,8 +1020,8 @@
         <mxCell id="JUDfdkF_N9nYuQYtgpes-2" value="can consists of" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=0;jumpStyle=gap;orthogonalLoop=1;jettySize=auto;html=1;shadow=0;strokeWidth=1;endArrow=block;endFill=1;endSize=10;startSize=10;startArrow=diamond;startFill=0;" edge="1" parent="1" source="wvMle8vVvj-WzK0JHfS2-1" target="if6bvaiVuXyFPU6r5-wz-44">
           <mxGeometry x="0.5271" relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="870" y="939" />
-              <mxPoint x="870" y="1200" />
+              <mxPoint x="780" y="939" />
+              <mxPoint x="780" y="1200" />
               <mxPoint x="650" y="1200" />
             </Array>
             <mxPoint x="750" y="975" as="sourcePoint" />
