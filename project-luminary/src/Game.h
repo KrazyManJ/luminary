@@ -20,6 +20,8 @@ public:
     void onInput(ConsoleHandler::KeyEvent *evt) override;
 
     ~Game() override;
+
+    friend class GameCreator;
 };
 
 
