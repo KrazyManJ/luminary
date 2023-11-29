@@ -6,12 +6,12 @@
 #include "../console/CharData.h"
 #include "../console/CharRenderable.h"
 
-class Item :public CharRenderable{
-private:
-    std::string m_name;
+class Item : public CharRenderable {
 protected:
     Item(std::string name, CharData *charData);
 
+private:
+    std::string m_name;
 public:
     void setName(std::string name);
 
