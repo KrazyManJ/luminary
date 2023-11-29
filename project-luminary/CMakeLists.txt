@@ -46,4 +46,6 @@ add_executable(project_luminary main.cpp
         src/map/ItemEntity.h
         src/console/CharBuilder.cpp
         src/console/CharBuilder.h
+        src/GameCreator.cpp
+        src/GameCreator.h
 )
