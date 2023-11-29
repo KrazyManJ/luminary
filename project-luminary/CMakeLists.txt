@@ -34,6 +34,10 @@ add_executable(project_luminary main.cpp
         src/CharRenderable.h
         src/MapObject.cpp
         src/MapObject.h
+        src/Inventory.h
+        src/Inventory.cpp
+        src/Enemy.h
+        src/Enemy.cpp
         src/palettes/ColorPalette.h
         src/palettes/CharPalette.h
 )
