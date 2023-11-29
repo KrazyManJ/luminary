@@ -4,16 +4,19 @@
 
 #include <string>
 #include "CharData.h"
+#include "CharRenderable.h"
 
-class Item {
+class Item :public CharRenderable{
 private:
     std::string m_name;
 protected:
     Item(std::string name, CharData *charData);
 
 public:
-    void setName(std::string name) {};
-};
+    void setName(std::string name);
 
+    std::string getName();
+
+};
 
 #endif //PROJECT_LUMINARY_ITEM_H
