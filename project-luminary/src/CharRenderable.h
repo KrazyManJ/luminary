@@ -8,7 +8,7 @@ protected:
     CharData* m_data;
     CharRenderable(CharData* charData);
 public:
-    std::string renderChar();
+    virtual std::string renderChar();
 };
 
 
