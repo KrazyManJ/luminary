@@ -1,6 +1,8 @@
 #include "Player.h"
+#include "palettes/ColorPalette.h"
+#include "palettes/CharPalette.h"
 
-Player::Player(Position position) : CharRenderable(new CharData('*',COLOR_NONE,COLOR_NONE)){
+Player::Player(Position position) : CharRenderable(new CharData(CharPalette::PLAYER,ColorPalette::FG_PLAYER,ColorPalette::BG_PLAYER)){
     m_position = position;
     m_health = 100;
     m_attacks = new PlayerAttack*[4];
@@ -24,9 +26,9 @@ void Player::dealDamage(unsigned int incomingDamage) {
 }
 
 void Player::useHeal(unsigned int healIndex) {
-    Heal* heal = m_inventory->getHeal(healIndex);
-    // m_health += heal->getHealValue();
-    m_inventory->deleteHeal(healIndex);
+//    Heal* heal = m_inventory->getHeal(healIndex);
+//    m_health += heal->getHealValue();
+//    m_inventory->deleteHeal(healIndex);
 }
 
 Inventory* Player::getInventory() {
