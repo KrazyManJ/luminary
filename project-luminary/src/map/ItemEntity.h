@@ -8,12 +8,13 @@
 
 class ItemEntity: public InteractiveObject{
 private:
-    bool m_isTransparent;
     Item* m_item;
 
 public:
-    ItemEntity(Item* item, bool isTransparent, Position position, CharData* charData);
+    ItemEntity(Item* item, Position position, CharData* charData);
+    ItemEntity(Item* item, Position position);
     Item* pickUp();
+    bool isTransparent();
 };
 
 
