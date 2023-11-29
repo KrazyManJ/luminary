@@ -32,8 +32,11 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
     }
     if (!evt->isArrowEscaped()) return;
     Position pPos = m_player->getPosition();
+    Map* currentMap = m_mapMatrix.at(m_currentMapPos.y).at(m_currentMapPos.x);
     if (evt->getKey() == KEY_ARROW_RIGHT) {
         if (pPos.x < WIDTH) {
+            MapObject* nextObject = currentMap->getObjectAt({.x=pPos.x,.y=static_cast<unsigned short>(pPos.y-1)});
+            if (nextObject != nullptr && nextObject->isObstacle()) return;
             m_player->makeMovement(RIGHT);
             return;
         }
@@ -43,6 +46,11 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
         m_currentMapPos.x += 1;
     } else if (evt->getKey() == KEY_ARROW_LEFT) {
         if (pPos.x > 1) {
+            MapObject* nextObject = currentMap->getObjectAt({
+                .x=static_cast<unsigned short>(pPos.x-2),
+                .y=static_cast<unsigned short>(pPos.y-1)
+            });
+            if (nextObject != nullptr && nextObject->isObstacle()) return;
             m_player->makeMovement(LEFT);
             return;
         }
@@ -52,6 +60,11 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
         m_currentMapPos.x -= 1;
     } else if (evt->getKey() == KEY_ARROW_UP) {
         if (pPos.y > 1) {
+            MapObject* nextObject = currentMap->getObjectAt({
+                .x=static_cast<unsigned short>(pPos.x-1),
+                .y=static_cast<unsigned short>(pPos.y-2)
+            });
+            if (nextObject != nullptr && nextObject->isObstacle()) return;
             m_player->makeMovement(UP);
             return;
         }
@@ -62,6 +75,11 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
         m_currentMapPos.y -= 1;
     } else if (evt->getKey() == KEY_ARROW_DOWN) {
         if (pPos.y < HEIGHT) {
+            MapObject* nextObject = currentMap->getObjectAt({
+                .x=static_cast<unsigned short>(pPos.x-1),
+                .y=pPos.y
+            });
+            if (nextObject != nullptr && nextObject->isObstacle()) return;
             m_player->makeMovement(DOWN);
             return;
         }
@@ -75,7 +93,7 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
 
 Game *Game::debugGame() {
     Game *game = new Game();
-    game->m_player = new Player({.x=10, .y=10});
+    game->m_player = new Player({.x=10, .y=2});
     const std::string emptyMatrix =
             "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
             "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
@@ -117,7 +135,7 @@ Game *Game::debugGame() {
                 return new MapObject(
                         new CharData(' ', COLOR_NONE, 0x253352),
                         new CharData(' ', COLOR_NONE, 0x253352),
-                        false
+                        true
                 );
             }
             }

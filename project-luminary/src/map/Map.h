@@ -23,6 +23,8 @@ public:
     std::string render();
 
     std::vector<InteractiveObject *> getInteractiveObjects();
+
+    MapObject* getObjectAt(Position pos);
 };
 
 

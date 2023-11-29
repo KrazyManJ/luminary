@@ -36,3 +36,6 @@ std::vector<InteractiveObject *> Map::getInteractiveObjects() {
     return m_interactiveObjects;
 }
 
+MapObject *Map::getObjectAt(Position pos) {
+    return m_matrix[pos.y][pos.x];
+}
