@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(Position position, CharData* charData) : CharRenderable(charData){
+Player::Player(Position position) : CharRenderable(new CharData('*',COLOR_NONE,COLOR_NONE)){
     m_position = position;
     m_health = 100;
     m_attacks = new PlayerAttack*[4];
@@ -24,9 +24,9 @@ void Player::dealDamage(unsigned int incomingDamage) {
 }
 
 void Player::useHeal(unsigned int healIndex) {
-    Heal* heal = m_inventory->getHeal(healIndex);
-    // m_health += heal->getHealValue();
-    m_inventory->deleteHeal(healIndex);
+//    Heal* heal = m_inventory->getHeal(healIndex);
+//    m_health += heal->getHealValue();
+//    m_inventory->deleteHeal(healIndex);
 }
 
 Inventory* Player::getInventory() {
@@ -48,4 +48,8 @@ void Player::makeMovement(MovementDirection movementDirection) {
             m_position.y++;
             break;
     }
+}
+
+Position Player::getPosition() {
+    return m_position;
 }

@@ -13,7 +13,7 @@ private:
     unsigned int m_foregroundColor;
     std::vector<ConsoleHandler::ConsoleFormatType> m_formats;
 public:
-    CharData(char character, unsigned int backgroundColor, unsigned int foregroundColor);
+    CharData(char character, unsigned int foregroundColor, unsigned int backgroundColor);
 
     void addFormat(ConsoleHandler::ConsoleFormatType format);
 

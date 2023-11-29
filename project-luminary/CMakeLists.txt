@@ -26,6 +26,10 @@ add_executable(project_luminary main.cpp
         src/CharData.cpp
         src/Map.cpp
         src/Map.h
+        src/Player.cpp
+        src/Player.h
+        src/CharRenderable.cpp
+        src/CharRenderable.h
         src/CharRenderable.cpp
         src/CharRenderable.h
         src/MapObject.cpp

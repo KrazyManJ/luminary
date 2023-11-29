@@ -13,15 +13,16 @@ class Player: public CharRenderable{
     int m_health;
     PlayerAttack** m_attacks;
     Inventory* m_inventory;
-    void setPosition(Position newPosition);
 
 public:
-    Player(Position position, CharData* charData);
+    Player(Position position);
+    void setPosition(Position newPosition);
     void addAttack(PlayerAttack* newAttack);
     void dealDamage(unsigned int incomingDamage);
     void useHeal(unsigned int healIndex);
     Inventory* getInventory();
     void makeMovement(MovementDirection movementDirection);
+    Position getPosition();
 };
 
 
