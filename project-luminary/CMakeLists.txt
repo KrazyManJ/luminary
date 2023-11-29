@@ -44,4 +44,6 @@ add_executable(project_luminary main.cpp
         src/map/InteractiveObject.h
         src/map/ItemEntity.cpp
         src/map/ItemEntity.h
+        src/console/CharBuilder.cpp
+        src/console/CharBuilder.h
 )
