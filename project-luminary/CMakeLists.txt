@@ -40,4 +40,6 @@ add_executable(project_luminary main.cpp
         src/Enemy.cpp
         src/palettes/ColorPalette.h
         src/palettes/CharPalette.h
+        src/ItemEntity.cpp
+        src/ItemEntity.h
 )
