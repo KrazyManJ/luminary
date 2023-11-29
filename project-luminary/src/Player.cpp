@@ -24,9 +24,9 @@ void Player::dealDamage(unsigned int incomingDamage) {
 }
 
 void Player::useHeal(unsigned int healIndex) {
-    Heal* heal = m_inventory->getHeal(healIndex);
-    // m_health += heal->getHealValue();
-    m_inventory->deleteHeal(healIndex);
+//    Heal* heal = m_inventory->getHeal(healIndex);
+//    m_health += heal->getHealValue();
+//    m_inventory->deleteHeal(healIndex);
 }
 
 Inventory* Player::getInventory() {
