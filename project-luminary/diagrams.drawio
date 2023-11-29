@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-11-28T18:40:51.733Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="ZSVCc4EhCXkW3_IbF-yU" version="22.1.4" type="device" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-11-29T14:45:53.886Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="0SluCer64W5Nl09aMMw0" version="22.1.5" type="device" pages="3">
   <diagram id="9jlX-87bRNyqnyLkYuuC" name="UML Diagram">
-    <mxGraphModel dx="1578" dy="863" grid="1" gridSize="10" guides="0" tooltips="1" connect="0" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1178" dy="1018" grid="1" gridSize="10" guides="0" tooltips="1" connect="0" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -159,7 +159,7 @@
         <mxCell id="IvaEGnaUYuV3LZCd6p6z-12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="IvaEGnaUYuV3LZCd6p6z-10" vertex="1">
           <mxGeometry y="130" width="330" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="IvaEGnaUYuV3LZCd6p6z-13" value="+ Player(position: Position, charData: CharData*)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="IvaEGnaUYuV3LZCd6p6z-10" vertex="1">
+        <mxCell id="IvaEGnaUYuV3LZCd6p6z-13" value="+ Player(position: Position)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="IvaEGnaUYuV3LZCd6p6z-10" vertex="1">
           <mxGeometry y="138" width="330" height="26" as="geometry" />
         </mxCell>
         <mxCell id="5KssfI9YTyOkdyey-keK-30" value="+ addAttack(newAttack: PlayerAttack*)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="IvaEGnaUYuV3LZCd6p6z-10" vertex="1">

@@ -15,7 +15,7 @@ class Player: public CharRenderable{
     Inventory* m_inventory;
 
 public:
-    Player(Position position, CharData* charData);
+    Player(Position position);
     void setPosition(Position newPosition);
     void addAttack(PlayerAttack* newAttack);
     void dealDamage(unsigned int incomingDamage);

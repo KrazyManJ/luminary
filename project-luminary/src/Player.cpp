@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(Position position, CharData* charData) : CharRenderable(charData){
+Player::Player(Position position) : CharRenderable(new CharData('*',COLOR_NONE,COLOR_NONE)){
     m_position = position;
     m_health = 100;
     m_attacks = new PlayerAttack*[4];
