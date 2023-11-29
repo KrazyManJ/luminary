@@ -38,4 +38,6 @@ add_executable(project_luminary main.cpp
         src/Inventory.cpp
         src/Enemy.h
         src/Enemy.cpp
+        src/palettes/ColorPalette.h
+        src/palettes/CharPalette.h
 )
