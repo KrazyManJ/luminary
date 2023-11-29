@@ -7,7 +7,7 @@ private:
     bool m_isLightened;
 public:
     Torch(CharData *charData1, CharData *lightCharData1, bool isObstacle, CharData *charData,
-          CharData *lightCharData);
+          CharData *lightCharData, bool isLightened);
     void lightUp();
 };
 
