@@ -3,6 +3,7 @@
 #define PROJECT_LUMINARY_CHARPALETTE_H
 
 class CharPalette {
+public:
     static const char PLAYER = '*';
 };
 
