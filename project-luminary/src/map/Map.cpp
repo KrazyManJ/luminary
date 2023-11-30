@@ -19,13 +19,20 @@ Map::Map(const std::string& stringMatrix, std::map<char, std::function<MapObject
 
 std::string Map::render() {
     std::string result;
-    for (auto &row: m_matrix) {
-        for (auto &col: row) {
-            result.append(
-                    (col != nullptr)
-                    ? col->renderChar(false)
-                    : " " + ConsoleHandler::getFormatChar(ConsoleHandler::RESET)
-            );
+    for (unsigned int row = 0; row < Window::HEIGHT; row++) {
+        for (unsigned int col = 0; col < Window::WIDTH; col++) {
+            InteractiveObject* interactive = nullptr;
+            for (auto* interactiveObject : m_interactiveObjects){
+                if (interactiveObject->getPosition().x == col && interactiveObject->getPosition().y == row){
+                    interactive = interactiveObject;
+                    break;
+                }
+            }
+            if (m_matrix[row][col] == nullptr)
+                result.append(" " + ConsoleHandler::getFormatChar(ConsoleHandler::RESET));
+            else if (interactive!= nullptr && !interactive->renderChar().empty())
+                result.append(interactive->renderChar());
+            else result.append(m_matrix[row][col]->renderChar(false));
         }
         result.append("\n");
     }

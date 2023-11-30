@@ -23,6 +23,8 @@ private:
 
     void switchMap(MovementDirection direction);
 
+    Position posInDirection(Position position, MovementDirection direction);
+
 public:
     static Game *debugGame();
 
@@ -35,7 +37,6 @@ public:
     friend class GameCreator;
 
     Map *getCurrentMap();
-
 };
 
 

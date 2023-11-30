@@ -1,6 +1,9 @@
 #include <iostream>
 #include "Game.h"
 #include "Luminary.h"
+#include "map/Enemy.h"
+#include "console/CharBuilder.h"
+#include "map/ItemEntity.h"
 
 
 void Game::render() {
@@ -27,7 +30,7 @@ Map *Game::getCurrentMap() {
     return m_mapMatrix.at(m_currentMapPos.y).at(m_currentMapPos.x);
 }
 
-Position posInDirection(Position position, MovementDirection direction) {
+Position Game::posInDirection(Position position, MovementDirection direction) {
     if (direction == LEFT || direction == RIGHT)
         position.x += (direction == LEFT) ? -1 : 1;
     else if (direction == UP || direction == DOWN)
@@ -50,6 +53,7 @@ bool Game::isPlayerMoveInMap(MovementDirection direction) {
         case DOWN:
             return m_player->getPosition().y < Window::HEIGHT - 1;
     }
+    return false;
 }
 
 bool Game::canAccessMapInDirection(MovementDirection direction) {
@@ -67,6 +71,7 @@ bool Game::canAccessMapInDirection(MovementDirection direction) {
                    m_mapMatrix.at(m_currentMapPos.y + 1).size() > m_currentMapPos.x &&
                    m_mapMatrix.at(m_currentMapPos.y + 1).at(m_currentMapPos.x) != nullptr;
     }
+    return false;
 }
 
 void Game::switchMap(MovementDirection direction) {
@@ -154,7 +159,12 @@ Game *Game::debugGame() {
     };
     game->m_mapMatrix = {
             {
-                    new Map(emptyMatrix, map, {}),
+                    new Map(emptyMatrix, map, {
+                        new Enemy({.x=5,.y=5},5,5,(new CharBuilder('%'))->background(0xFF0000)->build()),
+                        new ItemEntity(new Heal("xd",5,(new CharBuilder('X'))->build()) ,{.x=8,.y=5}),
+                        new ItemEntity(new Heal("xd",5,(new CharBuilder('X'))->build()) ,{.x=5,.y=3},(new CharBuilder('X'))->build())
+//                        new Enemy({.x=5,.y=5},5,5,new CharData('%',0xFF0000,COLOR_NONE))
+                    }),
                     new Map(emptyMatrix, map, {}),
             },
             {
