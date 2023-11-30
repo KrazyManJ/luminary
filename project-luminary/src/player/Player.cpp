@@ -2,10 +2,12 @@
 #include "../palettes/ColorPalette.h"
 #include "../palettes/CharPalette.h"
 
+#define PLAYER_ATTACKS 4
+
 Player::Player(Position position) : CharRenderable(new CharData(CharPalette::PLAYER,ColorPalette::FG_PLAYER,ColorPalette::BG_PLAYER)){
     m_position = position;
     m_health = 100;
-    m_attacks = new PlayerAttack*[4];
+    m_attacks = new PlayerAttack*[PLAYER_ATTACKS];
     m_inventory = new Inventory();
 }
 
@@ -54,4 +56,11 @@ void Player::makeMovement(MovementDirection movementDirection) {
 
 Position Player::getPosition() {
     return m_position;
+}
+
+Player::~Player() {
+    delete m_inventory;
+    for(int i = 0; i < sizeof(m_attacks)-1; i++){
+        delete m_attacks[i];
+    }
 }

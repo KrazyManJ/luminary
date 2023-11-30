@@ -23,6 +23,7 @@ public:
     Inventory* getInventory();
     void makeMovement(MovementDirection movementDirection);
     Position getPosition();
+    ~Player();
 };
 
 
