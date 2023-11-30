@@ -21,6 +21,7 @@ CharBuilder *CharBuilder::format(ConsoleHandler::ConsoleFormatType format) {
 }
 
 CharData *CharBuilder::build() {
+    auto* charData = m_charData;
     delete this;
-    return m_charData;
+    return charData;
 }
