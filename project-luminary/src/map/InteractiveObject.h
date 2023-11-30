@@ -10,7 +10,7 @@ protected:
     Position m_position;
 
     InteractiveObject(Position position, CharData* charData);
-
+public:
     Position getPosition();
 
     std::string renderChar() override;
