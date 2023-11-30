@@ -18,3 +18,11 @@ Item *ItemEntity::pickUp() {
     delete this;
     return m_item;
 }
+
+std::string ItemEntity::renderChar() {
+    if(isTransparent()){
+        return "";
+    } else{
+        return InteractiveObject::renderChar();
+    }
+}

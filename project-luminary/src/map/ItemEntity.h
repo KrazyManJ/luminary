@@ -15,6 +15,7 @@ public:
     ItemEntity(Item* item, Position position);
     Item* pickUp();
     bool isTransparent();
+    std::string renderChar() override;
 };
 
 
