@@ -86,7 +86,8 @@ void Game::switchMap(MovementDirection direction) {
 
 void Game::makePlayerMovement(MovementDirection direction) {
     if (Game::isPlayerMoveInMap(direction)) {
-        if (getMapObjectInDirectionOfPlayer(direction)->isObstacle()) return;
+        MapObject* obj = getMapObjectInDirectionOfPlayer(direction);
+        if (obj != nullptr && obj->isObstacle()) return;
         m_player->makeMovement(direction);
         return;
     }
@@ -98,6 +99,9 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
     if (evt->getKey() == KEY_ESC) {
         Luminary::getInstance()->exit();
         return;
+    }
+    if (evt->getKey() == KEY_L){
+        getCurrentMap()->setLightState(!getCurrentMap()->getLightState());
     }
     if (!evt->isArrowEscaped()) return;
     std::map<unsigned int, MovementDirection> directions = {{KEY_ARROW_LEFT,  LEFT},
@@ -142,7 +146,7 @@ Game *Game::debugGame() {
                     'G', []() {
                 return new MapObject(
                         new CharData(' ', COLOR_NONE, 0x1a472e),
-                        new CharData(' ', COLOR_NONE, 0x1a472e),
+                        new CharData(' ', COLOR_NONE, 0x3ccf7d),
                         false
                 );
             }
@@ -151,7 +155,7 @@ Game *Game::debugGame() {
                     'W', []() {
                 return new MapObject(
                         new CharData(' ', COLOR_NONE, 0x253352),
-                        new CharData(' ', COLOR_NONE, 0x253352),
+                        new CharData(' ', COLOR_NONE, 0x476bba),
                         true
                 );
             }

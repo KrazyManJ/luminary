@@ -13,6 +13,7 @@ class Map {
 private:
     MapObject *m_matrix[Window::HEIGHT][Window::WIDTH]{};
     std::vector<InteractiveObject *> m_interactiveObjects;
+    bool m_isLightened;
 public:
     Map(
             const std::string& stringMatrix,
@@ -25,6 +26,10 @@ public:
     std::vector<InteractiveObject *> getInteractiveObjects();
 
     MapObject* getObjectAt(Position pos);
+
+    void setLightState(bool state);
+
+    bool getLightState();
 };
 
 

@@ -5,6 +5,7 @@
 Map::Map(const std::string& stringMatrix, std::map<char, std::function<MapObject *()>> mappings,
          std::vector<InteractiveObject *> objects) {
     m_interactiveObjects = std::move(objects);
+    m_isLightened = false;
     unsigned short row = 0, col = 0;
     for (char c: stringMatrix) {
         if (c == '\n') {
@@ -32,7 +33,7 @@ std::string Map::render() {
                 result.append(" " + ConsoleHandler::getFormatChar(ConsoleHandler::RESET));
             else if (interactive!= nullptr && !interactive->renderChar().empty())
                 result.append(interactive->renderChar());
-            else result.append(m_matrix[row][col]->renderChar(false));
+            else result.append(m_matrix[row][col]->renderChar(m_isLightened));
         }
         result.append("\n");
     }
@@ -45,4 +46,12 @@ std::vector<InteractiveObject *> Map::getInteractiveObjects() {
 
 MapObject *Map::getObjectAt(Position pos) {
     return m_matrix[pos.y][pos.x];
+}
+
+void Map::setLightState(bool state) {
+    m_isLightened = state;
+}
+
+bool Map::getLightState() {
+    return m_isLightened;
 }
