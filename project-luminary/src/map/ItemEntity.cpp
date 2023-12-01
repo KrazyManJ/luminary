@@ -15,6 +15,7 @@ bool ItemEntity::isTransparent() {
 }
 
 Item *ItemEntity::pickUp() {
+    auto* item = m_item;
     delete this;
     return m_item;
 }
