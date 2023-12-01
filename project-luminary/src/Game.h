@@ -26,7 +26,6 @@ private:
     Position posInDirection(Position position, MovementDirection direction);
 
 public:
-    static Game *debugGame();
 
     void render() override;
 
@@ -35,6 +34,7 @@ public:
     ~Game() override;
 
     friend class GameCreator;
+    friend class DebugGame;
 
     Map *getCurrentMap();
 };

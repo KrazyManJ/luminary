@@ -30,6 +30,8 @@ public:
     void setLightState(bool state);
 
     bool getLightState();
+
+    InteractiveObject *getInteractiveObjectAt(Position position);
 };
 
 

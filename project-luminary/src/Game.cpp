@@ -4,6 +4,7 @@
 #include "map/Enemy.h"
 #include "console/CharBuilder.h"
 #include "map/ItemEntity.h"
+#include "window/InventoryWindow.h"
 
 
 void Game::render() {
@@ -14,16 +15,17 @@ void Game::render() {
     std::cout << m_player->renderChar();
 
     //DEBUG TOOLS
-    ConsoleHandler::setCursorPosition(2, Window::HEIGHT + 2);
-    std::cout << "Player pos - x: " << m_player->getPosition().x << "   y: " << m_player->getPosition().y << "      ";
-    for (unsigned int i = 0; i < m_mapMatrix.size(); i++) {
-        ConsoleHandler::setCursorPosition(Window::WIDTH + 2, i + 1);
-        for (unsigned int j = 0; j < m_mapMatrix.at(i).size(); j++) {
-            if (m_mapMatrix.at(i).at(j) == nullptr) std::cout << " ";
-            else if (i == m_currentMapPos.y && j == m_currentMapPos.x) std::cout << "x";
-            else std::cout << "-";
-        }
-    }
+
+//    ConsoleHandler::setCursorPosition(2, Window::HEIGHT + 2);
+//    std::cout << "Player pos - x: " << m_player->getPosition().x << "   y: " << m_player->getPosition().y << "      ";
+//    for (unsigned int i = 0; i < m_mapMatrix.size(); i++) {
+//        ConsoleHandler::setCursorPosition(Window::WIDTH + 2, i + 1);
+//        for (unsigned int j = 0; j < m_mapMatrix.at(i).size(); j++) {
+//            if (m_mapMatrix.at(i).at(j) == nullptr) std::cout << " ";
+//            else if (i == m_currentMapPos.y && j == m_currentMapPos.x) std::cout << "x";
+//            else std::cout << "-";
+//        }
+//    }
 }
 
 Map *Game::getCurrentMap() {
@@ -102,86 +104,30 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
     }
     if (evt->getKey() == KEY_L){
         getCurrentMap()->setLightState(!getCurrentMap()->getLightState());
+        return;
+    }
+    if (evt->getKey() == KEY_E){
+        Luminary::getInstance()->openWindow(new InventoryWindow(this, m_player->getInventory()),true);
+    }
+    std::map<unsigned int, MovementDirection> directions = {
+            {KEY_W,    UP},
+            {KEY_A,  LEFT},
+            {KEY_S,  DOWN},
+            {KEY_D, RIGHT}
+    };
+    if (directions.count(evt->getKey()) > 0){
+        makePlayerMovement(directions.at(evt->getKey()));
+        return;
     }
     if (!evt->isArrowEscaped()) return;
-    std::map<unsigned int, MovementDirection> directions = {{KEY_ARROW_LEFT,  LEFT},
-                                                            {KEY_ARROW_RIGHT, RIGHT},
-                                                            {KEY_ARROW_UP,    UP},
-                                                            {KEY_ARROW_DOWN,  DOWN},};
+    directions = {
+            {KEY_ARROW_LEFT,  LEFT},
+            {KEY_ARROW_RIGHT, RIGHT},
+            {KEY_ARROW_UP,    UP},
+            {KEY_ARROW_DOWN,  DOWN}
+    };
     if (directions.count(evt->getKey()) == 0) return;
     makePlayerMovement(directions.at(evt->getKey()));
-}
-
-Game *Game::debugGame() {
-    Game *game = new Game();
-    game->m_player = new Player({.x=10, .y=2});
-    const std::string emptyMatrix =
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "WWGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGWWWWWWWWWWGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "WWWWWWWWWWWWGGGGGGGGGGGGGGGGGGGGGGGGGGGGWWWWWWWWWWWWWWWWWGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "WWWWWWWWWWWWWWWWWWWWWWWGGGGGGGGGGGGGGWWWWWWWWWWWWWWWWWWWWWWWWGGGGGGGGGGGGGGGGGGG\n"
-            "GGWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGWWWWWWWWWWWWWWWWWWWWGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGWWWWWWWWWWWWWGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n";
-    std::map<char, std::function<MapObject *()>> map = {
-            {
-                    'G', []() {
-                return new MapObject(
-                        new CharData(' ', COLOR_NONE, 0x1a472e),
-                        new CharData(' ', COLOR_NONE, 0x3ccf7d),
-                        false
-                );
-            }
-            },
-            {
-                    'W', []() {
-                return new MapObject(
-                        new CharData(' ', COLOR_NONE, 0x253352),
-                        new CharData(' ', COLOR_NONE, 0x476bba),
-                        true
-                );
-            }
-            }
-    };
-    game->m_mapMatrix = {
-            {
-                    new Map(emptyMatrix, map, {
-                        new Enemy({.x=5,.y=5},5,5,(new CharBuilder('%'))->background(0xFF0000)->build()),
-                        new ItemEntity(new Heal("xd",5,(new CharBuilder('X'))->build()) ,{.x=8,.y=5}),
-                        new ItemEntity(new Heal("xd",5,(new CharBuilder('X'))->build()) ,{.x=5,.y=3},(new CharBuilder('X'))->build())
-//                        new Enemy({.x=5,.y=5},5,5,new CharData('%',0xFF0000,COLOR_NONE))
-                    }),
-                    new Map(emptyMatrix, map, {}),
-            },
-            {
-                    new Map(emptyMatrix, map, {}),
-                    new Map(emptyMatrix, map, {}),
-            },
-            {
-                    new Map(emptyMatrix, map, {}),
-                    new Map(emptyMatrix, map, {}),
-            }
-    };
-    game->m_currentMapPos = {.x = 0, .y=0};
-    return game;
 }
 
 Game::~Game() {
