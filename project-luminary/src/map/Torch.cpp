@@ -1,7 +1,7 @@
 #include "Torch.h"
 #include "MapObject.h"
 
-Torch::Torch(CharData *charData1, CharData *lightCharData1, bool isObstacle, CharData *charData,
+/*Torch::Torch(CharData *charData1, CharData *lightCharData1, bool isObstacle, CharData *charData,
              CharData *lightCharData, bool isLightened) : MapObject(charData1, lightCharData1, isObstacle) {
     m_isLightened = isLightened;
 
@@ -13,4 +13,4 @@ void Torch::lightUp() {
 
     } else (m_isLightened);
 
-}
+} */

@@ -1,6 +1,6 @@
 #ifndef PROJECT_LUMINARY_TORCH_H
 #define PROJECT_LUMINARY_TORCH_H
-#include "MapObject.h"
+/*#include "MapObject.h"
 
 class Torch : public MapObject{
 private:
