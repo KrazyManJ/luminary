@@ -1,4 +1,4 @@
-#ifndef PROJECT_LUMINARY_TORCH_H
+/*#ifndef PROJECT_LUMINARY_TORCH_H
 #define PROJECT_LUMINARY_TORCH_H
 /*#include "MapObject.h"
 
@@ -13,3 +13,4 @@ public:
 
 
 #endif //PROJECT_LUMINARY_TORCH_H
+*/
