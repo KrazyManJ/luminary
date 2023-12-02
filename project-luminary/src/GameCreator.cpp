@@ -4,6 +4,16 @@
 
 Game *GameCreator::createNewGame() {
     Game* game = new Game();
+    std::map<char, std::function<MapObject*()>>mapObjectMap = {
+            {
+                    'F',[]() {
+                        return new MapObject(
+                            (new CharBuilder('X'))->build(),
+                            (new CharBuilder('X'))->build(),
+                            true);
+                }
+            }
+    };
     std::map<char, std::function<MapObject*()>> charMappings = {
             {
                     'G', []() {
@@ -18,7 +28,7 @@ Game *GameCreator::createNewGame() {
                     'h', []() {
                         return new MapObject(
                             new CharData(' ', 0x999999, 0x00547F),
-                            (new CharBuilder(' '))->background(0x550000)->build(),
+                            (new CharBuilder())->background(0x550000)->build(),
                             true
                             );
                     }
@@ -27,7 +37,7 @@ Game *GameCreator::createNewGame() {
                     'i', []() {
                         return new MapObject(
                             new CharData(' ', 0x999999, 0x007FBF),
-                            (new CharBuilder(' '))->background(0x550000)->build(),
+                            (new CharBuilder())->background(0x550000)->build(),
                             false
                             );
                     }
@@ -36,7 +46,7 @@ Game *GameCreator::createNewGame() {
                     'j', []() {
                         return new MapObject(
                             new CharData(' ', 0x999999, 0x006464),
-                            (new CharBuilder(' '))->background(0x550000)->build(),
+                            (new CharBuilder())->background(0x550000)->build(),
                             false
                             );
                     }
@@ -45,7 +55,7 @@ Game *GameCreator::createNewGame() {
                     'k', []() {
                         return new MapObject(
                             new CharData(' ', 0x999999, 0x008D00),
-                            (new CharBuilder(' '))->background(0x550000)->build(),
+                            (new CharBuilder())->background(0x550000)->build(),
                             false
                             );
                 }
@@ -54,36 +64,45 @@ Game *GameCreator::createNewGame() {
 
     };
 
+    std::string STARTING_MAP =
+            "                                                                                \n"
+            "                      GGGG                                                      \n"
+            "                    GGGGGGGG                                                    \n"
+            "                  GGGGGGGGGGGG                                                  \n"
+            "                GGGGGGGGGGGGGGGG                                                \n"
+            "              GGGGGGGGGGGGGGGGGGGG                                              \n"
+            "            GGGGGGGGGGGhhGGGGGGGGGGG                      iiiiiiiiiiiiiiii      \n"
+            "            GGGGGGGGGhhhhhhGGGGGGGGG                   iiiiiiiiiiiiiiiiiiiiii   \n"
+            "            GGGGGGGhhhhhhhhhhGGGGGGG                 iiiiiiiiiiiiiiiiiiiiiiiiiii\n"
+            "            GGGGGhhhhhhhhhhhhhhGGGGG               iiiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
+            "            GGGhhhhhhiiiiiihhhhhhGGG               iiiiiiiiii            iiiiiii\n"
+            "              hhhhhhhiiiiiihhhhhhh               iiiiiiiiii                  iii\n"
+            "              hhhhhhhhhhhhhhhhhhhh               iiiiiiiiii                     \n"
+            "              hiiiiihGGGGGGhiiiiih               iiiiiiiiii                     \n"
+            "              hiiiiihGGGGGGhiiiiih               iiiiiiiiii                     \n"
+            "              hhhhhhhGGGGGGhhhhhhh             iiiiiiiiii                       \n"
+            "                     iiiiiiii                  iiiiiiiiii                       \n"
+            "                     iiiiiiii                 iiiiiiiiiii                       \n"
+            "                      iiiiiiiii             iiiiiiiiiiiii                       \n"
+            "                      iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii                         \n"
+            "                         iiiiiiiiiiiiiiiiiiiiiiiiiii                        hhhh\n"
+            "hhhh                       iiiiiiiiiiiiiiiiiiiiiii                    hhhhhhhhhh\n"
+            "hhhhhhhhhh                                                       hhhhhhhhhhhhhhh\n"
+            "hhhhhhhhhhhhhhhhhhhhh                                      hhhhhhhhhhhhhhhhhhhhh\n"
+            "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n";
 
     game->m_mapMatrix = {
             {
-                new Map(
-                        "                                                                                \n"
-                        "                      GGGG                                                      \n"
-                        "                    GGGGGGGG                                                    \n"
-                        "                  GGGGGGGGGGGG                                                  \n"
-                        "                GGGGGGGGGGGGGGGG                                                \n"
-                        "              GGGGGGGGGGGGGGGGGGGG                                              \n"
-                        "            GGGGGGGGGGGhhGGGGGGGGGGG                      iiiiiiiiiiiiiiii      \n"
-                        "            GGGGGGGGGhhhhhhGGGGGGGGG                   iiiiiiiiiiiiiiiiiiiiii   \n"
-                        "            GGGGGGGhhhhhhhhhhGGGGGGG                 iiiiiiiiiiiiiiiiiiiiiiiiiii\n"
-                        "            GGGGGhhhhhhhhhhhhhhGGGGG               iiiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
-                        "            GGGhhhhhhiiiiiihhhhhhGGG               iiiiiiiiii            iiiiiii\n"
-                        "              hhhhhhhiiiiiihhhhhhh               iiiiiiiiii                  iii\n"
-                        "              hhhhhhhhhhhhhhhhhhhh               iiiiiiiiii                     \n"
-                        "              hiiiiihGGGGGGhiiiiih               iiiiiiiiii                     \n"
-                        "              hiiiiihGGGGGGhiiiiih               iiiiiiiiii                     \n"
-                        "              hhhhhhhGGGGGGhhhhhhh             iiiiiiiiii                       \n"
-                        "                     iiiiiiii                  iiiiiiiiii                       \n"
-                        "                     iiiiiiii                 iiiiiiiiiii                       \n"
-                        "                      iiiiiiiii             iiiiiiiiiiiii                       \n"
-                        "                      iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii                         \n"
-                        "                         iiiiiiiiiiiiiiiiiiiiiiiiiii                        hhhh\n"
-                        "hhhh                       iiiiiiiiiiiiiiiiiiiiiii                    hhhhhhhhhh\n"
-                        "hhhhhhhhhh                                                       hhhhhhhhhhhhhhh\n"
-                        "hhhhhhhhhhhhhhhhhhhhh                                      hhhhhhhhhhhhhhhhhhhhh\n"
-                        "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
-                , charMappings, {})
+                new Map(STARTING_MAP, charMappings, {}),
+                new Map("   ", mapObjectMap,{})
+            },
+            {
+                new Map("   ", mapObjectMap,{}),
+                new Map("   ", mapObjectMap,{})
+            },
+            {
+                new Map("   ", mapObjectMap,{}),
+                new Map("   ", mapObjectMap,{})
             }
     };
 
