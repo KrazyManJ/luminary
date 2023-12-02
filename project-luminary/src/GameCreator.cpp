@@ -1,6 +1,8 @@
 
 #include "GameCreator.h"
 #include "console/CharBuilder.h"
+#include "palettes/ColorPalette.h"
+
 
 Game *GameCreator::createNewGame() {
     Game* game = new Game();
@@ -18,7 +20,7 @@ Game *GameCreator::createNewGame() {
             {
                     'G', []() {
                         return new MapObject(
-                                new CharData(' ', 0x999999, 0x002A40),
+                                new CharData(' ', 0x999999, ColorPalette::DARK_BLUE),
                                 (new CharBuilder(' '))->background(0x550000)->build(),
                                 true
                                 );
@@ -27,7 +29,7 @@ Game *GameCreator::createNewGame() {
             {
                     'h', []() {
                         return new MapObject(
-                            new CharData(' ', 0x999999, 0x00547F),
+                            new CharData(' ', 0x999999, ColorPalette::BLUE),
                             (new CharBuilder())->background(0x550000)->build(),
                             true
                             );
@@ -36,7 +38,7 @@ Game *GameCreator::createNewGame() {
             {
                     'i', []() {
                         return new MapObject(
-                            new CharData(' ', 0x999999, 0x007FBF),
+                            new CharData(' ', 0x999999, ColorPalette::LIGHT_BLUE),
                             (new CharBuilder())->background(0x550000)->build(),
                             false
                             );
@@ -45,49 +47,60 @@ Game *GameCreator::createNewGame() {
             {
                     'j', []() {
                         return new MapObject(
-                            new CharData(' ', 0x999999, 0x006464),
+                            new CharData(' ', 0x999999, ColorPalette::DARK_GREEN),
                             (new CharBuilder())->background(0x550000)->build(),
-                            false
+                            true
                             );
                     }
             },
                 {
                     'k', []() {
                         return new MapObject(
-                            new CharData(' ', 0x999999, 0x008D00),
+                            new CharData(' ', 0x999999, ColorPalette::GREEN),
                             (new CharBuilder())->background(0x550000)->build(),
+                            true
+                            );
+                }
+            },
+
+            {
+                    'w', []() {
+                        return new MapObject(
+                            new CharData('w', ColorPalette::BLUE, 0x0d0d0d),
+                            (new CharBuilder())->background(0x999999)->build(),
                             false
                             );
                 }
             },
 
 
+
     };
 
     std::string STARTING_MAP =
             "                                                                                \n"
-            "                      GGGG                                                      \n"
-            "                    GGGGGGGG                                                    \n"
-            "                  GGGGGGGGGGGG                                                  \n"
-            "                GGGGGGGGGGGGGGGG                                                \n"
-            "              GGGGGGGGGGGGGGGGGGGG                                              \n"
-            "            GGGGGGGGGGGhhGGGGGGGGGGG                      iiiiiiiiiiiiiiii      \n"
-            "            GGGGGGGGGhhhhhhGGGGGGGGG                   iiiiiiiiiiiiiiiiiiiiii   \n"
-            "            GGGGGGGhhhhhhhhhhGGGGGGG                 iiiiiiiiiiiiiiiiiiiiiiiiiii\n"
+            "      ww              GGGG   w                                                  \n"
+            "         ww         GGGGGGGG        ww         kk          ww    www            \n"
+            "                  GGGGGGGGGGGG        w       kkkk       w  wwwww       w       \n"
+            "    w           GGGGGGGGGGGGGGGG            kjjkkjjk      w     wwwww           \n"
+            "              GGGGGGGGGGGGGGGGGGGG         kkkjjjjkkk                           \n"
+            "            GGGGGGGGGGGhhGGGGGGGGGGG       jjkkkkkkjj     iiiiiiiiiiiiiiii      \n"
+            "            GGGGGGGGGhhhhhhGGGGGGGGG        jjjjjjjj   iiiiiiiiiiiiiiiiiiiiii   \n"
+            "            GGGGGGGhhhhhhhhhhGGGGGGG           jj    iiiiiiiiiiiiiiiiiiiiiiiiiii\n"
             "            GGGGGhhhhhhhhhhhhhhGGGGG               iiiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
             "            GGGhhhhhhiiiiiihhhhhhGGG               iiiiiiiiii            iiiiiii\n"
-            "              hhhhhhhiiiiiihhhhhhh               iiiiiiiiii                  iii\n"
-            "              hhhhhhhhhhhhhhhhhhhh               iiiiiiiiii                     \n"
-            "              hiiiiihGGGGGGhiiiiih               iiiiiiiiii                     \n"
-            "              hiiiiihGGGGGGhiiiiih               iiiiiiiiii                     \n"
-            "              hhhhhhhGGGGGGhhhhhhh             iiiiiiiiii                       \n"
-            "                     iiiiiiii                  iiiiiiiiii                       \n"
-            "                     iiiiiiii                 iiiiiiiiiii                       \n"
-            "                      iiiiiiiii             iiiiiiiiiiiii                       \n"
-            "                      iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii                         \n"
-            "                         iiiiiiiiiiiiiiiiiiiiiiiiiii                        hhhh\n"
-            "hhhh                       iiiiiiiiiiiiiiiiiiiiiii                    hhhhhhhhhh\n"
-            "hhhhhhhhhh                                                       hhhhhhhhhhhhhhh\n"
+            "              hhhhhhhiiiiiihhhhhhh               iiiiiiiiii       wwww       iii\n"
+            "              hhhhhhhhhhhhhhhhhhhh               iiiiiiiiii     www  w          \n"
+            "              hiiiiihGGGGGGhiiiiih               iiiiiiiiii      w              \n"
+            "              hiiiiihGGGGGGhiiiiih          w    iiiiiiiiii                     \n"
+            "              hhhhhhhGGGGGGhhhhhhh    www      iiiiiiiiii                       \n"
+            "      w    w         iiiiiiii        ww   w    iiiiiiiiii                       \n"
+            "        wwwwwww      iiiiiiii                 iiiiiiiiiii                   w   \n"
+            "      w   ww          iiiiiiiii             iiiiiiiiiiiii     ww                \n"
+            "              ww      iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii                         \n"
+            "                         iiiiiiiiiiiiiiiiiiiiiiiiiii      ww   w            hhhh\n"
+            "hhhh           www         iiiiiiiiiiiiiiiiiiiiiii      wwwww         hhhhhhhhhh\n"
+            "hhhhhhhhhh             w                             w           hhhhhhhhhhhhhhh\n"
             "hhhhhhhhhhhhhhhhhhhhh                                      hhhhhhhhhhhhhhhhhhhhh\n"
             "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n";
 

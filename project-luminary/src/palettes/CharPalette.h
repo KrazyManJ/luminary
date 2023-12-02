@@ -5,6 +5,7 @@
 class CharPalette {
 public:
     static const char PLAYER = '*';
+
 };
 
 #endif //PROJECT_LUMINARY_CHARPALETTE_H
