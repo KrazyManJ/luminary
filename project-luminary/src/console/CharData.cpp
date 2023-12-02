@@ -6,19 +6,19 @@ CharData::CharData(char character, unsigned int foregroundColor, unsigned int ba
     m_foregroundColor = foregroundColor;
 }
 
-void CharData::addFormat(ConsoleHandler::ConsoleFormatType format) {
+void CharData::addFormat(ConsoleFormatType format) {
     m_formats.push_back(format);
 }
 
 std::string CharData::toFullChar() {
     std::string result;
     if (m_backgroundColor < COLOR_NONE)
-        result += ConsoleHandler::getColorChar(m_backgroundColor, ConsoleHandler::BACKGROUND);
+        result += ConsoleHandler::getColorChar(m_backgroundColor, BACKGROUND);
     if (m_foregroundColor < COLOR_NONE)
-        result += ConsoleHandler::getColorChar(m_foregroundColor, ConsoleHandler::FOREGROUND);
-    for (ConsoleHandler::ConsoleFormatType type: m_formats)
+        result += ConsoleHandler::getColorChar(m_foregroundColor, FOREGROUND);
+    for (ConsoleFormatType type: m_formats)
         result += ConsoleHandler::getFormatChar(type);
-    return result + m_character + ConsoleHandler::getFormatChar(ConsoleHandler::RESET);
+    return result + m_character + ConsoleHandler::getFormatChar(RESET);
 }
 
 void CharData::setBackgroundColor(unsigned int color) {

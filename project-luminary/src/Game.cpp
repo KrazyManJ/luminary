@@ -9,7 +9,7 @@
 
 void Game::render() {
     ConsoleHandler::setCursorPosition(1, 1);
-    std::cout << ConsoleHandler::getFormatChar(ConsoleHandler::RESET);
+    std::cout << ConsoleHandler::getFormatChar(RESET);
     std::cout << m_mapMatrix.at(m_currentMapPos.y).at(m_currentMapPos.x)->render() << std::endl;
     ConsoleHandler::setCursorPosition(m_player->getPosition().x + 1, m_player->getPosition().y + 1);
     std::cout << m_player->renderChar();
@@ -108,6 +108,7 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
     }
     if (evt->getKey() == KEY_E){
         Luminary::getInstance()->openWindow(new InventoryWindow(this, m_player->getInventory()),true);
+        return;
     }
     std::map<unsigned int, MovementDirection> directions = {
             {KEY_W,    UP},

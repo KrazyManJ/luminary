@@ -11,11 +11,11 @@ private:
     char m_character;
     unsigned int m_backgroundColor;
     unsigned int m_foregroundColor;
-    std::vector<ConsoleHandler::ConsoleFormatType> m_formats;
+    std::vector<ConsoleFormatType> m_formats;
 public:
     CharData(char character, unsigned int foregroundColor, unsigned int backgroundColor);
 
-    void addFormat(ConsoleHandler::ConsoleFormatType format);
+    void addFormat(ConsoleFormatType format);
 
     std::string toFullChar();
 

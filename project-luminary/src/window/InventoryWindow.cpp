@@ -10,7 +10,7 @@ void InventoryWindow::render() {
         ConsoleHandler::setCursorPosition(MARGIN_WIDTH + 1, row + 1);
         std::string output;
         for (unsigned int col = MARGIN_WIDTH; col < Window::WIDTH - MARGIN_WIDTH; col++){
-            output.append(ConsoleHandler::getFormatChar(ConsoleHandler::RESET)+" ");
+            output.append(ConsoleHandler::getFormatChar(RESET)+" ");
         }
         std::cout << output;
         output.append("\n");

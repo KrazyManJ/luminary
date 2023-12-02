@@ -19,6 +19,8 @@
 
 #include <string>
 #include "../structs/Position.h"
+#include "../enums/ConsoleFormatType.h"
+#include "../enums/CharColorTarget.h"
 
 class ConsoleHandler {
 public:
@@ -29,23 +31,13 @@ public:
 
         KeyEvent(unsigned int key, bool arrowEscaped);
 
-        /**
-         * Makes it accessible to ConsoleHandler
-         */
         friend class ConsoleHandler;
 
     public:
 
-        unsigned int getKey();
+        unsigned int getKey() const;
 
-        bool isArrowEscaped();
-    };
-
-    enum ConsoleFormatType {
-        RESET, ITALIC, BLINKING, INVERTED, UNDERLINE, STRIKETHROUGH
-    };
-    enum CharColorTarget {
-        BACKGROUND, FOREGROUND
+        bool isArrowEscaped() const;
     };
 
     static void setCursorPosition(unsigned short x, unsigned short y);

@@ -15,7 +15,7 @@ CharBuilder *CharBuilder::background(unsigned int color) {
     return this;
 }
 
-CharBuilder *CharBuilder::format(ConsoleHandler::ConsoleFormatType format) {
+CharBuilder *CharBuilder::format(ConsoleFormatType format) {
     m_charData->addFormat(format);
     return this;
 }

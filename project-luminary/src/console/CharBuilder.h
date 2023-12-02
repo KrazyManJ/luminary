@@ -13,7 +13,7 @@ public:
 
     CharBuilder* background(unsigned int color);
 
-    CharBuilder* format(ConsoleHandler::ConsoleFormatType format);
+    CharBuilder* format(ConsoleFormatType format);
 
     CharData* build();
 };

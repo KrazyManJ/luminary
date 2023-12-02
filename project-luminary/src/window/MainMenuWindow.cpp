@@ -4,6 +4,7 @@
 #include "../Luminary.h"
 #include "../Game.h"
 #include "../GameCreator.h"
+#include "../DebugGame.h"
 
 MainMenuWindow::MainMenuWindow() {
     m_menuCycler = new Cycler(1);
@@ -26,14 +27,14 @@ void MainMenuWindow::render() {
     std::vector<std::string> labels = {"Create new game", "Quit Game"};
     for (int i = 0; i < labels.size(); i++) {
         ConsoleHandler::setCursorPosition(10, i * 2 + title.size() + 9);
-        std::cout << ConsoleHandler::getColorChar(0xFFFF55, ConsoleHandler::FOREGROUND) << "> ";
+        std::cout << ConsoleHandler::getColorChar(0xFFFF55, FOREGROUND) << "> ";
         if (m_menuCycler->getIndex() == i) {
             std::cout
-                    << ConsoleHandler::getFormatChar(ConsoleHandler::BLINKING)
-                    << ConsoleHandler::getFormatChar(ConsoleHandler::INVERTED);
+                    << ConsoleHandler::getFormatChar(BLINKING)
+                    << ConsoleHandler::getFormatChar(INVERTED);
         }
         std::cout << labels.at(i)
-                  << ConsoleHandler::getFormatChar(ConsoleHandler::RESET)
+                  << ConsoleHandler::getFormatChar(RESET)
                   << std::string(10, ' ');
     }
 }
@@ -41,7 +42,7 @@ void MainMenuWindow::render() {
 void MainMenuWindow::onInput(ConsoleHandler::KeyEvent *evt) {
     if (evt->getKey() == KEY_ENTER) {
         if (m_menuCycler->getIndex() == 0) {
-            Luminary::getInstance()->openWindow(GameCreator::createNewGame());
+            Luminary::getInstance()->openWindow(DebugGame::create());
             delete this;
         } else if (m_menuCycler->getIndex() == 1) {
             Luminary::getInstance()->exit();

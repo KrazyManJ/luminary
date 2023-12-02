@@ -24,7 +24,7 @@ std::string Map::render() {
         for (unsigned short col = 0; col < Window::WIDTH; col++) {
             InteractiveObject* interactive = getInteractiveObjectAt({.x=col,.y=row});
             if (m_matrix[row][col] == nullptr)
-                result.append(" " + ConsoleHandler::getFormatChar(ConsoleHandler::RESET));
+                result.append(" " + ConsoleHandler::getFormatChar(RESET));
             else if (interactive!= nullptr && !interactive->renderChar().empty())
                 result.append(interactive->renderChar());
             else result.append(m_matrix[row][col]->renderChar(m_isLightened));
