@@ -3,9 +3,10 @@
 #include "MainMenuWindow.h"
 #include "../Luminary.h"
 #include "../Game.h"
+#include "../GameCreator.h"
 
 MainMenuWindow::MainMenuWindow() {
-    m_menuCycler = new Cycler(2);
+    m_menuCycler = new Cycler(1);
 }
 
 void MainMenuWindow::render() {
@@ -22,7 +23,7 @@ void MainMenuWindow::render() {
         std::cout << title.at(i) << std::endl;
     }
 
-    std::vector<std::string> labels = {"Create new game", "Load game", "Quit Game"};
+    std::vector<std::string> labels = {"Create new game", "Quit Game"};
     for (int i = 0; i < labels.size(); i++) {
         ConsoleHandler::setCursorPosition(10, i * 2 + title.size() + 9);
         std::cout << ConsoleHandler::getColorChar(0xFFFF55, ConsoleHandler::FOREGROUND) << "> ";
@@ -40,13 +41,19 @@ void MainMenuWindow::render() {
 void MainMenuWindow::onInput(ConsoleHandler::KeyEvent *evt) {
     if (evt->getKey() == KEY_ENTER) {
         if (m_menuCycler->getIndex() == 0) {
-            Luminary::getInstance()->openWindow(Game::debugGame());
+            Luminary::getInstance()->openWindow(GameCreator::createNewGame());
             delete this;
         } else if (m_menuCycler->getIndex() == 1) {
-
-        } else if (m_menuCycler->getIndex() == 2) {
             Luminary::getInstance()->exit();
         }
+    }
+    if (evt->getKey() == KEY_W) {
+        m_menuCycler->goDown();
+        return;
+    }
+    if (evt->getKey() == KEY_S) {
+        m_menuCycler->goUp();
+        return;
     }
     if (!evt->isArrowEscaped()) return;
     if (evt->getKey() == KEY_ARROW_UP) m_menuCycler->goDown();

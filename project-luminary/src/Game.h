@@ -12,8 +12,20 @@ private:
     std::vector<std::vector<Map *>> m_mapMatrix;
     Position m_currentMapPos;
     Player *m_player;
+
+    MapObject *getMapObjectInDirectionOfPlayer(MovementDirection direction);
+
+    bool isPlayerMoveInMap(MovementDirection direction);
+
+    void makePlayerMovement(MovementDirection direction);
+
+    bool canAccessMapInDirection(MovementDirection direction);
+
+    void switchMap(MovementDirection direction);
+
+    Position posInDirection(Position position, MovementDirection direction);
+
 public:
-    static Game *debugGame();
 
     void render() override;
 
@@ -22,6 +34,9 @@ public:
     ~Game() override;
 
     friend class GameCreator;
+    friend class DebugGame;
+
+    Map *getCurrentMap();
 };
 
 

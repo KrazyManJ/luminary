@@ -15,6 +15,15 @@ bool ItemEntity::isTransparent() {
 }
 
 Item *ItemEntity::pickUp() {
+    auto* item = m_item;
     delete this;
     return m_item;
+}
+
+std::string ItemEntity::renderChar() {
+    if(isTransparent()){
+        return "";
+    } else{
+        return InteractiveObject::renderChar();
+    }
 }
