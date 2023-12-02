@@ -4,7 +4,6 @@
 #include "../Luminary.h"
 #include "../Game.h"
 #include "../GameCreator.h"
-#include "../DebugGame.h"
 
 MainMenuWindow::MainMenuWindow() {
     m_menuCycler = new Cycler(1);
@@ -42,7 +41,7 @@ void MainMenuWindow::render() {
 void MainMenuWindow::onInput(ConsoleHandler::KeyEvent *evt) {
     if (evt->getKey() == KEY_ENTER) {
         if (m_menuCycler->getIndex() == 0) {
-            Luminary::getInstance()->openWindow(DebugGame::create());
+            Luminary::getInstance()->openWindow(GameCreator::createNewGame());
             delete this;
         } else if (m_menuCycler->getIndex() == 1) {
             Luminary::getInstance()->exit();
