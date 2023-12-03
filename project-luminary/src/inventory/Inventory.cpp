@@ -9,7 +9,7 @@ void Inventory::addHeal(Heal *newHeal) {
 }
 
 void Inventory::deleteHeal(unsigned int indexOfHeal) {
-    delete m_heals.at(indexOfHeal);
+    delete getHeal(indexOfHeal);
     m_heals.erase(m_heals.begin()+indexOfHeal);
 }
 

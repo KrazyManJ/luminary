@@ -2,12 +2,11 @@
 #include "../palettes/ColorPalette.h"
 #include "../palettes/CharPalette.h"
 
-#define PLAYER_ATTACKS 4
+
 
 Player::Player(Position position) : CharRenderable(new CharData(CharPalette::PLAYER,ColorPalette::FG_PLAYER,ColorPalette::BG_PLAYER)){
-    m_position = position;
+    m_position = position; //nastavuje Kata v ramci vykreslovani
     m_health = 100;
-    m_attacks = new PlayerAttack*[PLAYER_ATTACKS];
     m_inventory = new Inventory();
 }
 
@@ -18,6 +17,8 @@ void Player::setPosition(Position newPosition) {
 void Player::addAttack(PlayerAttack *newAttack) {
     char indexOfAttack = 0;
     while(m_attacks[indexOfAttack]!= nullptr){
+        //vyhledava misto pro vlozeni noveho utoku (neni omezeno na velikost pole,
+        // protoze zatim neni planovano vice utoku nez 4)
         indexOfAttack++;
     }
     m_attacks[indexOfAttack] = newAttack;
@@ -28,9 +29,9 @@ void Player::dealDamage(unsigned int incomingDamage) {
 }
 
 void Player::useHeal(unsigned int healIndex) {
-//    Heal* heal = m_inventory->getHeal(healIndex);
-//    m_health += heal->getHealValue();
-//    m_inventory->deleteHeal(healIndex);
+    Heal* heal = m_inventory->getHeal(healIndex);
+    m_health += heal->getHealValue();
+    m_inventory->deleteHeal(healIndex);
 }
 
 Inventory* Player::getInventory() {
@@ -60,7 +61,7 @@ Position Player::getPosition() {
 
 Player::~Player() {
     delete m_inventory;
-    for(int i = 0; i < sizeof(m_attacks)-1; i++){
+    for(int i = 0; i < PLAYER_ATTACKS - 1; i++){
         delete m_attacks[i];
     }
 }

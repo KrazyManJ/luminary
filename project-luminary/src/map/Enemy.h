@@ -5,14 +5,14 @@
 #include "../console/CharData.h"
 
 class Enemy: public InteractiveObject{
-    int m_health;
+    float m_health;
     unsigned int m_damage;
 
 public:
-    Enemy(Position position, int health, unsigned int damage, CharData* charData);
+    Enemy(Position position, float health, unsigned int damage, CharData* charData);
     int getHealth();
     unsigned int getDamage();
-    void dealDamage(unsigned int incomingDamage);
+    void dealDamage(unsigned int incomingDamage); //nastavi aktualni zdravi nepritele (pozdejsi vyuziti v ramci boje)
 };
 
 
