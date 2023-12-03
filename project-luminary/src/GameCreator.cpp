@@ -76,7 +76,7 @@ Game *GameCreator::createNewGame() {
                 '~', [] () {
                     return new MapObject(
                             (new CharBuilder('~'))->background(ColorPalette::BLUE)->foreground(ColorPalette::LIGHT_BLUE)->format(BLINKING)->build(),
-                            (new CharBuilder('~'))->background(ColorPalette::DAY_BLUE)->foreground(ColorPalette::LIGHT_BLUE)->format(BLINKING)->build(),
+                            (new CharBuilder('~'))->background(ColorPalette::DAY_BLUE)->foreground(ColorPalette::BLUE)->format(BLINKING)->build(),
                             true
                             );
                 }
