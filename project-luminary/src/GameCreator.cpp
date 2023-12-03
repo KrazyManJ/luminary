@@ -6,22 +6,13 @@
 
 Game *GameCreator::createNewGame() {
     Game* game = new Game();
-    std::map<char, std::function<MapObject*()>>mapObjectMap = {
-            {
-                    'F',[]() {
-                        return new MapObject(
-                            (new CharBuilder('X'))->build(),
-                            (new CharBuilder('X'))->build(),
-                            true);
-                }
-            }
-    };
+
     std::map<char, std::function<MapObject*()>> charMappings = {
             {
                     'G', []() {
                         return new MapObject(
-                                new CharData(' ', 0x999999, ColorPalette::DARK_BLUE),
-                                (new CharBuilder(' '))->background(0x550000)->build(),
+                                (new CharBuilder())->background(ColorPalette::DARK_BLUE)->build(), //dark
+                                (new CharBuilder())->background(ColorPalette::ORANGE)->build(), //light
                                 true
                                 );
                     }
@@ -29,8 +20,8 @@ Game *GameCreator::createNewGame() {
             {
                     'h', []() {
                         return new MapObject(
-                            new CharData(' ', 0x999999, ColorPalette::BLUE),
-                            (new CharBuilder())->background(0x550000)->build(),
+                            (new CharBuilder())->background(ColorPalette::BLUE)->build(),
+                            (new CharBuilder())->background(ColorPalette::DAY_BLUE)->build(),
                             true
                             );
                     }
@@ -38,8 +29,8 @@ Game *GameCreator::createNewGame() {
             {
                     'i', []() {
                         return new MapObject(
-                            new CharData(' ', 0x999999, ColorPalette::LIGHT_BLUE),
-                            (new CharBuilder())->background(0x550000)->build(),
+                            (new CharBuilder())->background(ColorPalette::LIGHT_BLUE)->build(),
+                            (new CharBuilder())->background(ColorPalette::PATH)->build(),
                             false
                             );
                     }
@@ -47,28 +38,46 @@ Game *GameCreator::createNewGame() {
             {
                     'j', []() {
                         return new MapObject(
-                            new CharData(' ', 0x999999, ColorPalette::DARK_GREEN),
-                            (new CharBuilder())->background(0x550000)->build(),
+                            (new CharBuilder())->background(ColorPalette::DARK_GREEN)->build(),
+                            (new CharBuilder())->background(ColorPalette::GREEN)->build(),
                             true
                             );
                     }
             },
-                {
+            {
                     'k', []() {
                         return new MapObject(
-                            new CharData(' ', 0x999999, ColorPalette::GREEN),
-                            (new CharBuilder())->background(0x550000)->build(),
+                            (new CharBuilder())->background(ColorPalette::GREEN)->build(),
+                            (new CharBuilder())->background(ColorPalette::TREE_GREEN)->build(),
                             true
                             );
-                }
+                    }
             },
+            {
+                    'l', [] () {
+                        return new MapObject(
+                            (new CharBuilder())->background(ColorPalette::BG_COLOR)->build(),
+                            (new CharBuilder())->background(ColorPalette::DAY_GREEN)->build(),
+                            false
+                            );
+                    }
 
+            },
             {
                     'w', []() {
                         return new MapObject(
-                            new CharData('w', ColorPalette::BLUE, 0x0d0d0d),
-                            (new CharBuilder())->background(0x999999)->build(),
+                            (new CharBuilder('w'))->background(ColorPalette::BG_COLOR)->foreground(ColorPalette::BLUE)->build(),
+                            (new CharBuilder('w'))->background(ColorPalette::DAY_GREEN)->foreground(ColorPalette::GREEN)->build(),
                             false
+                            );
+                    }
+            },
+            {
+                '~', [] () {
+                    return new MapObject(
+                            (new CharBuilder('~'))->background(ColorPalette::BLUE)->foreground(ColorPalette::LIGHT_BLUE)->format(BLINKING)->build(),
+                            (new CharBuilder('~'))->background(ColorPalette::DAY_BLUE)->foreground(ColorPalette::BLUE)->format(BLINKING)->build(),
+                            true
                             );
                 }
             },
@@ -78,44 +87,45 @@ Game *GameCreator::createNewGame() {
     };
 
     std::string STARTING_MAP =
-            "                                                                                \n"
-            "      ww              GGGG   w                                                  \n"
-            "         ww         GGGGGGGG        ww         kk          ww    www            \n"
-            "                  GGGGGGGGGGGG        w       kkkk       w  wwwww       w       \n"
-            "    w           GGGGGGGGGGGGGGGG            kjjkkjjk      w     wwwww           \n"
-            "              GGGGGGGGGGGGGGGGGGGG         kkkjjjjkkk                           \n"
-            "            GGGGGGGGGGGhhGGGGGGGGGGG       jjkkkkkkjj     iiiiiiiiiiiiiiii      \n"
-            "            GGGGGGGGGhhhhhhGGGGGGGGG        jjjjjjjj   iiiiiiiiiiiiiiiiiiiiii   \n"
-            "            GGGGGGGhhhhhhhhhhGGGGGGG           jj    iiiiiiiiiiiiiiiiiiiiiiiiiii\n"
-            "      kk    GGGGGhhhhhhhhhhhhhhGGGGG    kk         iiiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
-            "     kkkk   GGGhhhhhhiiiiiihhhhhhGGG   kkkk        iiiiiiiiii            iiiiiii\n"
-            "   kjjkkjjk   hhhhhhhiiiiiihhhhhhh   kjjkkjjk    iiiiiiiiii       wwww       iii\n"
-            "  kkkjjjjkkk  hhhhhhhhhhhhhhhhhhhh  kkkjjjjkkk   iiiiiiiiii     wwwkkw          \n"
-            "  jjkkkkkkjj  hiiiiihGGGGGGhiiiiih  jjkkkkkkjj   iiiiiiiiii       kkkk          \n"
-            "   jjjjjjjj   hiiiiihGGGGGihiiiiih   jjjjjjjj    iiiiiiiiii     kjjkkjjk        \n"
-            "      jj      hhhhhhhGGGGGGhhhhhhh    wwjj     iiiiiiiiii      kkkjjjjkkk       \n"
-            "      w    w         iiiiiiii        ww   w    iiiiiiiiii      jjkkkkkkjj       \n"
-            "        wwwwwww      iiiiiiii                 iiiiiiiiiii       jjjjjjjj    w   \n"
-            "      w   ww          iiiiiiiii             iiiiiiiiiiiii     ww   jj           \n"
-            "              ww      iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii                         \n"
-            "                         iiiiiiiiiiiiiiiiiiiiiiiiiii      ww   w            hhhh\n"
-            "hhhh           www         iiiiiiiiiiiiiiiiiiiiiii      wwwww         hhhhhhhhhh\n"
-            "hhhhhhhhhh             w                             w           hhhhhhhhhhhhhhh\n"
-            "hhhhhhhhhhhhhhhhhhhhh                                      hhhhhhhhhhhhhhhhhhhhh\n"
-            "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n";
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllwwllllllllllllllGGGGlllwllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "lllllllllwwlllllllllGGGGGGGGllllllllwwlllllllllkkllllllllllwwllllwwwllllllllllll\n"
+            "llllllllllllllllllGGGGGGGGGGGGllllllllwlllllllkkkklllllllwllwwwwwlllllllwlllllll\n"
+            "llllwlllllllllllGGGGGGGGGGGGGGGGllllllllllllkjjkkjjkllllllwlllllwwwwwlllllllllll\n"
+            "llllllllllllllGGGGGGGGGGGGGGGGGGGGlllllllllkkkjjjjkkklllllllllllllllllllllllllll\n"
+            "llllllllllllGGGGGGGGGGGhhGGGGGGGGGGGllllllljjkkkkkkjjllllliiiiiiiiiiiiiiiillllll\n"
+            "llllllllllllGGGGGGGGGhhhhhhGGGGGGGGGlllllllljjjjjjjjllliiiiiiiiiiiiiiiiiiiiiilll\n"
+            "llllllllllllGGGGGGGhhhhhhhhhhGGGGGGGllllllllllljjlllliiiiiiiiiiiiiiiiiiiiiiiiiii\n"
+            "llllllkkllllGGGGGhhhhhhhhhhhhhhGGGGGllllkkllllllllliiiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
+            "lllllkkkklllGGGhhhhhhiiiiiihhhhhhGGGlllkkkklllllllliiiiiiiiiilllllllllllliiiiiii\n"
+            "lllkjjkkjjklllhhhhhhhiiiiiihhhhhhhlllkjjkkjjklllliiiiiiiiiilllllllwwwwllllllliii\n"
+            "llkkkjjjjkkkllhhhhhhhhhhhhhhhhhhhhllkkkjjjjkkkllliiiiiiiiiilllllwwwkkwllllllllll\n"
+            "lljjkkkkkkjjllhiiiiihGGGGGGhiiiiihlljjkkkkkkjjllliiiiiiiiiilllllllkkkkllllllllll\n"
+            "llljjjjjjjjlllhiiiiihGGGGGihiiiiihllljjjjjjjjlllliiiiiiiiiilllllkjjkkjjkllllllll\n"
+            "lllllljjllllllhhhhhhhGGGGGGhhhhhhhllllwwjjllllliiiiiiiiiillllllkkkjjjjkkklllllll\n"
+            "llllllwllllwlllllllliiiiiiiilllllllllwwlllwlllliiiiiiiiiilllllljjkkkkkkjjlllllll\n"
+            "llllllllwwwwwwwllllliiiiiiiiillllllllllllllllliiiiiiiiiiillllllljjjjjjjjllllwlll\n"
+            "llllllwlllwwlllllllllliiiiiiiiillllllllllllliiiiiiiiiiiiilllllwwllljjlllllllllll\n"
+            "llllllllllllllwwlllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiillllllllllllllllllllliiii\n"
+            "iiiillllllllllllllllllllliiiiiiiiiiiiiiiiiiiiiiiiiiillllllwwlllwlllllliiiiiihhhh\n"
+            "hhhhiiiiiilllllwwwllllllllliiiiiiiiiiiiiiiiiiiiiiillllllwwwwwlllliiiiihhhhhhh~hh\n"
+            "hhhhhhhhhhiiiiiiiiiiillwlllllllllllllllllllllllllllllwllllliiiiiihhhhhhhhh~hhhhh\n"
+            "hhhh~h~h~hhhhhh~hhhhhiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiihhhhhh~h~h~hh~hh~hhhh\n"
+            "hhhhh~h~hhhhhhhh~hhhhhhhhhhhhh~hhhhhhhh~hhhhhhhhhhhhhhhhhhhhhhhhhh~h~hhhhhhhhhhh\n";
 
+    std::string EMPTY_MAP;
     game->m_mapMatrix = {
             {
                 new Map(STARTING_MAP, charMappings, {}),
-                new Map("   ", mapObjectMap,{})
+                new Map(EMPTY_MAP, charMappings,{})
             },
             {
-                new Map("   ", mapObjectMap,{}),
-                new Map("   ", mapObjectMap,{})
+                new Map(EMPTY_MAP, charMappings,{}),
+                new Map(EMPTY_MAP, charMappings,{})
             },
             {
-                new Map("   ", mapObjectMap,{}),
-                new Map("   ", mapObjectMap,{})
+                new Map(EMPTY_MAP, charMappings,{}),
+                new Map(EMPTY_MAP, charMappings,{})
             }
     };
 
