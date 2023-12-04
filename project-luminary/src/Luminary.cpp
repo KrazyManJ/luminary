@@ -19,18 +19,18 @@ Luminary *Luminary::getInstance() {
 
 
 void Luminary::startLoop() {
-    // DRAW WINDOW BORDER
 
-//    ConsoleHandler::setCursorPosition(0, 25 + 1);
-//    std::cout
-//            << ConsoleHandler::getColorChar(0x111111, ConsoleHandler::BACKGROUND)
-//            << std::string(80 + 1, ' ');
-//    for (int i = 0; i < 25 + 1; i++) {
-//        ConsoleHandler::setCursorPosition(80 + 1, i);
-//        std::cout
-//                << ConsoleHandler::getColorChar(0x111111, ConsoleHandler::BACKGROUND)
-//                << " " << ConsoleHandler::getFormatChar(ConsoleHandler::RESET);
-//    }
+    // DEBUG - DRAW WINDOW BORDER
+    ConsoleHandler::setCursorPosition(0, 25 + 1);
+    std::cout
+            << ConsoleHandler::getColorChar(0x111111, BACKGROUND)
+            << std::string(80 + 1, ' ');
+    for (int i = 0; i < 25 + 1; i++) {
+        ConsoleHandler::setCursorPosition(80 + 1, i);
+        std::cout
+                << ConsoleHandler::getColorChar(0x111111, BACKGROUND)
+                << " " << ConsoleHandler::getFormatChar(RESET);
+    }
 
     while (m_run) {
         auto *input = ConsoleHandler::handleKeyboardInput();

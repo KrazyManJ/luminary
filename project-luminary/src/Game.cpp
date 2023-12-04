@@ -16,16 +16,18 @@ void Game::render() {
 
     //DEBUG TOOLS
 
+    //PLAYER POS
 //    ConsoleHandler::setCursorPosition(2, Window::HEIGHT + 2);
 //    std::cout << "Player pos - x: " << m_player->getPosition().x << "   y: " << m_player->getPosition().y << "      ";
-//    for (unsigned int i = 0; i < m_mapMatrix.size(); i++) {
-//        ConsoleHandler::setCursorPosition(Window::WIDTH + 2, i + 1);
-//        for (unsigned int j = 0; j < m_mapMatrix.at(i).size(); j++) {
-//            if (m_mapMatrix.at(i).at(j) == nullptr) std::cout << " ";
-//            else if (i == m_currentMapPos.y && j == m_currentMapPos.x) std::cout << "x";
-//            else std::cout << "-";
-//        }
-//    }
+    // MINI-MAP
+    for (unsigned int i = 0; i < m_mapMatrix.size(); i++) {
+        ConsoleHandler::setCursorPosition(Window::WIDTH + 2, i + 1);
+        for (unsigned int j = 0; j < m_mapMatrix.at(i).size(); j++) {
+            if (m_mapMatrix.at(i).at(j) == nullptr) std::cout << " ";
+            else if (i == m_currentMapPos.y && j == m_currentMapPos.x) std::cout << "x";
+            else std::cout << "-";
+        }
+    }
 }
 
 Map *Game::getCurrentMap() {
