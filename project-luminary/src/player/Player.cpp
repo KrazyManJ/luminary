@@ -16,7 +16,7 @@ void Player::setPosition(Position newPosition) {
 
 void Player::addAttack(PlayerAttack *newAttack) {
     char indexOfAttack = 0;
-    while(m_attacks[indexOfAttack]!= nullptr){
+    while(m_attacks[indexOfAttack]!= nullptr && indexOfAttack <= 4){
         //vyhledava misto pro vlozeni noveho utoku (neni omezeno na velikost pole,
         // protoze zatim neni planovano vice utoku nez 4)
         indexOfAttack++;
@@ -57,6 +57,10 @@ void Player::makeMovement(MovementDirection movementDirection) {
 
 Position Player::getPosition() {
     return m_position;
+}
+
+PlayerAttack** Player::getAttacks() {
+    return m_attacks;
 }
 
 Player::~Player() {

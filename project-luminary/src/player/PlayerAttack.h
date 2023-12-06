@@ -6,7 +6,7 @@ class PlayerAttack {
 private:
     std::string m_name;
     float m_damage;
-private:
+public:
     PlayerAttack(std::string name, float damage);
     std::string getName();
     float getDamage();

@@ -13,7 +13,6 @@ void InventoryWindow::render() {
             output.append(ConsoleHandler::getFormatChar(RESET)+" ");
         }
         std::cout << output;
-        output.append("\n");
     }
     const std::string INVENTORY_LABEL = "Inventory";
     ConsoleHandler::setCursorPosition(Window::WIDTH/2-INVENTORY_LABEL.length()/2,MARGIN_HEIGHT+1);

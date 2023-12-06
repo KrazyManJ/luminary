@@ -5,6 +5,7 @@
 #include "console/CharBuilder.h"
 #include "map/ItemEntity.h"
 #include "window/InventoryWindow.h"
+#include "window/BattleWindow.h"
 
 
 void Game::render() {
@@ -110,6 +111,10 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
     }
     if (evt->getKey() == KEY_E){
         Luminary::getInstance()->openWindow(new InventoryWindow(this, m_player->getInventory()),true);
+        return;
+    }
+    if (evt->getKey() == KEY_U){
+        Luminary::getInstance()->openWindow(new BattleWindow(this, m_player, nullptr));
         return;
     }
     std::map<unsigned int, MovementDirection> directions = {

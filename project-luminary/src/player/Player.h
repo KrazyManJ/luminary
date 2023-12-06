@@ -25,6 +25,7 @@ public:
     Inventory* getInventory(); //preda aktualni stav inventare hrace (v budoucnu aplikovano pro inventar)
     void makeMovement(MovementDirection movementDirection); //na zaklade predaneho smeru pohybu zmeni souradnice
     Position getPosition(); //vraci aktualni pozici hrace
+    PlayerAttack** getAttacks();
     ~Player(); //v ramci smazani hrace vymaze i inventar a utoky z pameti
 };
 

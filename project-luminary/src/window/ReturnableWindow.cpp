@@ -1,7 +1,3 @@
-//
-// Created by KrazyManJ on 01.12.2023.
-//
-
 #include "ReturnableWindow.h"
 #include "../Luminary.h"
 
