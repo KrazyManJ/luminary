@@ -1,16 +1,22 @@
 #include "Torch.h"
 #include "MapObject.h"
 
-/*Torch::Torch(CharData *charData1, CharData *lightCharData1, bool isObstacle, CharData *charData,
-             CharData *lightCharData, bool isLightened) : MapObject(charData1, lightCharData1, isObstacle) {
-    m_isLightened = isLightened;
-
+Torch::Torch(CharData *charData, CharData *lightCharData) : MapObject(charData, lightCharData, true) {
+    m_isLightened = false;
 }
 
 void Torch::lightUp() {
-    if (!m_isLightened) {
-        CharData m_lightCharData = true;
+    m_isLightened = true;
+}
 
-    } else (m_isLightened);
+bool Torch::isLightened() {
+    return m_isLightened;
+}
 
-} */
+std::string Torch::renderChar() {
+    if (m_isLightened) {
+        return m_lightCharData->toFullChar();
+    } else {
+        return m_data->toFullChar();
+    }
+}
