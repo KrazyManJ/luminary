@@ -10,6 +10,7 @@ protected:
     Position m_position;
 
     InteractiveObject(Position position, CharData* charData);
+
     InteractiveObject(Position position);
 
 public:

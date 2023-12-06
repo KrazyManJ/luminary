@@ -6,13 +6,7 @@ ItemEntity::ItemEntity(Item *item, Position position, CharData *charData) : Inte
 
 ItemEntity::ItemEntity(Item *item, Position position) : ItemEntity(item, position, nullptr) {}
 
-bool ItemEntity::isTransparent() {
-    if (m_data != nullptr) {
-        return false;
-    } else {
-        return true;
-    }
-}
+
 
 Item *ItemEntity::pickUp() {
     auto* item = m_item;

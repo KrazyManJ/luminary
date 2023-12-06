@@ -14,7 +14,6 @@ public:
     ItemEntity(Item* item, Position position, CharData* charData); //konstruktor pro viditelne "itemy"
     ItemEntity(Item* item, Position position); //konstruktor pro neviditelne "itemy"
     Item* pickUp(); //vrati samotny objekt itemu a smaze "vykreslovanou" ItemEntity
-    bool isTransparent(); //otestuje, zda ma dany "item" zobrazitelny znak
     //pretezuje dedenou metodu pro vraceni vykreslovaneho znaku (v pripade, ze je "neviditelny" vrati prazdny znak)
     std::string renderChar() override;
 };
