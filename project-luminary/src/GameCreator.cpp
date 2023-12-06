@@ -86,7 +86,7 @@ Game *GameCreator::createNewGame() {
 
     };
 
-    std::string STARTING_MAP =
+    std::string MAP_1 =
             "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
             "llllllwwllllllllllllllGGGGlllwllllllllllllllllllllllllllllllllllllllllllllllllll\n"
             "lllllllllwwlllllllllGGGGGGGGllllllllwwlllllllllkkllllllllllwwllllwwwllllllllllll\n"
@@ -113,19 +113,154 @@ Game *GameCreator::createNewGame() {
             "hhhh~h~h~hhhhhh~hhhhhiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiihhhhhh~h~h~hh~hh~hhhh\n"
             "hhhhh~h~hhhhhhhh~hhhhhhhhhhhhh~hhhhhhhh~hhhhhhhhhhhhhhhhhhhhhhhhhh~h~hhhhhhhhhhh\n";
 
+    std::string MAP_2 =
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n";
+
+    std::string MAP_3 =
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n";
+
+    std::string MAP_4 =
+            "hhhhhhhhhhhhhhhhhlllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "hhhhhhhhhhhhhhhhhhhhhlllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "hhhhhhhhhhhhhhhhhhhhhlllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "hhhhhhhhhhhhhhhhhhhhhlllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "hhhhhhhhhhhhhhhhhhhhhllllllllllllllllllllllllllllllllllllllllllGGGGGGlllllllllll\n"
+            "hhhhhhhhhhhhhhhhhhhhhlllllllllllllllllllllllllllllllllllllllGGjjjjGGGGGGllllllll\n"
+            "llllhhhhhhhhhhhhhhhhhlllllllllllllllllllllllllllllllllllllGGjjjjjjjjjjjGGGllllll\n"
+            "llllhhhhhhhhhhhhhhhhhlllllllllllkkllllllllllllllllllllllllGjjjjjjjjjjjjjjGGGGGll\n"
+            "llllllhhhhhhhhhhhhhhhhhllllllllkkkkllllllllllllllllllllGGGjjjjjjjjjjjjjjjjjGGGGl\n"
+            "llllllhhhhhhhhhhhhhhhhhllllllkjjkkjjkllllllllllllllllGGjjjjjjjjjjjGGGGjjjjjjjGGG\n"
+            "lllllllhhhhhhhhhhhhhhhhhllllkkkjjjjkkkiiiiiiiiiilllGGjjjjjjjjjjjGGGGGGGGjjjjjjjj\n"
+            "lllllllhhhhhhhhhhhhhhhhhlllljjkkkkkkjjiiiiiiiiiillljjjjjjjjjjjGGGGGGGGGGGjjjjjjj\n"
+            "llllllllllhhhhhhhhhhhhhhllllljjjjjjjjllliiiiiiiillljjjjjjjjjjGGGGGGGGGGGGGGjjjjj\n"
+            "llllllllllllhhhhhhhhhhhhhllllllljjlllllliiiiiiiillljjjjjjjjjjGGGGGGGGGGGGGGjjjjj\n"
+            "lllllllllllllGGGGGGGGGGGGGGllllllllllliiiiiiiiiillllllllllllllllllllllllllllllll\n"
+            "lllllllllllGGGiiiiiiiiiiiiGGGllllliiiiiiiiiiiiiillllllllllllllllllllllllllllllll\n"
+            "lllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiillllllllllllllllllllllllllllllllll\n"
+            "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiillllllllllllllllllllllllllllllllllll\n"
+            "iiiiiiiiiiiiiGGGGGGGGGGGGGGiiiiiiiiiiiiiiiilllllllllllllllllllllllllllllllllllll\n"
+            "iiiiiiiiiiiGGGhhhhhhhhhhhlGGGlllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllkkllllllllhhhhhhhhhhhlllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "lllkkkkllllllhhhhhhhhhhhhlllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "lkjjkkjjkllllhhhhhhhhhhhhhllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "kkkjjjjkkklhhhhhhhhhhhhhhhllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "lkkkkkkkkllhhhhhhhhhhhhhhhllllllllllllllllllllllllllllllllllllllllllllllllllllll\n";
+
+    std::string MAP_5 =
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n";
+
+    std::string MAP_6 =
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n";
+
     std::string EMPTY_MAP;
     game->m_mapMatrix = {
             {
-                new Map(STARTING_MAP, charMappings, {}),
-                new Map(EMPTY_MAP, charMappings,{})
+                new Map(MAP_1, charMappings, {}),
+                new Map(MAP_2, charMappings,{})
             },
             {
-                new Map(EMPTY_MAP, charMappings,{}),
-                new Map(EMPTY_MAP, charMappings,{})
+                new Map(MAP_6, charMappings,{}),
+                new Map(MAP_3, charMappings,{})
             },
             {
-                new Map(EMPTY_MAP, charMappings,{}),
-                new Map(EMPTY_MAP, charMappings,{})
+                new Map(MAP_5, charMappings,{}),
+                new Map(MAP_4, charMappings,{})
             }
     };
 

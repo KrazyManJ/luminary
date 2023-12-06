@@ -12,3 +12,10 @@ Position InteractiveObject::getPosition() {
 std::string InteractiveObject::renderChar() {
     return CharRenderable::renderChar();
 }
+bool InteractiveObject::isTransparent(){
+    if (m_data != nullptr) {
+        return false;
+    } else {
+        return true;
+    }
+}

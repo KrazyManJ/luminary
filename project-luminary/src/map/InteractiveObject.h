@@ -10,10 +10,14 @@ protected:
     Position m_position;
 
     InteractiveObject(Position position, CharData* charData);
+    InteractiveObject(Position position);
+
 public:
     Position getPosition();
 
     std::string renderChar() override;
+
+    bool isTransparent();
 };
 
 

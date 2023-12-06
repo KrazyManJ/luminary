@@ -6,8 +6,9 @@
 #include "../console/CharRenderable.h"
 
 class MapObject : public CharRenderable {
-private:
+protected:
     CharData* m_lightCharData;
+private:
     bool m_isObstacle;
 public:
     MapObject(CharData* charData, CharData* lightCharData, bool isObstacle);
