@@ -12,6 +12,7 @@ public:
     static const unsigned int DARK_GREEN = 0x006464;
     static const unsigned int GREEN = 0x008D00;
     static const unsigned int BG_COLOR = 0x001520;
+    static const unsigned int CARROT = 0xFF8000;
     //light map
     static const unsigned int DAY_GREEN = 0xB5E61D;
     static const unsigned int DAY_BLUE = 0x38A8AB;
