@@ -19,10 +19,6 @@ void ConsoleHandler::setCursorPosition(unsigned short x, unsigned short y) {
     std::cout << "\033[" + std::to_string(y) + ";" + std::to_string(x) + "H";
 }
 
-void ConsoleHandler::setCursorPosition(Position position) {
-    ConsoleHandler::setCursorPosition(position.x, position.y);
-}
-
 void ConsoleHandler::setConsoleTitle(std::string title) {
     std::cout << "\033]0;" + title + "\007";
 }

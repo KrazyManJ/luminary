@@ -43,8 +43,6 @@ public:
 
     static void setCursorPosition(unsigned short x, unsigned short y);
 
-    static void setCursorPosition(Position position);
-
     static void setConsoleTitle(std::string title);
 
     static void disableCursorVisibility();
