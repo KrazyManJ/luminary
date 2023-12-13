@@ -57,26 +57,5 @@ std::string ConsoleHandler::getColorChar(unsigned int hex, CharColorTarget targe
 }
 
 std::string ConsoleHandler::getFormatChar(ConsoleFormatType type) {
-    int code;
-    switch (type) {
-        case RESET:
-            code = 0;
-            break;
-        case ITALIC:
-            code = 3;
-            break;
-        case INVERTED:
-            code = 7;
-            break;
-        case BLINKING:
-            code = 5;
-            break;
-        case UNDERLINE:
-            code = 4;
-            break;
-        case STRIKETHROUGH:
-            code = 9;
-            break;
-    }
-    return "\033[" + std::to_string(code) + "m";
+    return "\033[" + std::to_string(type) + "m";
 }
