@@ -98,7 +98,34 @@ Game *GameCreator::createNewGame() {
                             false
                     );
                 }
-            }
+            },
+            {
+                '|', [] () {
+                    return new MapObject(
+                            (new CharBuilder('|'))->background(ColorPalette::LIGHT_BLUE)->foreground(ColorPalette::DARK_BLUE)->build(),
+                            (new CharBuilder('|'))->background(ColorPalette::PATH)->foreground(ColorPalette::DAY_GREEN)->build(),
+                            false
+                    );
+                }
+            },
+            {
+                '_', [] () {
+                    return new MapObject(
+                            (new CharBuilder('_'))->background(ColorPalette::LIGHT_BLUE)->foreground(ColorPalette::DARK_BLUE)->build(),
+                            (new CharBuilder('_'))->background(ColorPalette::PATH)->foreground(ColorPalette::DAY_GREEN)->build(),
+                            false
+                    );
+                }
+            },
+            {
+                'g', [] () {
+                    return new MapObject(
+                            (new CharBuilder('\\'))->background(ColorPalette::DARK_BLUE)->foreground(ColorPalette::BLUE)->build(),
+                            (new CharBuilder('\\'))->background(ColorPalette::PATH)->foreground(ColorPalette::DAY_GREEN)->build(),
+                            true
+                    );
+                }
+            },
 
 
 
@@ -107,19 +134,19 @@ Game *GameCreator::createNewGame() {
     std::string MAP_1 =
             "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
             "llllllwwllllllllllllllGGGGlllwllllllllllllllllllllllllllllllllllllllllllllllllll\n"
-            "lllllllllwwllllhhhllGGGGGGGGllllllllwwlllllllllkkllllllllllwwllllwwwllllllllllll\n"
-            "lllllllllllllllhhhGGGGGGGGGGGGllllllllwlllllllkkkklllllllwllwwwwwlllllllwlllllll\n"
-            "llllwllllllllllhhhGGGGGGGGGGGGGGllllllllllllkjjkkjjkllllllwlllllwwwwwlllllllllll\n"
-            "llllllllllllllGhhhGGGGGGGGGGGGGGGGlllllllllkkkjjjjkkklllllllllllllllllllllllllll\n"
-            "llllllllllllGGGhhGGGGGGhhGGGGGGGGGGGllllllljjkkkkkkjjllllliiiiiiiiiiiiiiiillllll\n"
-            "llllllllllllGGGGGGGGGhhhhhhGGGGGGGGGlllllllljjjjjjjjllliiiiiiiiiiiiiiiiiiiiiilll\n"
-            "llllllllllllGGGGGGGhhhhhhhhhhGGGGGGGllllllllllljjlllliiiiiiiiiiiiiiiiiiiiiiiiiii\n"
-            "llllllkkllllGGGGGhhhhhhhhhhhhhhGGGGGlliididddlllllliiiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
+            "lllllllllwwllllhhhllGGGGGggGllllllllwwlllllllllkkllllllllllwwllllwwwllllllllllll\n"
+            "lllllllllllllllhhhGGGGGGGggggGllllllllwlllllllkkkklllllllwllwwwwwlllllllwlllllll\n"
+            "llllwllllllllllhhhGGGGGGGggggggGllllllllllllkjjkkjjkllllllwlllllwwwwwlllllllllll\n"
+            "llllllllllllllGhhhGGGGGGGggggggggGlllllllllkkkjjjjkkklllllllllllllllllllllllllll\n"
+            "llllllllllllGGGhhGGGGGGhhGgggggggggGllllllljjkkkkkkjjllllliiiiiiiiiiiiiiiillllll\n"
+            "llllllllllllGGGGGGGGGhhhhhhGgggggggGlllllllljjjjjjjjllliiiiiiiiiiiiiiiiiiiiiilll\n"
+            "llllllllllllGGGGGGGhhhhhhhhhhGgggggGllllllllllljjlllliiiiiiiiiiiiiiiiiiiiiiiiiii\n"
+            "llllllkkllllGGGGGhhhhhhhhhhhhhhGgggGlliididddlllllliiiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
             "lllllkkkklllGGGhhhhhhiiiiiihhhhhhGGGlliddiidilllllliiiiiiiiiilllllllllllliiiiiii\n"
             "lllkjjkkjjklllhhhhhhhiiiiiihhhhhhhllllidiiiddlllliiiiiiiiiilllllllwwwwllllllliii\n"
             "llkkkjjjjkkkllhhhhhhhhhhhhhhhhhhhhlllliidiidilllliiiiiiiiiilllllwwwkkwllllllllll\n"
-            "lljjkkkkkkjjllhiiiiihGGGGGGhiiiiihllllddiiiiilllliiiiiiiiiilllllllkkkkllllllllll\n"
-            "llljjjjjjjjlllhiiiiihGGGGGihiiiiihllllllllllllllliiiiiiiiiilllllkjjkkjjkllllllll\n"
+            "lljjkkkkkkjjllh__|__hGGGGGGh__|__hllllddiiiiilllliiiiiiiiiilllllllkkkkllllllllll\n"
+            "llljjjjjjjjlllhii|iihGGGGGihii|iihllllllllllllllliiiiiiiiiilllllkjjkkjjkllllllll\n"
             "lllllljjllllllhhhhhhhGGGGGGhhhhhhhllllwwllllllliiiiiiiiiillllllkkkjjjjkkklllllll\n"
             "llllllwllllwlllllllliiiiiiiilllllllllwwlllwlllliiiiiiiiiilllllljjkkkkkkjjlllllll\n"
             "llllllllwwwwwwwllllliiiiiiiiillllllllllllllllliiiiiiiiiiillllllljjjjjjjjllllwlll\n"
@@ -154,7 +181,7 @@ Game *GameCreator::createNewGame() {
             "lllllljjllllllllllwllliiiiiiiiiiiillwlljjkkkkkkjjllwwlllllllllllllllkkkkllllllll\n"
             "llllllllllkkkkjlllwllliiiiiiiiiiiilllllljjjjjjjjllllllllllllllllllkjjkkjjklllwll\n"
             "lllwllllkkkkkkkkjlllliiiiiiiiiiiiilwwlllllljjllllwllllkkkkkjlllllkkkjjjjkkklllll\n"
-            "lllllljjjjjjjjjjjjlliiiiiiiiiiiiilllwlllllllllllllllkkkkkkjjlllljjkkkkkkjjllllll\n"
+            "lllllljjjjjjjjjjjjlliiiiiiiiiiiiilllwlllllllllllllllkkkkkkjjjllljjjkkkkkjjjjllll\n"
             "lllwlllllllwlllllllliiiiiiiiiiiiillllllwlwlllllwllljjjjjjjjjjjlllljjjjjjjjllllll\n"
             "lllllllllllllllllllliiiiiiiiiiiiilllllllllllllllllllllllllllllllllllljjlllllllll\n";
 
@@ -213,14 +240,14 @@ Game *GameCreator::createNewGame() {
             "lkkkkkkkklihhhhhh~~hhhhh~hillllllllllllllllllllllljjlllllllllllwllllllllllllllll\n";
 
     std::string MAP_5 =
-            "lllllllllllllllllllllllllllllliiiiiiiiiiilllllllllllllllllllllllllllllllllllllll\n"
-            "lllllllkkllllllwwwllwlwwlllllliiiiiiiiiiillllllllllllllllllwllllwwwwllllllllllll\n"
-            "llllllkkkkllllllllwllllwllllliiiiiiiiiiiillllllllkklllllllllwwwllllwwwwlllllllll\n"
-            "llllkjjkkjjklllllllllwwlllllliiiiiiiiiiiilllllllkkkklllllllllllwllwlllllllllllll\n"
-            "lllkkkjjjjkkklllwllllllllllliiiiiiiiiiiiilllllkjjkkjjkllllllllllllllllllllllllll\n"
-            "llljjkkkkkkjjlllllllwlllllliiiiiiiiiiiillllllkkkjjjjkkklllllllllllllllllllllllll\n"
-            "lllljjjjjjjjlllllllllliiiiiiiiiiiiiiillllllljjkkkkkkkkjjllllllllllllllllllllllll\n"
-            "llllllljjllllllllllliiiiiiiiiiiiiillllllllllljjjjjjjjjjllllllllllllkklllllllllll\n"
+            "lllllllllllllllllllllllllllllliiiiiiiiiiilllllllllllllllllllllllllllllllhhhhhhhh\n"
+            "lllllllkkllllllwwwllwlwwlllllliiiiiiiiiiillllllllllllllllllwllllwwwwllllllhhhhhh\n"
+            "llllllkkkkllllllllwllllwllllliiiiiiiiiiiillllllllkklllllllllwwwllllwwwwlllllhhhh\n"
+            "llllkjjkkjjklllllllllwwlllllliiiiiiiiiiiilllllllkkkklllllllllllwllwlllllllllllhh\n"
+            "lllkkkjjjjkkklllwllllllllllliiiiiiiiiiiiilllllkjjkkjjklllllllllllllllllllllllllh\n"
+            "llljjkkkkkkjjlllllllwlllliiiiiiiiiiiiiillllllkkkjjjjkkkllllllllllllllllllllllllh\n"
+            "lllljjjjjjjjlllllllliiiiiiiiiiiiiiiiillllllljjkkkkkkkkjjllllllllllllllllllllllll\n"
+            "llllllljjllllllliiiiiiiiiiiiiiiiiillllllllllljjjjjjjjjjllllllllllllkklllllllllll\n"
             "llllllllllllliiiiiiiiiiiiiiiiillllllllwwwlllllllljjlllllllllllllllkkkkllllllllll\n"
             "lllwlllllliiiiiiiiiiiiiiilllllllllwwwwlllwllllwlllllllllllllllllkjjkkjjkllllllll\n"
             "lllllwwliiiiiiiiiiiiiiiikkkllllllllllwwlllwwwlllwwlllllllllllllkkkjjjjkkklllllll\n"
@@ -241,30 +268,30 @@ Game *GameCreator::createNewGame() {
 
     std::string MAP_6 =
             "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
-            "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
-            "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
-            "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
-            "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhiiihhhiiihhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
-            "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhGiiiiiGhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
-            "hhhhhhhhhhhhhhhhhhllllllllllllllllllGGGGGllllllllhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
-            "hhhhhhhhhhhhhllllllllllllllllllllGGllGGGllGGlllllllllllllhhhhhhhhhhhhhhhhhhhhhhh\n"
-            "hhhhhhhhhllllllllllllllllllllllllGGGGGGGGGGGllllllllllllllllllhhhhhhhhhhhhhhhhhh\n"
-            "hhhhllllllllllkkllllGGlGGGlGGllllhhGGhhhGGhhllllGGlGGGlGGllllllllllhhhhhhhhhhhhh\n"
-            "lllllllllllllkkkklllGGGGGGGGGllllhhhhhhhhhhhllllGGGGGGGGGllllllllllllllhhhhhhhhh\n"
-            "lllllllllllkjjkkjjklhhGhhhGhhlllllhhGhhhGhhlllllhhGhhhGhhllllllllllllllllhhhhhhh\n"
-            "llllllllllkkkjjjjkkklhhhhhhhllllllhhhhhhhhhllllllhhhhhhhllllllllllllllllllhhhhhh\n"
-            "lllllllhhlhhkhhkhhkhhlhhGhhlllllllhhGhhhGhhlllllllhhGhhlhhlhhlhhlhhlhhlllllhhhhh\n"
+            "hh~hhhhhhh~hhhhhh~hhhhhhhhhh~hhh~h~hhhhh~hhhhhh~hhhhhhhhh~hhhhhhh~hhhhhhhhhhhhhh\n"
+            "hhhhhhhhhhhhhhhhhhhh~hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh~~hhhhhhhhhhhh\n"
+            "hhhhhh~~hhhhhhhhhhhhhhhhhhllllllllllllllllllllhhhhhhhhhhhhh~~hhhhhhhhhhhhhhhhhhh\n"
+            "hhhhhhhhhhhhhhhhhhhllllllllllllllliiillliiilllllllhhh~hhhhhhhhhhhhhhhh~hhhhhhhhh\n"
+            "hhh~hhhhhhhhhllllllllllwwllllllllllGiiiiiGllllllllllhhhhhhhhhhhhh~hhhhhhhhh~hhhh\n"
+            "hhhhhhllllllwlllllllllllllwllwllllllGGGGGlllllllllllllhhhh~hhhhhhhhhh~~hhhhhhhhh\n"
+            "llllllllllllllllwllllwlllllllllllGGllGGGllGGlllwllllllhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
+            "lllllwlllwlllllllllllllllllllllllGGGGGGGGGGGllllllllllllllllhhhhhh~hhhhh~hhhhhhh\n"
+            "lllllllwllllllkkllllGGlGGGlGGllllhhGGhhhGGhhllllGGlGGGlGGlllllllhhhhhhhhhhhhhhhh\n"
+            "lllllllllllllkkkklllGGGGGGGGGllllhhhhhhhhhhhllllGGGGGGGGGlllwlwlllllhhhhhh~~hhhh\n"
+            "llllwllllllkjjkkjjklhhGhhhGhhlllllhhGhhhGhhlllllhhGhhhGhhllllllllwlwllhhhhhhhhhh\n"
+            "llllllllllkkkjjjjkkklhhhhhhhllllllhhhhhhhhhllllllhhhhhhhlllllwllllllllllhhhh~hhh\n"
+            "lllllllhhlhhkhhkhhkhhlhhGhhlllllllhhGhhhGhhlllllllhhGhhlhhlhhlhhlhhlhhllllhhhhhh\n"
             "lllllllhhhhhhhhhhhhhhGhhhhhlllllllhhhhhhhhhlllllllhhhhhGhhhhhhhhhhhhhhllllllhhhh\n"
-            "lllllllhhhhhhhhhhhhhhGhhGhhlllllllhhhGGGhhhlllllllhhGhhGhhhhhhhhhhhhhhllllllhhhh\n"
+            "lllllllhhhhhhhhhhhhhhGhhGhhlllllllhhhGGGhhhlllllllhhGhhGhhhhhhhhhhhhhhllllllhh~h\n"
             "lllllllhhhhhhhhhhhhhhGhhhhhlllllllhhGGGGGhhlllllllhhhhhGhhhhhkkhhhhhhhllllllhhhh\n"
-            "lllllllllllllllllllllhhhhhhhllllllhhGGGGGhhllllllhhhhhhhllllkkkkllllllllllllhhhh\n"
-            "llllllkklllllllllllllllllllllllllllliiiiilllllllllllllllllkjjkkjjklllllllllllhhh\n"
-            "lllllkkkkllllllllllllllllllllllllliiiiiiillllllllllllllllkkkjjjjkkkllllllllllhhh\n"
-            "lllkjjkkjjkllllllllllllllllllllllliiiiiillllllllllllllllljjkkkkkkjjllllllllllhhh\n"
-            "llkkkjjjjkkkllllllllllllllllllllllliiiiiiilllllllllllllllljjjjjjjjlllllllllllhhh\n"
-            "lljjkkkkkkjjllllllllllllllllllllllliiiiiiillllllllllllllllllljjlllllllllllllllhh\n"
-            "llljjjjjjjjllllllllllllllllllllllliiiiiiilllllllllllllllllllllllllllllllllllllhh\n"
-            "lllllljjlllllllllllllllllllllllllliiiiiiiilllllllllllllllllllllllllllllllllllllh\n";
+            "lllllllllllllllllllllhhhhhhhllllllhhGGGGGhhllllllhhhhhhhllllkkkkllllllllwlllhhhh\n"
+            "llllllkklllllllwwllllllllllllllllllliiiiilllllllllllllllllkjjkkjjkllllllllllh~hh\n"
+            "lllllkkkklllllllllwwlwlllwlllllllliiiiiiillllwlllwwwlllllkkkjjjjkkklllllllllhhhh\n"
+            "lllkjjkkjjkllllllllllllwwllllllllliiiiiillllllllwlllllllljjkkkkkkjjllllwllllhhhh\n"
+            "llkkkjjjjkkkllllwlllllllllllwwllllliiiiiiilllllllllllllllljjjjjjjjllllwwllllhhhh\n"
+            "lljjkkkkkkjjlllllllwwlllllllllllllliiiiiiillllllllllllwlllllljjlllllllllhhhhhhhh\n"
+            "llljjjjjjjjllllllllllllllllwwllllliiiiiiillllllllllwwwlllllllllllllwwwhhhhhhhhhh\n"
+            "lllllljjlllllllllllllllllllllllllliiiiiiiillllllllllllllllllllllllllhhhhhhhhhhhh\n";
 
     std::string EMPTY_MAP;
     game->m_mapMatrix = {
