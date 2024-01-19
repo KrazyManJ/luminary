@@ -5,6 +5,9 @@
 class CharPalette {
 public:
     static const char PLAYER = '*';
+    static const char TORCH = 'Y';
+    static const char ENEMY = '%';
+    static const char CARROT = '"';
 
 };
 
