@@ -23,10 +23,6 @@ std::string ItemEntity::renderChar() {
     }
 }
 
-void ItemEntity::onPlayerProximity(Game *game) {
+void ItemEntity::onPlayerProximity(Game *game) {}
 
-}
-
-void ItemEntity::onPlayerEnter(Game *game) {
-
-}
+void ItemEntity::onPlayerEnter(Game *game) {}

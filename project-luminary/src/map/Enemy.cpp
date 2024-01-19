@@ -1,5 +1,7 @@
 #include "Enemy.h"
 #include "../Game.h"
+#include "../Luminary.h"
+#include "../window/BattleWindow.h"
 
 Enemy::Enemy(Position position, float health, unsigned int damage, CharData *charData) : InteractiveObject(position, charData) {
     m_health = health;
@@ -20,10 +22,8 @@ void Enemy::dealDamage(unsigned int incomingDamage) {
     m_health -= incomingDamage;
 }
 
-void Enemy::onPlayerEnter(Game *game) {
-
-}
+void Enemy::onPlayerEnter(Game *game) {}
 
 void Enemy::onPlayerProximity(Game *game) {
-
+    Luminary::getInstance()->openWindow(new BattleWindow(game->getCurrentMap(),game->getPlayer(), this));
 }
