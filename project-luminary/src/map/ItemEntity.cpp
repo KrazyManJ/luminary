@@ -1,4 +1,5 @@
 #include "ItemEntity.h"
+#include "../Game.h"
 
 ItemEntity::ItemEntity(Item *item, Position position, CharData *charData) : InteractiveObject(position, charData) {
     m_item = item;
@@ -20,4 +21,12 @@ std::string ItemEntity::renderChar() {
     } else{
         return InteractiveObject::renderChar();
     }
+}
+
+void ItemEntity::onPlayerProximity(Game *game) {
+
+}
+
+void ItemEntity::onPlayerEnter(Game *game) {
+
 }

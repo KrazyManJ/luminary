@@ -41,7 +41,10 @@ void BattleWindowAttacks::onInput(ConsoleHandler::KeyEvent *evt) {
     }
     if(evt->getKey() == KEY_ENTER){
         int index = m_battleAttacksCycler->getIndex();
-        m_enemy->dealDamage(m_player->getAttacks()[index]->getDamage());
-        close();
+        if(m_player->getAttacks()[index] != nullptr){
+            m_enemy->dealDamage(m_player->getAttacks()[index]->getDamage());
+            m_player->dealDamage(m_enemy->getDamage());
+            close();
+        }
     }
 }

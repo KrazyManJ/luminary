@@ -26,6 +26,7 @@ public:
     void makeMovement(MovementDirection movementDirection); //na zaklade predaneho smeru pohybu zmeni souradnice
     Position getPosition(); //vraci aktualni pozici hrace
     PlayerAttack** getAttacks();
+    float getHealth();
     ~Player(); //v ramci smazani hrace vymaze i inventar a utoky z pameti
 };
 

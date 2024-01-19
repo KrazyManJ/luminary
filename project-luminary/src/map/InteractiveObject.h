@@ -5,6 +5,8 @@
 
 #include "../console/CharRenderable.h"
 
+class Game;
+
 class InteractiveObject : public CharRenderable {
 protected:
     Position m_position;
@@ -19,6 +21,10 @@ public:
     std::string renderChar() override;
 
     bool isTransparent();
+
+    virtual void onPlayerProximity(Game* game) = 0;
+
+    virtual void onPlayerEnter(Game* game) = 0;
 };
 
 

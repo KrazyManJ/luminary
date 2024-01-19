@@ -6,6 +6,7 @@
 #include "map/ItemEntity.h"
 #include "window/InventoryWindow.h"
 #include "window/BattleWindow.h"
+#include "palettes/ColorPalette.h"
 
 
 void Game::render() {
@@ -113,10 +114,10 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
         Luminary::getInstance()->openWindow(new InventoryWindow(this, m_player->getInventory()),true);
         return;
     }
-    if (evt->getKey() == KEY_U){
-        Luminary::getInstance()->openWindow(new BattleWindow(this, m_player, nullptr));
-        return;
-    }
+//    if (evt->getKey() == KEY_U){
+//        Luminary::getInstance()->openWindow(new BattleWindow(this, m_player, new Enemy(Position{.x=5,.y=5},50,100,new CharData('I',ColorPalette::GREEN,COLOR_NONE))));
+//        return;
+//    }
     std::map<unsigned int, MovementDirection> directions = {
             {KEY_W,    UP},
             {KEY_A,  LEFT},

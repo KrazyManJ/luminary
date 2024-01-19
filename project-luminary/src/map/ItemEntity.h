@@ -16,6 +16,8 @@ public:
     Item* pickUp(); //vrati samotny objekt itemu a smaze "vykreslovanou" ItemEntity
     //pretezuje dedenou metodu pro vraceni vykreslovaneho znaku (v pripade, ze je "neviditelny" vrati prazdny znak)
     std::string renderChar() override;
+    void onPlayerProximity(Game *game) override;
+    void onPlayerEnter(Game *game) override;
 };
 
 

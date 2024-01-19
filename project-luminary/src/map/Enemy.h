@@ -10,9 +10,11 @@ class Enemy: public InteractiveObject{
 
 public:
     Enemy(Position position, float health, unsigned int damage, CharData* charData);
-    int getHealth();
+    float getHealth();
     unsigned int getDamage();
     void dealDamage(unsigned int incomingDamage); //nastavi aktualni zdravi nepritele (pozdejsi vyuziti v ramci boje)
+    void onPlayerEnter(Game *game) override;
+    void onPlayerProximity(Game *game) override;
 };
 
 

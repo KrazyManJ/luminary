@@ -8,6 +8,9 @@ Player::Player(Position position) : CharRenderable(new CharData(CharPalette::PLA
     m_position = position; //nastavuje Kata v ramci vykreslovani
     m_health = 100;
     m_inventory = new Inventory();
+    for(int i = 0; i < PLAYER_ATTACKS; i++){
+        m_attacks[i] = nullptr;
+    }
 }
 
 void Player::setPosition(Position newPosition) {
@@ -61,6 +64,10 @@ Position Player::getPosition() {
 
 PlayerAttack** Player::getAttacks() {
     return m_attacks;
+}
+
+float Player::getHealth() {
+    return m_health;
 }
 
 Player::~Player() {
