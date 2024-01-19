@@ -2,6 +2,7 @@
 #include "GameCreator.h"
 #include "console/CharBuilder.h"
 #include "palettes/ColorPalette.h"
+#include "map/Enemy.h"
 
 
 Game *GameCreator::createNewGame() {
@@ -245,13 +246,14 @@ Game *GameCreator::createNewGame() {
             },
             { //fire
                     'z', [] () {
-                return new MapObject(
-                        (new CharBuilder())->background(ColorPalette::BLUE)->build(),
-                        (new CharBuilder())->background(ColorPalette::ORANGE)->build(),
-                        true
-                );
-            }
+                        return new MapObject(
+                                (new CharBuilder())->background(ColorPalette::BLUE)->build(),
+                                (new CharBuilder())->background(ColorPalette::ORANGE)->build(),
+                                true
+                                );
+                    }
             },
+
 
 
 
@@ -259,10 +261,10 @@ Game *GameCreator::createNewGame() {
 
     std::string MAP_1 =
             "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
-            "llllllwwllllllllllllllG==Glllwllllllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "llllllwwllllllllllllllG==Glllwlllllllllllllllllllllllllllllllllllllllllwllllllll\n"
             "lllllllllwwllllrrrllGmm==ggGllllllllwwlllllllllkkllllllllllwwllllwwwllllllllllll\n"
-            "lllllllllllllllrrrGmmmm==ggggGllllllllwlllllllkkkklllllllwllwwwwwlllllllwlllllll\n"
-            "llllwllllllllllrrrmmmmm==ggggggGllllllllllllkjjkkjjkllllllwlllllwwwwwlllllllllll\n"
+            "lllllllllllllllrrrGmmmm==ggggGllllllllwlllllllkkkkllllwwwwllwwllllllllllwlllllll\n"
+            "llllwllllllllllrrrmmmmm==ggggggGllllllllllllkjjkkjjkllllwlwlllllllllllwwwwwlllll\n"
             "llllllllllllllGrrrmmmmm==ggggggggGlllllllllkkkjjjjkkklllllllllllllllllllllllllll\n"
             "llllllllllllGmmrrmmmmmGrrGgggggggggGllllllljjkkkkkkjjllllliiiiiiiiiiiiiiiillllll\n"
             "llllllllllllmmmmmmmmGrrrrrrGgggggggglllllllljjjjjjjjllliiiiiiiiiiiiiiiiiiiiiilll\n"
@@ -422,11 +424,18 @@ Game *GameCreator::createNewGame() {
     std::string EMPTY_MAP;
     game->m_mapMatrix = {
             {
-                new Map(MAP_1, charMappings, {}),
-                new Map(MAP_2, charMappings,{})
+                new Map(MAP_1, charMappings, { //x sloupce, y radky
+                    new Enemy({.x=65,.y=4},50,50,(new CharBuilder('%'))->background(ColorPalette::BG_COLOR)->foreground(ColorPalette::GREEN)->build())
+//                    new Heal()
+                }),
+                new Map(MAP_2, charMappings,{
+                    new Enemy({.x=50, .y=5},60,60,(new CharBuilder('%'))->background(ColorPalette::LIGHT_BLUE)->foreground(ColorPalette::GREEN)->build())
+                })
             },
             {
-                new Map(MAP_6, charMappings,{}),
+                new Map(MAP_6, charMappings,{
+                    new Enemy({.x=30, .y=15},100,100,(new CharBuilder('%'))->background(ColorPalette::BG_COLOR)->foreground(ColorPalette::GREEN)->build())
+                }),
                 new Map(MAP_3, charMappings,{})
             },
             {
