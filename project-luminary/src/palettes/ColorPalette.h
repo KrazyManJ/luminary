@@ -4,15 +4,20 @@
 
 class ColorPalette {
 public:
+    //player colors, items etc.
     static const unsigned int FG_PLAYER = 0xFCF8BC;
     static const unsigned int BG_PLAYER = 0xDB600D;
+    static const unsigned int CARROT = 0xFF8000;
+    static const unsigned int UNLIT_TORCH = 0xa7f2e7;
+    static const unsigned int LIT_TORCH = 0xeddf8e;
+
+    //dark map
     static const unsigned int DARK_BLUE = 0x002A40;
     static const unsigned int BLUE = 0x00547F;
     static const unsigned int LIGHT_BLUE = 0x007FBF;
     static const unsigned int DARK_GREEN = 0x006464;
     static const unsigned int GREEN = 0x008D00;
     static const unsigned int BG_COLOR = 0x001520;
-    static const unsigned int CARROT = 0xFF8000;
     static const unsigned int TRUNK_GREEN = 0x023b3b;
     //light map
     static const unsigned int DAY_GREEN = 0x9bbf2c;
