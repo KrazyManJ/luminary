@@ -515,7 +515,7 @@ Game *GameCreator::createNewGame() {
             },
             {
                 new Map(MAP_5, charMappings,{
-                        new Enemy({.x=30, .y=19},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
+                        new Enemy({.x=16, .y=14},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
                                 ->foreground(ColorPalette::YELLOW)->build()),
 
                         new Enemy({.x=33, .y=3},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
@@ -524,7 +524,7 @@ Game *GameCreator::createNewGame() {
                         new Enemy({.x=59, .y=16},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
                                 ->foreground(ColorPalette::YELLOW)->build()),
 
-                        new Enemy({.x=59, .y=16},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
+                        new Enemy({.x=35, .y=19},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
                                 ->foreground(ColorPalette::YELLOW)->build()),
 
                         new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=57, .y=5},
@@ -540,13 +540,16 @@ Game *GameCreator::createNewGame() {
                                        new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
                 }),
                 new Map(MAP_4, charMappings,{
-                        new Enemy({.x=67, .y=12},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
+                        new Enemy({.x=67, .y=13},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
                                 ->foreground(ColorPalette::YELLOW)->build()),
 
-                        new Enemy({.x=69, .y=11},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
+                        new Enemy({.x=69, .y=12},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
                                 ->foreground(ColorPalette::YELLOW)->build()),
 
-                        new Enemy({.x=65, .y=11},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
+                        new Enemy({.x=65, .y=12},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
+                                ->foreground(ColorPalette::YELLOW)->build()),
+
+                        new Enemy({.x=67, .y=11},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
                                 ->foreground(ColorPalette::YELLOW)->build()),
 
                         new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=58, .y=3},
@@ -555,7 +558,7 @@ Game *GameCreator::createNewGame() {
                         new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=65, .y=23},
                                        new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
 
-                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=37, .y=21},
+                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=32, .y=21},
                                        new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
 
                         new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=2, .y=9},
