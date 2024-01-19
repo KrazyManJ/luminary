@@ -21,16 +21,25 @@ Game *GameCreator::createNewGame() {
                     'n', []() {
                         return new MapObject(
                                 (new CharBuilder())->background(ColorPalette::DARK_BLUE)->build(), //dark
-                                (new CharBuilder())->background(ColorPalette::ORANGE)->build(), //light
+                                (new CharBuilder())->background(ColorPalette::DARK_GREY)->build(), //light
                                 false
                                 );
                     }
             },
-            {
+            { //water
                     'h', []() {
                         return new MapObject(
                                 (new CharBuilder())->background(ColorPalette::BLUE)->build(),
                                 (new CharBuilder())->background(ColorPalette::DAY_BLUE)->build(),
+                                true
+                                );
+                    }
+            },
+            { //wall
+                    'r', []() {
+                        return new MapObject(
+                                (new CharBuilder())->background(ColorPalette::BLUE)->build(),
+                                (new CharBuilder())->background(ColorPalette::HOUSE)->build(),
                                 true
                                 );
                     }
@@ -49,6 +58,15 @@ Game *GameCreator::createNewGame() {
                         return new MapObject(
                                 (new CharBuilder())->background(ColorPalette::LIGHT_BLUE)->build(),
                                 (new CharBuilder())->background(ColorPalette::PATH)->build(),
+                                false
+                                );
+                    }
+            },
+            {
+                    's', []() {
+                        return new MapObject(
+                                (new CharBuilder())->background(ColorPalette::LIGHT_BLUE)->build(),
+                                (new CharBuilder())->background(ColorPalette::DAY_BLUE)->build(),
                                 false
                                 );
                     }
@@ -112,7 +130,7 @@ Game *GameCreator::createNewGame() {
                     'd', [] () {
                         return new MapObject(
                                 (new CharBuilder('_'))->background(ColorPalette::LIGHT_BLUE)->foreground(ColorPalette::DARK_BLUE)->build(),
-                                (new CharBuilder('_'))->background(ColorPalette::PATH)->foreground(ColorPalette::DAY_GREEN)->build(),
+                                (new CharBuilder('_'))->background(ColorPalette::TRUNK)->foreground(ColorPalette::BROWN)->build(),
                                 false
                         );
                     }
@@ -121,7 +139,7 @@ Game *GameCreator::createNewGame() {
                     'p', [] () {
                         return new MapObject(
                                 (new CharBuilder('_'))->background(ColorPalette::BLUE)->foreground(ColorPalette::DARK_BLUE)->build(),
-                                (new CharBuilder('_'))->background(ColorPalette::TRUNK)->foreground(ColorPalette::PATH)->build(),
+                                (new CharBuilder('_'))->background(ColorPalette::TRUNK)->foreground(ColorPalette::ORANGE)->build(),
                                 false
                                 );
                     }
@@ -130,7 +148,7 @@ Game *GameCreator::createNewGame() {
                     '|', [] () {
                         return new MapObject(
                                 (new CharBuilder('|'))->background(ColorPalette::LIGHT_BLUE)->foreground(ColorPalette::DARK_BLUE)->build(),
-                                (new CharBuilder('|'))->background(ColorPalette::PATH)->foreground(ColorPalette::DAY_GREEN)->build(),
+                                (new CharBuilder('|'))->background(ColorPalette::DAY_BLUE)->foreground(ColorPalette::BLUE)->build(),
                                 false
                                 );
                     }
@@ -139,7 +157,7 @@ Game *GameCreator::createNewGame() {
                     '_', [] () {
                         return new MapObject(
                                 (new CharBuilder('_'))->background(ColorPalette::LIGHT_BLUE)->foreground(ColorPalette::DARK_BLUE)->build(),
-                                (new CharBuilder('_'))->background(ColorPalette::PATH)->foreground(ColorPalette::DAY_GREEN)->build(),
+                                (new CharBuilder('_'))->background(ColorPalette::DAY_BLUE)->foreground(ColorPalette::BLUE)->build(),
                                 false
                                 );
                     }
@@ -157,7 +175,7 @@ Game *GameCreator::createNewGame() {
                     '=', [] () {
                         return new MapObject(
                                 (new CharBuilder('='))->background(ColorPalette::DARK_BLUE)->foreground(ColorPalette::BLUE)->build(),
-                                (new CharBuilder('='))->background(ColorPalette::PATH)->foreground(ColorPalette::DAY_GREEN)->build(),
+                                (new CharBuilder('='))->background(ColorPalette::ROOF)->foreground(ColorPalette::ORANGE)->build(),
                                 true
                                 );
                     }
@@ -180,6 +198,60 @@ Game *GameCreator::createNewGame() {
                                 );
                     }
             },
+            {
+                    't', [] () {
+                        return new MapObject(
+                                (new CharBuilder())->background(ColorPalette::DARK_GREEN)->build(),
+                                (new CharBuilder())->background(ColorPalette::LIGHT_GREY)->build(),
+                                true
+                                );
+                    }
+            },
+            {
+                    'u', [] () {
+                        return new MapObject(
+                                (new CharBuilder())->background(ColorPalette::DARK_BLUE)->build(),
+                                (new CharBuilder())->background(ColorPalette::DARK_GREY)->build(),
+                                true
+                                );
+                    }
+            },
+            {
+                    'v', [] () {
+                        return new MapObject(
+                                (new CharBuilder())->background(ColorPalette::DARK_BLUE)->build(),
+                                (new CharBuilder())->background(ColorPalette::BROWN)->build(),
+                                true
+                                );
+                    }
+            },
+            {
+                    'y', [] () {
+                        return new MapObject(
+                                (new CharBuilder())->background(ColorPalette::LIGHT_BLUE)->build(),
+                                (new CharBuilder())->background(ColorPalette::LIGHT_GREY)->build(),
+                                true
+                                );
+                    }
+            },
+            { //fire
+                    'x', [] () {
+                        return new MapObject(
+                                (new CharBuilder())->background(ColorPalette::BLUE)->build(),
+                                (new CharBuilder())->background(ColorPalette::YELLOW)->build(),
+                                true
+                                );
+                    }
+            },
+            { //fire
+                    'z', [] () {
+                return new MapObject(
+                        (new CharBuilder())->background(ColorPalette::BLUE)->build(),
+                        (new CharBuilder())->background(ColorPalette::ORANGE)->build(),
+                        true
+                );
+            }
+            },
 
 
 
@@ -188,20 +260,20 @@ Game *GameCreator::createNewGame() {
     std::string MAP_1 =
             "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\n"
             "llllllwwllllllllllllllG==Glllwllllllllllllllllllllllllllllllllllllllllllllllllll\n"
-            "lllllllllwwllllhhhllGmm==ggGllllllllwwlllllllllkkllllllllllwwllllwwwllllllllllll\n"
-            "lllllllllllllllhhhGmmmm==ggggGllllllllwlllllllkkkklllllllwllwwwwwlllllllwlllllll\n"
-            "llllwllllllllllhhhmmmmm==ggggggGllllllllllllkjjkkjjkllllllwlllllwwwwwlllllllllll\n"
-            "llllllllllllllGhhhmmmmm==ggggggggGlllllllllkkkjjjjkkklllllllllllllllllllllllllll\n"
-            "llllllllllllGmmhhmmmmmGhhGgggggggggGllllllljjkkkkkkjjllllliiiiiiiiiiiiiiiillllll\n"
-            "llllllllllllmmmmmmmmGhhhhhhGgggggggglllllllljjjjjjjjllliiiiiiiiiiiiiiiiiiiiiilll\n"
-            "llllllllllllmmmmmmGhhhhhhhhhhGgggggglllllllllllqqlllliiiiiiiiiiiiiiiiiiiiiiiiiii\n"
-            "llllllkkllllmmmmGhhhhhhhhhhhhhhGggggllpopoppplllllliiiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
-            "lllllkkkklllmmGhhhhhh_|__|_hhhhhhGggllopppopolllllliiiiiiiiiilllllllllllliiiiiii\n"
-            "lllkjjkkjjklllhhhhhhhi|ii|ihhhhhhhllllopopppplllliiiiiiiiiilllllllwwwwllllllliii\n"
-            "llkkkjjjjkkkllhhhhhhhhhhhhhhhhhhhhlllloopoopolllliiiiiiiiiilllllwwwkkwllllllllll\n"
-            "lljjkkkkkkjjllh__|__hGGGGGGh__|__hllllppoppoplllliiiiiiiiiilllllllkkkkllllllllll\n"
-            "llljjjjjjjjlllhii|iihGGGGGihii|iihllllllllllllllliiiiiiiiiilllllkjjkkjjkllllllll\n"
-            "llllllqqllllllhhhhhhhGGGGGGhhhhhhhllllwwllllllliiiiiiiiiillllllkkkjjjjkkklllllll\n"
+            "lllllllllwwllllrrrllGmm==ggGllllllllwwlllllllllkkllllllllllwwllllwwwllllllllllll\n"
+            "lllllllllllllllrrrGmmmm==ggggGllllllllwlllllllkkkklllllllwllwwwwwlllllllwlllllll\n"
+            "llllwllllllllllrrrmmmmm==ggggggGllllllllllllkjjkkjjkllllllwlllllwwwwwlllllllllll\n"
+            "llllllllllllllGrrrmmmmm==ggggggggGlllllllllkkkjjjjkkklllllllllllllllllllllllllll\n"
+            "llllllllllllGmmrrmmmmmGrrGgggggggggGllllllljjkkkkkkjjllllliiiiiiiiiiiiiiiillllll\n"
+            "llllllllllllmmmmmmmmGrrrrrrGgggggggglllllllljjjjjjjjllliiiiiiiiiiiiiiiiiiiiiilll\n"
+            "llllllllllllmmmmmmGrrrrrrrrrrGgggggglllllllllllqqlllliiiiiiiiiiiiiiiiiiiiiiiiiii\n"
+            "llllllkkllllmmmmGrrrrrrrrrrrrrrGggggllpopoppplllllliiiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
+            "lllllkkkklllmmGrrrrrr_|__|_rrrrrrGggllopppopolllllliiiiiiiiiilllllllllllliiiiiii\n"
+            "lllkjjkkjjklllrrrrrrrs|ss|srrrrrrrllllopopppplllliiiiiiiiiilllllllwwwwllllllliii\n"
+            "llkkkjjjjkkkllrrrrrrrrrrrrrrrrrrrrlllloopoopolllliiiiiiiiiilllllwwwkkwllllllllll\n"
+            "lljjkkkkkkjjllr__|__rGGGGGGr__|__rllllppoppoplllliiiiiiiiiilllllllkkkkllllllllll\n"
+            "llljjjjjjjjlllrss|ssrGGGGGirss|ssrllllllllllllllliiiiiiiiiilllllkjjkkjjkllllllll\n"
+            "llllllqqllllllrrrrrrrGGGGGGrrrrrrrllllwwllllllliiiiiiiiiillllllkkkjjjjkkklllllll\n"
             "llllllwllllwlllllllliiiiiiiilllllllllwwlllwlllliiiiiiiiiilllllljjkkkkkkjjlllllll\n"
             "llllllllwwwwwwwllllliiiiiiiiillllllllllllllllliiiiiiiiiiillllllljjjjjjjjllllwlll\n"
             "llllllwlllwwlllllllllliiiiiiiiillllllllllllliiiiiiiiiiiiilllllwwlllqqlllllllllll\n"
@@ -221,7 +293,7 @@ Game *GameCreator::createNewGame() {
             "llllllllllwlllllllwlllllliiiiiiiiiiddddddddddddddddddhhhhhh~~hh~hhhhhhhhhhhlllll\n"
             "llllllwwlllllllllllllliiiiiiiiiiiiiddddddddddddddddddhhhhhhhhhhhhhhhhhhhhhhhhlll\n"
             "llllllllllllllllliiiiiiiiiiiiiiiiiiddddddddddddddddddhhhhhhhhh~hh~hhh~~hhhhhhlll\n"
-            "iiiiiiiiiiiiiiiiiiiiiiiiiiiiilllllllhhh~~hh~hhhhhhhGGhhh~hh~hhhhhhhhhhhhhhhhllll\n"
+            "iiiiiiiiiiiiiiiiiiiiiiiiiiiiilllllllhhh~~hh~hhhhhhhvvhhh~hh~hhhhhhhhhhhhhhhhllll\n"
             "iiiiiiiiiiiiiiiiiiiiiiiiiillllllllllhhhhhhh~~hh~hhhhh~hhhhhhh~hh~hhhhhh~hhhhllll\n"
             "iiiiiiiiiiiiiiiiiiiiiiiiiillllwlllllhhhhhhhhhhhhhh~hhhh~~hhhhhh~hhhh~hhhhhhhllll\n"
             "iiiiiiiiiiiiiiiiiiiiiiiiiiiillllllwlllllhhhhhh~hhhhhhhhhh~~hhhhhhh~hhhhhhhllllll\n"
@@ -271,17 +343,17 @@ Game *GameCreator::createNewGame() {
             "hhhhhhhh~hhh~hhhhhhhhilliiiiiiiiiiiiiilllllllwwwwlwlllllwwllllllllwwlllkkllwllll\n"
             "ihhhhhhhhhh~hhhh~hhhhilllliiiiiiiiiiiiiillllllllllllkklllllwllwlllllllkkkkllllll\n"
             "lihhh~~hhhhhhhhhhhhhhilllliiiiiiiiiiiiiiiiilwllwlllkkkkllllllwllllllkjjkkjjkllwl\n"
-            "llihhhhhhh~~hhh~hhhhhiwllliiiiiiiiiiiiiiiiillllllkjjkkjjkllllllGGGGGGGGGjjkkklll\n"
-            "llihhhhhhhhhh~hhhhhhhilllllliiiiiiiiiiiiiiiiiiilkkkjjjjkkkllGGjjjjjjjjjGGGkjllll\n"
-            "lllihhhhhh~hhhhhhhhhhilwlllliiiiiiiiiiiiiiiiiiiljjkkkkkkjjGGjjjjjjjjjjjjjjGGllll\n"
-            "lllihhhhhhh~hhh~~hhhhiillwwlllllkkiiiiiiiiiiiiilljjjjjjjjlGjjjjjjjjjjjjjjjjGGGll\n"
-            "lllliihhhhhhh~hhhhhhhhhilllllllkkkkiiiiiiiiiiiiillllqqlGGGjjjjjjjjjjjjjjjjjjjGGl\n"
-            "lllllihhhhhhhhhhhhhhhhhilllllkjjkkjjkiiiiiiiiiiillwlllGGjjjjjjjjjjnnnnjjjjjjjjGG\n"
-            "lllwllihhh~~hhhh~hhhhhhhilwlkkkjjjjkkkiiiiiiiiiiillllGjjjjjjjjjjnnnnnnnnjjjjjjjj\n"
-            "llwlllihhhhhh~hhhh~hhhhhillljjkkkkkkjjiiiiiiiiiiilllljjjjjjjjjnnnnnnnnnnnjjjjjjj\n"
-            "llllkkkiiihhhhh~~hhhhhhhilllljjjjjjjjllliiiiiiiiilllljjkkkkjjnnnnnnnnnnnnnnjjjjj\n"
-            "llkkjjjjkkiihhhhhh~hh~hhhillllllqqlllllliiiiiiiiillljkkkkkkkjnnnnnnnnnnnnnnjjjjj\n"
-            "lkjjjjjjjjkkiGGGGGGGGGGGGGGlllwllllllliiiiiiiiiiilljjjjjkkkkkllwlllllllwllllllll\n"
+            "llihhhhhhh~~hhh~hhhhhiwllliiiiiiiiiiiiiiiiillllllkjjkkjjkllllluuuuuuuuuujjkkklll\n"
+            "llihhhhhhhhhh~hhhhhhhilllllliiiiiiiiiiiiiiiiiiilkkkjjjjkkklluutttttttttuuukjllll\n"
+            "lllihhhhhh~hhhhhhhhhhilwlllliiiiiiiiiiiiiiiiiiiljjkkkkkkjjuuttttttttttttttuullll\n"
+            "lllihhhhhhh~hhh~~hhhhiillwwlllllkkiiiiiiiiiiiiilljjjjjjjjluttttttttttttttttuuull\n"
+            "lllliihhhhhhh~hhhhhhhhhilllllllkkkkiiiiiiiiiiiiillllqqluuutttttttttttttttttttuul\n"
+            "lllllihhhhhhhhhhhhhhhhhilllllkjjkkjjkiiiiiiiiiiillwllluuttttttttttnnnnttttttttuu\n"
+            "lllwllihhh~~hhhh~hhhhhhhilwlkkkjjjjkkkiiiiiiiiiiilllluttttttttttnnnnnnnntttttttt\n"
+            "llwlllihhhhhh~hhhh~hhhhhillljjkkkkkkjjiiiiiiiiiiilllutttttttttnnnnnnnnnnnttttttt\n"
+            "llllkkkiiihhhhh~~hhhhhhhilllljjjjjjjjllliiiiiiiiillluttkkkkjtnnnnnnnnnnnnnnttttt\n"
+            "llkkjjjjkkiihhhhhh~hh~hhhillllllqqlllllliiiiiiiiillljkkkkkkkjnnnnnnnnnnnnnnttttt\n"
+            "lkjjjjjjjjkkiGGGGGGGGGGGGGGlllwllllllliiiiiiiiiiilljjjjjkkkkkjlwlllllllwllllllll\n"
             "lllllllllllGGGiiiiiiiiiiiiGGGllllliiiiiiiiiiiiiillwllllllwlwwllllwlllwwllwllllll\n"
             "lllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiilllllwlwwlllllwllllwllllkkllwlll\n"
             "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiillllllllllllllllllwllllkkkklllll\n"
@@ -294,22 +366,22 @@ Game *GameCreator::createNewGame() {
             "lkkkkkkkklihhhhhh~~hhhhh~hilllllllllllllllllllllllqqlllllllllllwllllllllllllllll\n";
 
     std::string MAP_5 =
-            "lllllllllllllllllllllllllllllliiiiiiiiiiillllllllllllllllllllllllllllliihhhhhhhh\n"
-            "lllllllkkllllllwwwllwlwwlllllliiiiiiiiiiillllllllllllllllllwllllwwwwlllliihhhhhh\n"
-            "llllllkkkkllllllllwllllwllllliiiiiiiiiiiillllllllkklllllllllwwwllllwwwwllliihhhh\n"
-            "llllkjjkkjjklllllllllwwlllllliiiiiiiiiiiilllllllkkkklllllllllllwllwllllllllliihh\n"
-            "lllkkkjjjjkkklllwllllllllllliiiiiiiiiiiiilllllkjjkkjjkllllllllllllllllllllllllih\n"
-            "llljjkkkkkkjjlllllllwlllliiiiiiiiiikkiillllllkkkjjjjkkklllllllllllllllllllllllli\n"
-            "lllljjjjjjjjlllllllliiiiiiiiiiiiiikkkklllllljjkkkkkkkkjjllllllllllllllllllllllli\n"
-            "lllllllqqllllllliiiiiiiiiiiiiiiikjjkkjjkllllljjjjjjjjjjllllllllllllkklllllllllll\n"
-            "llllllllllllliiiiiiiiiiiiiiiiilkkkjjjjkkkllllllllqqlllllllllllllllkkkkllllllllll\n"
-            "lllwlllllliiiiiiiiiiiiiiilllllljjkkkkkkjjwllllwlllllllllllllllllkjjkkjjkllllllll\n"
-            "lllllwwliiiiiiiiiiiiiiiikkkllllljjjjjjjjllwwwlllwwlllllllllllllkkkjjjjkkklllllll\n"
-            "lllllllliiiiiiiiiiiiiiikkkkklllllwlqqllwwwlllllkkkklllllllllllljjkkkkkkjjlllllll\n"
-            "klllwllliiiiiiiiiiiiikjjkkkjjkllllllwlllllllljjjkkkkkllllllllllljjjjjjjjllllllll\n"
-            "jjkllllliiiiiiiiiiiikkkjjjjjkkkllllllllllllljjjjjjjkkjjllllllllllllqqlllllllllll\n"
-            "jkkklllliiiiiiiiiiiijjkkkkkkkjjllllllllliiiiiiiiiiiillllllllllllllllllllllllllll\n"
-            "kkjjllllliiiiiiiiiiiijjjjjjjjjlllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiilllllllllllllll\n"
+            "lllllllllllllllllllllllllllllliiiiiiiiiiillllllllllllllllllllllllllihhhhhhh~hhhh\n"
+            "lllllllkkllllllwwwllwlwwlllllliiiiiiiiiiilwlwlwwlllllllllllwllllwwwwiihh~~hh~hhh\n"
+            "llllllkkkkllllllllwllllwllllliiiiiiiiiiiilllwllllkklllllllllwwwllllwwwiihhh~hhhh\n"
+            "llllkjjkkjjklllllllllwwlllllliiiiiiiiiiiilwlllllkkkklllllllllllwllwllllliiihhh~h\n"
+            "lllkkkjjjjkkklllwllllllllllliiiiiiiiiiiiilllllkjjkkjjkllllllllllllllllllllliihhh\n"
+            "llljjkkkkkkjjlllllllwlllliiiiiiiiiikkiillllllkkkjjjjkkklllllwwwlllllllwllllllihh\n"
+            "lllljjjjjjjjlllllllliiiiiiiiiiiiiikkkklllllljjkkkkkkkkjjllwwllllllllllllllllllii\n"
+            "lllllllqqllllllliiiiiiiiiiiiiiiikjjkkjjkllllljjjjjjjjjjllllllllllllkklllwwllllll\n"
+            "llllllllllllliiiiiiiiiiiiiiiiilkkkjjjjkkkllllllllqqllwwwlllwllllllkkkkllllwlllll\n"
+            "lllwlllllliiiiiiiiiiiiiiilllllljjkkkkkkjjwllllwllllllllllwlllwllkjjkkjjkllllllll\n"
+            "lllllwwliiiiiiiiiiiiiiiikkkllllljjjjjjjjllwwwlllkkllllllwllllllkkkjjjjkkklllwlll\n"
+            "lllllllliiiiiiiiiiiiiiikkkkklllllwlqqllwwwlllljjjkkkklllllllllljjkkkkkkjjllwwlll\n"
+            "klllwllliiiiiiiiiiiiikjjkkkjjkllllllwlllllllljjjjjjjjjjjlllllllljjjjjjjjlwllllll\n"
+            "jjkllllliiiiiiiiiiiikkkjjjjjkkkllllllllllllllllllllllllllllllllllllqqlllllllwlll\n"
+            "jkkklllliiiiiiiiiiiijjkkkkkkkjjllllllllliiiiiiiiiiiillllllllllllllllllllwwwlllll\n"
+            "kkjjllllliiiiiiiiiiiijjjjjjjjjlllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiillllwllllllllll\n"
             "jjjwwllllliiiiiiiiiiiillqqqlllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiillllllllll\n"
             "lllllwllllliiiiiiiiiiiillllllliiiiiiiiiiiiiiiiiiiiikkiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
             "llllwlllllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiilkkkklllliiiiiiiiiiiiiiiiiiiiii\n"
@@ -321,24 +393,24 @@ Game *GameCreator::createNewGame() {
             "lllllllllllllkjjkkjjkllllllwllllllllkkkklllllllllllllllllllllllljjjjjjjjllllllll\n";
 
     std::string MAP_6 =
-            "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
-            "hh~hhhhhhh~hhhhhh~hhhhhhhhhh~hhh~h~hhhhh~hhhhhh~hhhhhhhhh~hhhhhhh~hhhhhhhhhhhhhh\n"
-            "hhhhhhhhhhhhhhhhhhhh~hhhhhiiiiiiiiiiiiiiiiiiiihhhhhhhhhhhhhhhhhhhh~~hhhhhhhhhhhh\n"
-            "hhhhhh~~hhhhhhhhhhhhhiiiiilllllllllllllllllllliihhhhhhhhhhh~~hhhhhhhhhhhhhhhhhhh\n"
-            "hhhhhhhhhhhhhhhhhhhiillllllllllllliiillliiillllliihhh~hhhhhhhhhhhhhhhh~hhhhhhhhh\n"
-            "hhh~hhhhhhhhhiiiiiillllwwllllllllllGiiiiiGlllllllliihhhhhhhhhhhhh~hhhhhhhhh~hhhh\n"
-            "hhhhhhiiiiiiilllllllllllllwllwllllllGGGGGllllllllllliihhhh~hhhhhhhhhh~~hhhhhhhhh\n"
-            "iiiiiillllllllllwllllwlllllllllllGGllGGGllGGlllwlllllihhhhhhhhhhhhhhhhhhhhhhhhhh\n"
-            "kllllwlllwlllllllllllllllllllllllGGGGGGGGGGGlllllllllliiiiiihhhhhh~hhhhh~hhhhhhh\n"
-            "kklllllwllllllkkllllGGlGGGlGGllllhhGGhhhGGhhllllGGlGGGlGGllliiiihhhhhhhhhhhhhhhh\n"
-            "kjjklllllllllkkkklllGGGGGGGGGllllhhhhhhhhhhhllllGGGGGGGGGlllwlwliiiiikkhhh~~hhhh\n"
-            "jjkkkllllllkjjkkjjklhhGhhhGhhlllllhhGhhhGhhlllllhhGhhhGhhllllllllwlwkkkkhhhhhhhh\n"
-            "kkkjjlllllkkkjjjjkkklhhhhhhhllllllhhhhhhhhhllllllhhhhhhhlllllwllllkjjkkjjkhh~hhh\n"
-            "jjjjlllhhlhhkhhkhhkhhlhhGhhlllllllhhGhhhGhhlllllllhhGhhlhhlhhlhhlhhjhhjjkkkhhhhh\n"
-            "qllllllhhhhhhhhhhhhhhGhhhhhlllllllhhhhhhhhhlllllllhhhhhGhhhhhhhhhhhhhhkkkjlihhhh\n"
-            "lllllllhhhhhhhhhhhhhhGhhGhhlllllllhhhnnnhhhlllllllhhGhhGhhhhhhhhhhhhhhjjjjlihh~h\n"
-            "lllllllhhhhhhhhhhhhhhGhhhhhlllllllhhnnnnnhhlllllllhhhhhGhhhhhkkhhhhhhhqllllihhhh\n"
-            "lllllllllllllllllllllhhhkkhhllllllhhnnnnnhhllllllhhhhhhhllllkkkkllllllllwllihhhh\n"
+            "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhzhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
+            "hh~hhhhhhh~hhhhhh~hhhhhhhhhh~hhh~h~hhhhx~hhhhhh~hhhhhhhhh~hhhhhhh~hhhhhhhhhhhhhh\n"
+            "hhhhhhhhhhhhhhhhhhhh~hhhhhhhhhhhhhhhhxxhzhhhhhhhhhhhhhhhhhhhhhhhhh~~hhhhhhhhhhhh\n"
+            "hhhhhh~~hhhhhhh~hhhhhhhhhhhhhhhhhhhhxxxxzhhhhhhhhhhhhhhhhhh~~hhhhhhhhhhhhhhhhhhh\n"
+            "hhhhhhhhhhhhhhhhhhh~~hhh~~hhhhhhhhyyyxxzyyyhhhhhhhhhh~hhhhhhhhhhhhhhhh~hhhhhhhhh\n"
+            "hhh~hhhhhhh~h~~hhhhhhhhhhhhhhhhhhhhuyyyyyuhhhhhh~~hhhhhhhhhhhhhhh~hhhhhhhhh~hhhh\n"
+            "hhhhhhhhhhhhhhhhh~hhhhhhhhhhhhhhhhhhuuuuuhhhhhhhhhhhhhhhhh~hhhhhhhhhh~~hhhhhhhhh\n"
+            "hhhhh~h~~hhhh~hhhhhhhhhhhhhhhhiiiuuiiuuuiiuuiiiiiiiiiiihhhhhhhhhhhhhhhhhhhhhhhhh\n"
+            "kh~hhhhhhh~hhhhhhhhhhhiiiiiiiiilluuuuuuuuuuulllllllllliiiiiihhhhhh~hhhhh~hhhhhhh\n"
+            "kkhhhhhhhhhhiikkiiiiuuiuuuluullllrruurrruurrlllluuluuuluullliiiihhhhhhhhhhhhhhhh\n"
+            "kjjkiiiiiiiiikkkkllluuuuuuuuullllrrrrrrrrrrrlllluuuuuuuuulllwlwliiiiiiiihh~~hhhh\n"
+            "jjkkkllllllkjjkkjjklrrurrrurrlllllrrurrrurrlllllrrurrrurrllllllllllllllliihhhhhh\n"
+            "kkkjjlllllkkkjjjjkkklrrrrrrrllllllrrrrrrrrrllllllrrrrrrrlllllwllllllllllllih~hhh\n"
+            "jjjjlllrrlrrkrrkrrkrrlrrurrlllllllrrurrrurrlllllllrrurrlrrlrrlrrlrrlrrlllllihhhh\n"
+            "qllllllrrrrrrrrrrrrrrurrrrrlllllllrrrrrrrrrlllllllrrrrrurrrrrrrrrrrrrrlllllihhhh\n"
+            "lllllllrrrrrrrrrrrrrrurrurrlllllllrrrnnnrrrlllllllrrurrurrrrrrrrrrrrrrlllllihh~h\n"
+            "lllllllrrrrrrrrrrrrrrurrrrrlllllllrrnnnnnrrlllllllrrrrrurrrrrkkrrrrrrrlllllihhhh\n"
+            "lllllllllllllllllllllrrrkkrrllllllrrnnnnnrrllllllrrrrrrrllllkkkkllllllllwllihhhh\n"
             "llllllkklllllllwwllllllkkkkllllllllliiiiilllllllllllllllllkjjkkjjklllllllllih~hh\n"
             "lllllkkkklllllllllwwlkjjkkjjkllllliiiiiiillllwlllwwwlllllkkkjjjjkkkllllllllihhhh\n"
             "lllkjjkkjjklllllllllkkkjjjjkkklllliiiiiillllllllwlllllllljjkkkkkkjjllllwlllihhhh\n"
