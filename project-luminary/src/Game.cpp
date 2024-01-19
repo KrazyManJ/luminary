@@ -93,7 +93,10 @@ void Game::switchMap(MovementDirection direction) {
 void Game::makePlayerMovement(MovementDirection direction) {
     if (Game::isPlayerMoveInMap(direction)) {
         MapObject* obj = getMapObjectInDirectionOfPlayer(direction);
-        if (obj != nullptr && obj->isObstacle()) return;
+        if (obj != nullptr && obj->isObstacle()) {
+            obj->onCollision(this);
+            return;
+        }
         m_player->makeMovement(direction);
         return;
     }
@@ -146,4 +149,8 @@ Game::~Game() {
     }
     m_mapMatrix.clear();
     delete m_player;
+}
+
+Player *Game::getPlayer() {
+    return m_player;
 }

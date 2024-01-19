@@ -7,13 +7,15 @@ class Torch : public MapObject {
 private:
     bool m_isLightened;
 public:
-    Torch(CharData *charData, CharData *lightCharData);
+    Torch();
 
     void lightUp();
 
-    bool isLightened();
+    bool isLit();
 
     std::string renderChar() override;
+
+    void onCollision(Game *game) override;
 };
 
 

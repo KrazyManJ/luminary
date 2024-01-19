@@ -1,7 +1,13 @@
+#include <iostream>
 #include "Torch.h"
 #include "MapObject.h"
+#include "../Game.h"
+#include "../palettes/ColorPalette.h"
 
-Torch::Torch(CharData *charData, CharData *lightCharData) : MapObject(charData, lightCharData, true) {
+Torch::Torch() : MapObject(
+        new CharData('Y',ColorPalette::UNLIT_TORCH,ColorPalette::DAY_BLUE),
+        new CharData('Y',ColorPalette::LIT_TORCH,ColorPalette::ORANGE)
+        , true) {
     m_isLightened = false;
 }
 
@@ -9,7 +15,7 @@ void Torch::lightUp() {
     m_isLightened = true;
 }
 
-bool Torch::isLightened() {
+bool Torch::isLit() {
     return m_isLightened;
 }
 
@@ -19,4 +25,8 @@ std::string Torch::renderChar() {
     } else {
         return m_data->toFullChar();
     }
+}
+
+void Torch::onCollision(Game *game) {
+
 }

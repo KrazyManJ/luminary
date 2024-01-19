@@ -6,12 +6,14 @@
 #include "window/Window.h"
 #include "map/Map.h"
 #include "player/Player.h"
+#include "map/Torch.h"
 
 class Game : public Window {
 private:
     std::vector<std::vector<Map *>> m_mapMatrix;
     Position m_currentMapPos;
     Player *m_player;
+    std::vector<Torch*> m_torchesOrder;
 
     MapObject *getMapObjectInDirectionOfPlayer(MovementDirection direction);
 
@@ -32,6 +34,8 @@ public:
     void onInput(ConsoleHandler::KeyEvent *evt) override;
 
     ~Game() override;
+
+    Player* getPlayer();
 
     friend class GameCreator;
     friend class DebugGame;

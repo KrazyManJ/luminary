@@ -1,6 +1,5 @@
 
 #include "MapObject.h"
-#include "../console/CharRenderable.h"
 
 MapObject::MapObject(CharData* charData, CharData* lightCharData, bool isObstacle) : CharRenderable(charData){
     m_lightCharData = lightCharData;
@@ -19,3 +18,5 @@ std::string MapObject::renderChar(bool isLightened){
 bool MapObject::isObstacle(){
     return m_isObstacle;
 }
+
+void MapObject::onCollision(Game *game) {}

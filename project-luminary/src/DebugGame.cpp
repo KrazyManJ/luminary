@@ -2,15 +2,23 @@
 #include "map/Enemy.h"
 #include "console/CharBuilder.h"
 #include "map/ItemEntity.h"
+#include "map/Torch.h"
 
 Game *DebugGame::create() {
     Game *game = new Game();
     game->m_player = new Player({.x=10, .y=2});
+    game->m_torchesOrder = {
+            new Torch(),
+            new Torch(),
+            new Torch(),
+            new Torch(),
+            new Torch()
+    };
     const std::string emptyMatrix =
             "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
             "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
             "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
-            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
+            "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGG0GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
             "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
             "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
             "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n"
@@ -35,21 +43,26 @@ Game *DebugGame::create() {
     std::map<char, std::function<MapObject *()>> map = {
             {
                     'G', []() {
-                return new MapObject(
-                        new CharData(' ', COLOR_NONE, 0x1a472e),
-                        new CharData(' ', COLOR_NONE, 0x3ccf7d),
-                        false
-                );
-            }
+                    return new MapObject(
+                            new CharData(' ', COLOR_NONE, 0x1a472e),
+                            new CharData(' ', COLOR_NONE, 0x3ccf7d),
+                            false
+                    );
+                }
             },
             {
                     'W', []() {
-                return new MapObject(
-                        new CharData(' ', COLOR_NONE, 0x253352),
-                        new CharData(' ', COLOR_NONE, 0x476bba),
-                        true
-                );
-            }
+                    return new MapObject(
+                            new CharData(' ', COLOR_NONE, 0x253352),
+                            new CharData(' ', COLOR_NONE, 0x476bba),
+                            true
+                    );
+                },
+            },
+            {
+                '0', [&game]() {
+                    return game->m_torchesOrder.at(0);
+                }
             }
     };
     game->m_mapMatrix = {
