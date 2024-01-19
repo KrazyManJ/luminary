@@ -1,7 +1,7 @@
 #include "BattleWindow.h"
 #include "battle/BattleWindowAttacks.h"
 #include "../Luminary.h"
-#include "battle/BattleWindowInventory.h"
+#include "InventoryWindow.h"
 
 BattleWindow::BattleWindow(Window* prevWindow, Player* player, Enemy* enemy) : ReturnableWindow(prevWindow) {
     m_player = player;
@@ -22,7 +22,7 @@ void BattleWindow::render() {
     std::cout << label;
     ConsoleHandler::setCursorPosition(15,10);
     std::cout << m_player->renderChar();
-    ConsoleHandler::setCursorPosition(Window::WIDTH-20,10);
+    ConsoleHandler::setCursorPosition(Window::WIDTH-13,10);
     std::cout << "%"; //    std::cout << m_enemy->renderChar();
     ConsoleHandler::setCursorPosition(26,22);
     std::string choises[AMOUNT_OF_CHOISES] = {"Attack", "Open inventory"};
@@ -36,13 +36,6 @@ void BattleWindow::render() {
             std::cout << choises[i] << "            ";
         }
     }
-
-//    std::string attackName;
-//    for(unsigned int attackIndex = 0; attackIndex < 4; attackIndex++){
-//        attackName = m_player->getAttacks()[attackIndex]->getName();
-//        ConsoleHandler::setCursorPosition(attackIndex*5+20+(attackName.length()), 22);
-//        std::cout << attackName;
-//    }
 }
 
 void BattleWindow::onInput(ConsoleHandler::KeyEvent *evt) {
@@ -54,14 +47,12 @@ void BattleWindow::onInput(ConsoleHandler::KeyEvent *evt) {
         return;
     }
     if(evt->getKey() == KEY_ENTER){
-//        switch (m_battleCycler->getIndex()) {
-//            case 0:
-//                BattleWindowAttacks* battleWindowAttacks = new BattleWindowAttacks(this,m_player);
-//                Luminary::getInstance()->openWindow(battleWindowAttacks, true);
-//                break;
-//            case 1:
-//                Luminary::getInstance()->openWindow(new BattleWindowInventory(this,m_player), true);
-//                break;
-//        }
+        int index = m_battleCycler->getIndex();
+        if (index == 0) {
+//            BattleWindowAttacks* battleWindowAttacks = new BattleWindowAttacks(this,m_player);
+//            Luminary::getInstance()->openWindow(battleWindowAttacks, true);
+        }
+        else if(index == 1)
+            Luminary::getInstance()->openWindow(new InventoryWindow(this,m_player->getInventory()),true);
     }
 }
