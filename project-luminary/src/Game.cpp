@@ -19,8 +19,8 @@ void Game::render() {
     //DEBUG TOOLS
 
     //PLAYER POS
-//    ConsoleHandler::setCursorPosition(2, Window::HEIGHT + 2);
-//    std::cout << "Player pos - x: " << m_player->getPosition().x << "   y: " << m_player->getPosition().y << "      ";
+    ConsoleHandler::setCursorPosition(2, Window::HEIGHT + 2);
+    std::cout << "Player pos - x: " << m_player->getPosition().x << "   y: " << m_player->getPosition().y << "      ";
     // MINI-MAP
     for (unsigned int i = 0; i < m_mapMatrix.size(); i++) {
         ConsoleHandler::setCursorPosition(Window::WIDTH + 2, i + 1);
@@ -98,10 +98,18 @@ void Game::makePlayerMovement(MovementDirection direction) {
             return;
         }
         m_player->makeMovement(direction);
-        return;
     }
-    if (!canAccessMapInDirection(direction)) return;
-    switchMap(direction);
+    else {
+        if (!canAccessMapInDirection(direction)) return;
+        switchMap(direction);
+    }
+    InteractiveObject* objAtPlayer = getCurrentMap()->getInteractiveObjectAt(m_player->getPosition());
+    if (objAtPlayer != nullptr) objAtPlayer->onPlayerEnter(this);
+    for (auto* obj : getCurrentMap()->getInteractiveObjects()) {
+        Position pPos = getPlayer()->getPosition(), objPos = obj->getPosition();
+        if (abs(pPos.x-objPos.x) <= 3 && abs(pPos.y-objPos.y) <= 3)
+            obj->onPlayerProximity(this);
+    }
 }
 
 void Game::onInput(ConsoleHandler::KeyEvent *evt) {
