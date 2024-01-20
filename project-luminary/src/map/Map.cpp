@@ -1,11 +1,11 @@
 #include <iostream>
 #include <utility>
 #include "Map.h"
+#include "Torch.h"
 
 Map::Map(const std::string& stringMatrix, std::map<char, std::function<MapObject *()>> mappings,
          std::vector<InteractiveObject *> objects) {
     m_interactiveObjects = std::move(objects);
-    m_isLightened = false;
     unsigned short row = 0, col = 0;
     for (char c: stringMatrix) {
         if (c == '\n') {
@@ -14,20 +14,22 @@ Map::Map(const std::string& stringMatrix, std::map<char, std::function<MapObject
             continue;
         }
         m_matrix[row][col] = (c == ' ') ? nullptr : mappings.at(c)();
+        if (dynamic_cast<Torch*>(m_matrix[row][col]) != nullptr)
+            m_torches.push_back(dynamic_cast<Torch*>(m_matrix[row][col]));
         col++;
     }
 }
 
-std::string Map::render() {
+std::string Map::render(bool isLit) {
     std::string result;
     for (unsigned short row = 0; row < Window::HEIGHT; row++) {
         for (unsigned short col = 0; col < Window::WIDTH; col++) {
             InteractiveObject* interactive = getInteractiveObjectAt({.x=col,.y=row});
             if (m_matrix[row][col] == nullptr)
                 result.append(" " + ConsoleHandler::getFormatChar(RESET));
-            else if (interactive!= nullptr && !interactive->renderChar().empty())
+            else if (interactive!= nullptr && !interactive->isTransparent())
                 result.append(interactive->renderChar());
-            else result.append(m_matrix[row][col]->renderChar(m_isLightened));
+            else result.append(m_matrix[row][col]->renderChar(isLit || areAllTorchesLitUp()));
         }
         result.append("\n");
     }
@@ -51,10 +53,8 @@ MapObject *Map::getObjectAt(Position pos) {
     return m_matrix[pos.y][pos.x];
 }
 
-void Map::setLightState(bool state) {
-    m_isLightened = state;
-}
-
-bool Map::getLightState() {
-    return m_isLightened;
+bool Map::areAllTorchesLitUp() {
+    for (auto* torch : m_torches)
+        if (!torch->isLit()) return false;
+    return !m_torches.empty();
 }

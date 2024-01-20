@@ -12,7 +12,7 @@
 void Game::render() {
     ConsoleHandler::setCursorPosition(1, 1);
     std::cout << ConsoleHandler::getFormatChar(RESET);
-    std::cout << m_mapMatrix.at(m_currentMapPos.y).at(m_currentMapPos.x)->render() << std::endl;
+    std::cout << m_mapMatrix.at(m_currentMapPos.y).at(m_currentMapPos.x)->render(areAllTorchesLitUp()) << std::endl;
     ConsoleHandler::setCursorPosition(m_player->getPosition().x + 1, m_player->getPosition().y + 1);
     std::cout << m_player->renderChar();
 
@@ -109,10 +109,6 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
         Luminary::getInstance()->exit();
         return;
     }
-    if (evt->getKey() == KEY_L){
-        getCurrentMap()->setLightState(!getCurrentMap()->getLightState());
-        return;
-    }
     if (evt->getKey() == KEY_E){
         Luminary::getInstance()->openWindow(new InventoryWindow(this, m_player->getInventory()),true);
         return;
@@ -153,4 +149,26 @@ Game::~Game() {
 
 Player *Game::getPlayer() {
     return m_player;
+}
+
+void Game::lightUpTorch(Torch *torch) {
+    if (torch->isLit()) return;
+    int index = 0;
+    for (int i = 0; i < m_torchesOrder.size(); i++) {
+        if (torch != m_torchesOrder.at(i)) continue;
+        index=i;
+        break;
+    }
+    for (int i = 0; i < index; i++){
+        if (m_torchesOrder.at(i)->isLit()) continue;
+        //not lit in order
+        return;
+    }
+    torch->lightUp();
+}
+
+bool Game::areAllTorchesLitUp() {
+    for (auto* torch : m_torchesOrder)
+        if (!torch->isLit()) return false;
+    return true;
 }

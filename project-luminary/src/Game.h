@@ -41,6 +41,10 @@ public:
     friend class DebugGame;
 
     Map *getCurrentMap();
+
+    void lightUpTorch(Torch* torch);
+
+    bool areAllTorchesLitUp();
 };
 
 

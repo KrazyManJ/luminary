@@ -8,19 +8,19 @@ Torch::Torch() : MapObject(
         new CharData('Y',ColorPalette::UNLIT_TORCH,ColorPalette::DAY_BLUE),
         new CharData('Y',ColorPalette::LIT_TORCH,ColorPalette::ORANGE)
         , true) {
-    m_isLightened = false;
+    m_isLit = false;
 }
 
 void Torch::lightUp() {
-    m_isLightened = true;
+    m_isLit = true;
 }
 
 bool Torch::isLit() {
-    return m_isLightened;
+    return m_isLit;
 }
 
-std::string Torch::renderChar() {
-    if (m_isLightened) {
+std::string Torch::renderChar(bool isLightened) {
+    if (isLit()) {
         return m_lightCharData->toFullChar();
     } else {
         return m_data->toFullChar();
@@ -28,5 +28,5 @@ std::string Torch::renderChar() {
 }
 
 void Torch::onCollision(Game *game) {
-
+    game->lightUpTorch(this);
 }

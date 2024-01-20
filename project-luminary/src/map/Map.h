@@ -8,12 +8,13 @@
 #include "MapObject.h"
 #include "../window/Window.h"
 #include "InteractiveObject.h"
+#include "Torch.h"
 
 class Map {
 private:
     MapObject *m_matrix[Window::HEIGHT][Window::WIDTH]{};
     std::vector<InteractiveObject *> m_interactiveObjects;
-    bool m_isLightened;
+    std::vector<Torch*> m_torches;
 public:
     Map(
             const std::string& stringMatrix,
@@ -21,17 +22,15 @@ public:
             std::vector<InteractiveObject *> objects
     );
 
-    std::string render();
+    std::string render(bool isLit);
 
     std::vector<InteractiveObject *> getInteractiveObjects();
 
     MapObject* getObjectAt(Position pos);
 
-    void setLightState(bool state);
-
-    bool getLightState();
-
     InteractiveObject *getInteractiveObjectAt(Position position);
+
+    bool areAllTorchesLitUp();
 };
 
 

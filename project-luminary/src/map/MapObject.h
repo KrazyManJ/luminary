@@ -12,7 +12,7 @@ private:
     bool m_isObstacle;
 public:
     MapObject(CharData* charData, CharData* lightCharData, bool isObstacle);
-    std::string renderChar(bool isLightened);
+    virtual std::string renderChar(bool isLightened);
 
     bool isObstacle();
 

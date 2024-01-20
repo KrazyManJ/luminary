@@ -25,5 +25,5 @@ void Enemy::dealDamage(unsigned int incomingDamage) {
 void Enemy::onPlayerEnter(Game *game) {}
 
 void Enemy::onPlayerProximity(Game *game) {
-    Luminary::getInstance()->openWindow(new BattleWindow(game->getCurrentMap(),game->getPlayer(), this));
+    Luminary::getInstance()->openWindow(new BattleWindow(game, game->getPlayer(), this));
 }
