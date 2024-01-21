@@ -6,9 +6,10 @@
 
 Player::Player(Position position) : CharRenderable(new CharData(CharPalette::PLAYER,ColorPalette::FG_PLAYER,ColorPalette::BG_PLAYER)){
     m_position = position; //nastavuje Kata v ramci vykreslovani
-    m_health = 100;
+    m_health = 110;
     m_inventory = new Inventory();
-    for(int i = 0; i < PLAYER_ATTACKS; i++){
+    m_attacks[0] = new PlayerAttack("Punch", 35);
+    for(int i = 1; i < PLAYER_ATTACKS; i++){
         m_attacks[i] = nullptr;
     }
 }

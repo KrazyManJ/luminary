@@ -12,7 +12,9 @@ void BattleWindowAttacks::render() {
         if(m_player->getAttacks()[i] != nullptr){
             if(m_battleAttacksCycler->getIndex() == i){
                 std::cout << ConsoleHandler::getFormatChar(BLINKING)
-                        << ConsoleHandler::getFormatChar(INVERTED) << m_player->getAttacks()[i]->getName();
+                        << ConsoleHandler::getFormatChar(INVERTED)
+                        << ConsoleHandler::getColorChar(0xFFFF55, FOREGROUND) << " "
+                        << m_player->getAttacks()[i]->getName() << " ";
             }
             else{
                 std::cout << m_player->getAttacks()[i]->getName();
@@ -21,7 +23,8 @@ void BattleWindowAttacks::render() {
         else{
             if(m_battleAttacksCycler->getIndex() == i){
                 std::cout << ConsoleHandler::getFormatChar(BLINKING)
-                          << ConsoleHandler::getFormatChar(INVERTED) << "######";
+                          << ConsoleHandler::getFormatChar(INVERTED)
+                          << ConsoleHandler::getColorChar(0xFFFF55, FOREGROUND) << " " << "######" << " ";
             }
             else{
                 std::cout << "######";

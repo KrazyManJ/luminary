@@ -24,15 +24,27 @@ void BattleWindow::render() {
         }
         ConsoleHandler::setCursorPosition(Window::WIDTH/2-finishDialog.length()/2,10);
         std::cout << finishDialog;
+        //Místo pro restart hry
     }
     else{
         ConsoleHandler::setCursorPosition(1,1);
         std::string fullRender;
+//        std::string fightBackground = ConsoleHandler::getColorChar(0x38A8AB, BACKGROUND) + ' ' + ConsoleHandler::getFormatChar(RESET);
         for(unsigned int renderPositionY = 1; renderPositionY <= Window::HEIGHT; renderPositionY++){
             fullRender.append(std::string(Window::WIDTH, (renderPositionY == 2 || renderPositionY == 20) ? '-' : ' ')).append("\n");
+//            if(renderPositionY == 2 || renderPositionY == 20) fullRender.append(std::string(Window::WIDTH, '-')).append("\n");
+//            else if(renderPositionY > 2 && renderPositionY < 20){
+//                for(unsigned renderPositionX = 1; renderPositionX <= Window::WIDTH; renderPositionX++){
+//                    fullRender.append(fightBackground,0);
+//                }
+//                fullRender.append("\n");
+//            }
+//            else{
+//                fullRender.append(std::string(Window::WIDTH,' ')).append("\n");
+//            }
         }
         std::cout << fullRender << std::endl;
-        std::string label = "Battle";
+        std::string label = "| Battle |";
         unsigned int lenghtOfLabel = label.length();
         ConsoleHandler::setCursorPosition((Window::WIDTH/2)-(lenghtOfLabel/2),1);
         std::cout << label;
@@ -49,8 +61,9 @@ void BattleWindow::render() {
         for(unsigned int i = 0; i < AMOUNT_OF_CHOISES; i++){
             if(m_battleCycler->getIndex() == i){
                 std::cout << ConsoleHandler::getFormatChar(BLINKING)
-                          << ConsoleHandler::getFormatChar(INVERTED) << " " << choises[i] << " "
-                          << ConsoleHandler::getFormatChar(RESET) << "            ";
+                          << ConsoleHandler::getFormatChar(INVERTED)
+                          << ConsoleHandler::getColorChar(0xFFFF55, FOREGROUND)
+                          << " " << choises[i] << " " << ConsoleHandler::getFormatChar(RESET) << "            ";
             }
             else{
                 std::cout << choises[i] << "            ";
