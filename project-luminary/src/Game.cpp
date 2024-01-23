@@ -2,11 +2,14 @@
 #include "Game.h"
 #include "Luminary.h"
 #include "map/Enemy.h"
-#include "console/CharBuilder.h"
-#include "map/ItemEntity.h"
 #include "window/InventoryWindow.h"
-#include "window/BattleWindow.h"
-#include "palettes/ColorPalette.h"
+#include "window/GameDialog.h"
+
+Game::Game(GamePosition playerStartPosition) {
+    m_currentMapPos = playerStartPosition.map;
+    m_player = new Player(playerStartPosition.position);
+    m_endPosition = playerStartPosition;
+}
 
 
 void Game::render() {
@@ -121,10 +124,6 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
         Luminary::getInstance()->openWindow(new InventoryWindow(this, m_player->getInventory()),true);
         return;
     }
-//    if (evt->getKey() == KEY_U){
-//        Luminary::getInstance()->openWindow(new BattleWindow(this, m_player, new Enemy(Position{.x=5,.y=5},50,100,new CharData('I',ColorPalette::GREEN,COLOR_NONE))));
-//        return;
-//    }
     std::map<unsigned int, MovementDirection> directions = {
             {KEY_W,    UP},
             {KEY_A,  LEFT},
@@ -173,10 +172,21 @@ void Game::lightUpTorch(Torch *torch) {
         return;
     }
     torch->lightUp();
+    if (areAllTorchesLitUp()) end();
 }
 
 bool Game::areAllTorchesLitUp() {
     for (auto* torch : m_torchesOrder)
         if (!torch->isLit()) return false;
     return true;
+}
+
+void Game::end() {
+    Luminary::getInstance()->getActiveWindow()->render();
+    Luminary::getInstance()->openWindow(new GameDialog("You did it, you finish it!",this), true);
+    m_currentMapPos = m_endPosition.map;
+    m_player->setPosition(m_endPosition.position);
+//    Luminary::getInstance()->openWindow(new GameDialog(this), true);
+//    delete this;
+//    Luminary::getInstance()->openWindow(new MainMenuWindow());
 }

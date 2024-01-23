@@ -7,7 +7,10 @@
 
 
 Game *GameCreator::createNewGame() {
-    Game* game = new Game();
+    Game* game = new Game({
+        .map={.x=0,.y=0},
+        .position={.x=24,.y=17}
+    });
 
     std::map<char, std::function<MapObject*()>> charMappings = {
             {
@@ -594,8 +597,5 @@ Game *GameCreator::createNewGame() {
                 })
             }
     };
-
-    game->m_player=new Player({.x=24,.y=17});
-    game->m_currentMapPos = {.x=0,.y=0};
     return game;
 }

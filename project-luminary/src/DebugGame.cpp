@@ -5,8 +5,10 @@
 #include "map/Torch.h"
 
 Game *DebugGame::create() {
-    Game *game = new Game();
-    game->m_player = new Player({.x=10, .y=2});
+    Game *game = new Game({
+        .map={.x = 0, .y=0},
+        .position={.x=10, .y=2},
+    });
     game->m_torchesOrder = {
             new Torch(),
             new Torch(),
@@ -146,6 +148,5 @@ Game *DebugGame::create() {
                     new Map(noTorchMatrix, map, {}),
             }
     };
-    game->m_currentMapPos = {.x = 0, .y=0};
     return game;
 }

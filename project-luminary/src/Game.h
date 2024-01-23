@@ -7,6 +7,7 @@
 #include "map/Map.h"
 #include "player/Player.h"
 #include "map/Torch.h"
+#include "structs/GamePosition.h"
 
 class Game : public Window {
 private:
@@ -14,6 +15,7 @@ private:
     Position m_currentMapPos;
     Player *m_player;
     std::vector<Torch*> m_torchesOrder;
+    GamePosition m_endPosition;
 
     MapObject *getMapObjectInDirectionOfPlayer(MovementDirection direction);
 
@@ -27,6 +29,9 @@ private:
 
     Position posInDirection(Position position, MovementDirection direction);
 
+    void end();
+
+    Game(GamePosition playerStartPosition);
 public:
 
     void render() override;
