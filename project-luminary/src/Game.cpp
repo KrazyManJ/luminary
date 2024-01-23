@@ -183,11 +183,7 @@ bool Game::areAllTorchesLitUp() {
 
 void Game::end() {
     Luminary::getInstance()->getActiveWindow()->render();
-
     Luminary::getInstance()->openWindow(new GameEndingWindow(this));
-//    Luminary::getInstance()->openWindow(new GameDialog(this), true);
-//    delete this;
-//    Luminary::getInstance()->openWindow(new MainMenuWindow());
 }
 
 GamePosition Game::getEndingPosition() {

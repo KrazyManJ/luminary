@@ -3,12 +3,15 @@
 
 
 #include "window/Window.h"
+#include "Game.h"
+
 
 class Luminary {
 private:
     static Luminary *s_instance;
     Window *m_activeWindow;
     bool m_run;
+    Game* m_lastGame;
 public:
     explicit Luminary(Window *startingWindow);
 
@@ -21,6 +24,10 @@ public:
     Window *getActiveWindow();
 
     void openWindow(Window *window, bool keepPrevious = false);
+
+    void startNewGame();
+
+    void resetGame();
 
     void clearWindowContent();
 };

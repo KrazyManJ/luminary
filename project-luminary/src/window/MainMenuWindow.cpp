@@ -41,7 +41,7 @@ void MainMenuWindow::render() {
 void MainMenuWindow::onInput(ConsoleHandler::KeyEvent *evt) {
     if (evt->getKey() == KEY_ENTER) {
         if (m_menuCycler->getIndex() == 0) {
-            Luminary::getInstance()->openWindow(GameCreator::createNewGame());
+            Luminary::getInstance()->startNewGame();
             delete this;
         } else if (m_menuCycler->getIndex() == 1) {
             Luminary::getInstance()->exit();
