@@ -5,7 +5,7 @@ ReturnableWindow::ReturnableWindow(Window *prevWindow) {
     m_prevWindow = prevWindow;
 }
 
-void ReturnableWindow::close() {
-    Luminary::getInstance()->openWindow(m_prevWindow);
+void ReturnableWindow::close(bool keepPrevious) {
+    Luminary::getInstance()->openWindow(m_prevWindow, keepPrevious);
     delete this;
 }

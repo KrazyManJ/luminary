@@ -22,7 +22,7 @@ void GameDialog::render() {
 }
 
 void GameDialog::onInput(ConsoleHandler::KeyEvent *evt) {
-    if (evt->getKey() == KEY_ENTER) close();
+    if (evt->getKey() == KEY_ENTER) close(true);
 }
 
 GameDialog::GameDialog(std::string text, Window *prevWindow) : ReturnableWindow(prevWindow) {

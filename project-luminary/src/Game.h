@@ -50,6 +50,10 @@ public:
     void lightUpTorch(Torch* torch);
 
     bool areAllTorchesLitUp();
+
+    GamePosition getEndingPosition();
+
+    void teleportPlayer(GamePosition position);
 };
 
 

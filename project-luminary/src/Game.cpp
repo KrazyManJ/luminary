@@ -3,7 +3,7 @@
 #include "Luminary.h"
 #include "map/Enemy.h"
 #include "window/InventoryWindow.h"
-#include "window/GameDialog.h"
+#include "window/GameEndingWindow.h"
 
 Game::Game(GamePosition playerStartPosition) {
     m_currentMapPos = playerStartPosition.map;
@@ -21,18 +21,18 @@ void Game::render() {
 
     //DEBUG TOOLS
 
-    //PLAYER POS
-    ConsoleHandler::setCursorPosition(2, Window::HEIGHT + 2);
-    std::cout << "Player pos - x: " << m_player->getPosition().x << "   y: " << m_player->getPosition().y << "      ";
-    // MINI-MAP
-    for (unsigned int i = 0; i < m_mapMatrix.size(); i++) {
-        ConsoleHandler::setCursorPosition(Window::WIDTH + 2, i + 1);
-        for (unsigned int j = 0; j < m_mapMatrix.at(i).size(); j++) {
-            if (m_mapMatrix.at(i).at(j) == nullptr) std::cout << " ";
-            else if (i == m_currentMapPos.y && j == m_currentMapPos.x) std::cout << "x";
-            else std::cout << "-";
-        }
-    }
+//    //PLAYER POS
+//    ConsoleHandler::setCursorPosition(2, Window::HEIGHT + 2);
+//    std::cout << "Player pos - x: " << m_player->getPosition().x << "   y: " << m_player->getPosition().y << "      ";
+//    // MINI-MAP
+//    for (unsigned int i = 0; i < m_mapMatrix.size(); i++) {
+//        ConsoleHandler::setCursorPosition(Window::WIDTH + 2, i + 1);
+//        for (unsigned int j = 0; j < m_mapMatrix.at(i).size(); j++) {
+//            if (m_mapMatrix.at(i).at(j) == nullptr) std::cout << " ";
+//            else if (i == m_currentMapPos.y && j == m_currentMapPos.x) std::cout << "x";
+//            else std::cout << "-";
+//        }
+//    }
 }
 
 Map *Game::getCurrentMap() {
@@ -183,10 +183,18 @@ bool Game::areAllTorchesLitUp() {
 
 void Game::end() {
     Luminary::getInstance()->getActiveWindow()->render();
-    Luminary::getInstance()->openWindow(new GameDialog("You did it, you finish it!",this), true);
-    m_currentMapPos = m_endPosition.map;
-    m_player->setPosition(m_endPosition.position);
+
+    Luminary::getInstance()->openWindow(new GameEndingWindow(this));
 //    Luminary::getInstance()->openWindow(new GameDialog(this), true);
 //    delete this;
 //    Luminary::getInstance()->openWindow(new MainMenuWindow());
+}
+
+GamePosition Game::getEndingPosition() {
+    return m_endPosition;
+}
+
+void Game::teleportPlayer(GamePosition position) {
+    m_currentMapPos = position.map;
+    m_player->setPosition(position.position);
 }

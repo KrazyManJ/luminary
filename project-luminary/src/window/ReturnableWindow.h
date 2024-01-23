@@ -1,7 +1,3 @@
-//
-// Created by KrazyManJ on 01.12.2023.
-//
-
 #ifndef PROJECT_LUMINARY_RETURNABLEWINDOW_H
 #define PROJECT_LUMINARY_RETURNABLEWINDOW_H
 
@@ -15,7 +11,7 @@ protected:
     ReturnableWindow(Window* prevWindow);
 public:
 
-    void close();
+    virtual void close(bool keepPrevious = false);
 };
 
 
