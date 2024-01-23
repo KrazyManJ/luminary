@@ -21,10 +21,10 @@ void BattleWindow::render() {
             finishDialog = "Battle is over!!! You won!!! Press any key to continue...";
         }else{
             finishDialog = "Battle is over!!! Game is over!!! Press any key to start again...";
+            Luminary::getInstance()->resetGame();
         }
         ConsoleHandler::setCursorPosition(Window::WIDTH/2-finishDialog.length()/2,10);
         std::cout << finishDialog;
-        //Místo pro restart hry
     }
     else{
         ConsoleHandler::setCursorPosition(1,1);
