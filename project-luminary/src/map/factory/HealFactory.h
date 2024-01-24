@@ -5,10 +5,11 @@
 
 #include "../../inventory/Heal.h"
 #include "../ItemEntity.h"
+#include "../../enums/HealType.h"
 
 class HealFactory {
 public:
-    ItemEntity* createHeal(Position position);
+    ItemEntity* createHeal(Position position, HealType type);
 };
 
 

@@ -10,6 +10,8 @@ public:
     static const unsigned int CARROT = 0xFF8000;
     static const unsigned int UNLIT_TORCH = 0x15222b;
     static const unsigned int LIT_TORCH = 0xeddf8e;
+    static const unsigned int NPC_PINK = 0xc75088;
+    static const unsigned int MAGIC_CARROT = 0x9f5de3;
 
     //dark map
     static const unsigned int DARK_BLUE = 0x002A40;

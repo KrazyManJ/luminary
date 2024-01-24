@@ -13,5 +13,8 @@ Enemy* EnemyFactory::createEnemy(Position position, EnemyType type){
         case HARD:
             return new Enemy(position, 100, 45,(new CharBuilder('%'))->background(ColorPalette::GREEN)
                     ->foreground(ColorPalette::YELLOW)->build());
+        default:
+            return nullptr;
+
     }
 }
