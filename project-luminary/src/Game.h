@@ -47,7 +47,7 @@ public:
 
     Map *getCurrentMap();
 
-    void lightUpTorch(Torch* torch);
+    bool lightUpTorch(Torch* torch);
 
     bool areAllTorchesLitUp();
 

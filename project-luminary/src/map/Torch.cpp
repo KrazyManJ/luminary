@@ -3,6 +3,8 @@
 #include "MapObject.h"
 #include "../Game.h"
 #include "../palettes/ColorPalette.h"
+#include "../Luminary.h"
+#include "../window/GameDialog.h"
 
 Torch::Torch() : MapObject(
         new CharData('Y',ColorPalette::UNLIT_TORCH,ColorPalette::DAY_BLUE),
@@ -28,5 +30,8 @@ std::string Torch::renderChar(bool isLightened) {
 }
 
 void Torch::onCollision(Game *game) {
-    game->lightUpTorch(this);
+    if (!game->lightUpTorch(this))
+        Luminary::getInstance()->openWindow(new GameDialog(
+                "Oh, this does not seem to work, maybe I've skipped some torches..."
+    ,game), true);
 }

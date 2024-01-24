@@ -108,10 +108,10 @@ void Game::makePlayerMovement(MovementDirection direction) {
         switchMap(direction);
     }
     InteractiveObject* objAtPlayer = getCurrentMap()->getInteractiveObjectAt(m_player->getPosition());
-    if (objAtPlayer != nullptr) objAtPlayer->onPlayerEnter(this);
+    if (objAtPlayer != nullptr && objAtPlayer->isInteractable()) objAtPlayer->onPlayerEnter(this);
     for (auto* obj : getCurrentMap()->getInteractiveObjects()) {
         Position pPos = getPlayer()->getPosition(), objPos = obj->getPosition();
-        if (abs(pPos.x-objPos.x) <= 3 && abs(pPos.y-objPos.y) <= 3)
+        if (abs(pPos.x-objPos.x) <= 3 && abs(pPos.y-objPos.y) <= 3 && obj->isInteractable())
             obj->onPlayerProximity(this);
     }
 }
@@ -159,8 +159,8 @@ Player *Game::getPlayer() {
     return m_player;
 }
 
-void Game::lightUpTorch(Torch *torch) {
-    if (torch->isLit()) return;
+bool Game::lightUpTorch(Torch *torch) {
+    if (torch->isLit()) return false;
     int index = 0;
     for (int i = 0; i < m_torchesOrder.size(); i++) {
         if (torch != m_torchesOrder.at(i)) continue;
@@ -170,10 +170,11 @@ void Game::lightUpTorch(Torch *torch) {
     for (int i = 0; i < index; i++){
         if (m_torchesOrder.at(i)->isLit()) continue;
         //not lit in order
-        return;
+        return false;
     }
     torch->lightUp();
     if (areAllTorchesLitUp()) end();
+    return true;
 }
 
 bool Game::areAllTorchesLitUp() {

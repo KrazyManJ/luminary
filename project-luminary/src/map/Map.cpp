@@ -27,7 +27,7 @@ std::string Map::render(bool isLit) {
             InteractiveObject* interactive = getInteractiveObjectAt({.x=col,.y=row});
             if (m_matrix[row][col] == nullptr)
                 result.append(" " + ConsoleHandler::getFormatChar(RESET));
-            else if (interactive!= nullptr && !interactive->isTransparent())
+            else if (interactive!= nullptr && !interactive->isTransparent() && interactive->isInteractable())
                 result.append(interactive->renderChar());
             else result.append(m_matrix[row][col]->renderChar(isLit || areAllTorchesLitUp()));
         }
