@@ -80,3 +80,8 @@ Luminary::~Luminary(){
     delete m_lastGame;
     delete m_activeWindow;
 }
+
+void Luminary::removeLastGame() {
+    delete m_lastGame;
+    m_lastGame = nullptr;
+}

@@ -21,6 +21,7 @@ void GameEndingWindow::render() {
             break;
         default:
             close();
+            Luminary::getInstance()->removeLastGame();
             Luminary::getInstance()->getActiveWindow()->render();
             break;
     }
