@@ -4,6 +4,7 @@
 #include "map/Enemy.h"
 #include "window/InventoryWindow.h"
 #include "window/GameEndingWindow.h"
+#include "window/MainMenuWindow.h"
 
 Game::Game(GamePosition playerStartPosition) {
     m_currentMapPos = playerStartPosition.map;
@@ -117,7 +118,7 @@ void Game::makePlayerMovement(MovementDirection direction) {
 
 void Game::onInput(ConsoleHandler::KeyEvent *evt) {
     if (evt->getKey() == KEY_ESC) {
-        Luminary::getInstance()->exit();
+        Luminary::getInstance()->openWindow(new MainMenuWindow());
         return;
     }
     if (evt->getKey() == KEY_E){

@@ -9,6 +9,7 @@ Luminary::Luminary(Window *startingWindow) {
     s_instance = this;
     m_run = true;
     m_activeWindow = startingWindow;
+    m_lastGame = nullptr;
     ConsoleHandler::setConsoleTitle("Luminary");
     ConsoleHandler::disableCursorVisibility();
     startingWindow->render();
@@ -69,4 +70,8 @@ void Luminary::startNewGame() {
 void Luminary::resetGame() {
     delete m_lastGame;
     startNewGame();
+}
+
+Game *Luminary::getLastGame() {
+    return m_lastGame;
 }

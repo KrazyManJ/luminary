@@ -30,6 +30,8 @@ public:
     void resetGame();
 
     void clearWindowContent();
+
+    Game* getLastGame();
 };
 
 
