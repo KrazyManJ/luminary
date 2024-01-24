@@ -27,6 +27,15 @@ void Enemy::dealDamage(unsigned int incomingDamage) {
     m_health -= incomingDamage;
 }
 
+bool Enemy::hasLoot() {
+    if(m_lootWeapon != nullptr) return true;
+    return false;
+}
+
+Weapon *Enemy::getLoot() {
+    return m_lootWeapon;
+}
+
 void Enemy::onPlayerEnter(Game *game) {}
 
 void Enemy::onPlayerProximity(Game *game) {

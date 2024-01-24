@@ -16,6 +16,8 @@ public:
     float getHealth();
     unsigned int getDamage();
     void dealDamage(unsigned int incomingDamage); //nastavi aktualni zdravi nepritele (pozdejsi vyuziti v ramci boje)
+    bool hasLoot();
+    Weapon* getLoot();
     void onPlayerEnter(Game *game) override;
     void onPlayerProximity(Game *game) override;
 };

@@ -1,14 +1,15 @@
 #include "Player.h"
 #include "../palettes/ColorPalette.h"
 #include "../palettes/CharPalette.h"
-
+#include "../console/CharBuilder.h"
 
 
 Player::Player(Position position) : CharRenderable(new CharData(CharPalette::PLAYER,ColorPalette::FG_PLAYER,ColorPalette::BG_PLAYER)){
     m_position = position; //nastavuje Kata v ramci vykreslovani
-    m_health = 110;
+    m_health = 100;
     m_inventory = new Inventory();
-    m_attacks[0] = new PlayerAttack("Punch", 35);
+    m_inventory->addHeal(new Heal("carrot", 25, (new CharBuilder('8'))->build()));
+    m_attacks[0] = new PlayerAttack("Punch", 20);
     for(int i = 1; i < PLAYER_ATTACKS; i++){
         m_attacks[i] = nullptr;
     }
