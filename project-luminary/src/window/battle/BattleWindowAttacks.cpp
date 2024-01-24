@@ -7,7 +7,7 @@ BattleWindowAttacks::BattleWindowAttacks(Window *prevWindow, Player *player, Ene
 }
 
 void BattleWindowAttacks::render() {
-    ConsoleHandler::setCursorPosition(12,22);
+    ConsoleHandler::setCursorPosition(12,20);
     for(int i = 0; i < PLAYER_ATTACKS; i++){
         if(m_player->getAttacks()[i] != nullptr){
             if(m_battleAttacksCycler->getIndex() == i){
