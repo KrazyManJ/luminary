@@ -3,6 +3,7 @@
 
 InteractiveObject::InteractiveObject(Position position, CharData *charData) : CharRenderable(charData) {
     m_position = position;
+    m_interactable = true;
 }
 InteractiveObject::InteractiveObject(Position position) : CharRenderable(nullptr){
     m_position = position;
