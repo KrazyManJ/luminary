@@ -15,6 +15,7 @@ protected:
 
     InteractiveObject(Position position);
 
+    bool m_available;
 public:
     Position getPosition();
 
@@ -25,6 +26,10 @@ public:
     virtual void onPlayerProximity(Game* game) = 0;
 
     virtual void onPlayerEnter(Game* game) = 0;
+
+    void changeState();
+
+    bool getState();
 };
 
 
