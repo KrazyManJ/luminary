@@ -6,12 +6,13 @@
 
 Player::Player(Position position) : CharRenderable(new CharData(CharPalette::PLAYER,ColorPalette::FG_PLAYER,ColorPalette::BG_PLAYER)){
     m_position = position; //nastavuje Kata v ramci vykreslovani
-    m_health = 100;
+    m_health = PLAYER_MAX_HEALTH;
     m_inventory = new Inventory();
     m_attacks[0] = new PlayerAttack("Punch", 20);
     for(int i = 1; i < PLAYER_ATTACKS; i++){
         m_attacks[i] = nullptr;
     }
+    m_equipedWeapon = nullptr;
 }
 
 void Player::setPosition(Position newPosition) {
@@ -32,10 +33,13 @@ void Player::dealDamage(unsigned int incomingDamage) {
     m_health -= incomingDamage;
 }
 
-void Player::useHeal(unsigned int healIndex) {
-    Heal* heal = m_inventory->getHeal(healIndex);
-    m_health += heal->getHealValue();
-    m_inventory->deleteHeal(healIndex);
+bool Player::useHeal(Heal* heal) {
+    if(m_health + heal->getHealValue() <= PLAYER_MAX_HEALTH){
+        m_health += heal->getHealValue();
+        return true;
+    }else{
+        return false;
+    }
 }
 
 Inventory* Player::getInventory() {
@@ -69,6 +73,15 @@ PlayerAttack** Player::getAttacks() {
 
 float Player::getHealth() {
     return m_health;
+}
+
+int Player::getDamage(PlayerAttack *playerAttack) {
+    if(m_equipedWeapon != nullptr) return playerAttack->getDamage() + m_equipedWeapon->getDamage();
+    return playerAttack->getDamage();
+}
+
+void Player::equipWeapon(Weapon *toEquip) {
+    m_equipedWeapon = toEquip;
 }
 
 Player::~Player() {

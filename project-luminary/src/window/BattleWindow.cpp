@@ -35,7 +35,7 @@ void BattleWindow::render() {
         std::string fullRender;
 //        std::string fightBackground = ConsoleHandler::getColorChar(0x38A8AB, BACKGROUND) + ' ' + ConsoleHandler::getFormatChar(RESET);
         for(unsigned int renderPositionY = 1; renderPositionY <= Window::HEIGHT; renderPositionY++){
-            fullRender.append(std::string(Window::WIDTH, (renderPositionY == 2 || renderPositionY == 20) ? '-' : ' ')).append("\n");
+            fullRender.append(std::string(Window::WIDTH, (renderPositionY == 2 || renderPositionY == 24) ? '-' : ' ')).append("\n");
 //            if(renderPositionY == 2 || renderPositionY == 20) fullRender.append(std::string(Window::WIDTH, '-')).append("\n");
 //            else if(renderPositionY > 2 && renderPositionY < 20){
 //                for(unsigned renderPositionX = 1; renderPositionX <= Window::WIDTH; renderPositionX++){
@@ -60,7 +60,7 @@ void BattleWindow::render() {
         std::cout << enemyHealth << " HP";
         ConsoleHandler::setCursorPosition(Window::WIDTH-13,10);
         std::cout << m_enemy->renderChar();
-        ConsoleHandler::setCursorPosition(26,22);
+        ConsoleHandler::setCursorPosition(26,26);
         std::string choises[AMOUNT_OF_CHOISES] = {"Attack", "Open inventory"};
         for(unsigned int i = 0; i < AMOUNT_OF_CHOISES; i++){
             if(m_battleCycler->getIndex() == i){
