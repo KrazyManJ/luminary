@@ -6,7 +6,7 @@ InteractiveObject::InteractiveObject(Position position, CharData *charData) : Ch
 }
 InteractiveObject::InteractiveObject(Position position) : CharRenderable(nullptr){
     m_position = position;
-    m_available = true;
+    m_interactable = true;
 }
 
 Position InteractiveObject::getPosition() {
@@ -28,10 +28,10 @@ bool InteractiveObject::isTransparent(){
     }
 }
 
-void InteractiveObject::changeState() {
-    m_available = false;
+void InteractiveObject::makeUninteractable() {
+    m_interactable = false;
 }
 
-bool InteractiveObject::getState() {
-    return m_available;
+bool InteractiveObject::isInteractable() {
+    return m_interactable;
 }

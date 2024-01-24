@@ -15,7 +15,7 @@ protected:
 
     InteractiveObject(Position position);
 
-    bool m_available;
+    bool m_interactable;
 public:
     Position getPosition();
 
@@ -27,9 +27,9 @@ public:
 
     virtual void onPlayerEnter(Game* game) = 0;
 
-    void changeState();
+    void makeUninteractable();
 
-    bool getState();
+    bool isInteractable();
 };
 
 
