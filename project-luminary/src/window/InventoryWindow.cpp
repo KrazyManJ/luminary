@@ -1,6 +1,7 @@
 #include <iostream>
 #include "InventoryWindow.h"
 
+//#include "Item.h"
 void InventoryWindow::render() {
 
     const unsigned short MARGIN_WIDTH = 4;
@@ -36,13 +37,37 @@ void InventoryWindow::render() {
     ConsoleHandler::setCursorPosition(Window::WIDTH / 2 - INVENTORY_LABEL.length() / 2, MARGIN_HEIGHT + 1);
     std::cout << INVENTORY_LABEL;
 
-}
+    int i = 0;
+    int z = 0;
+    for (auto *heal: m_openedInventory->getHeals()) {
+        ConsoleHandler::setCursorPosition(9+2*i, 7+z*2);
+        std::cout<< heal->renderChar();
+        i++;
+    if (6+2*i> Window::WIDTH/2 -3){
+        z++;
+        i = 0;
+    }
+    }
+    i = 0;
+    z = 0;
+    for (auto *weapon: m_openedInventory->getWeapons()) {
+        ConsoleHandler::setCursorPosition(9+2*i, 15+z*2);
+        std::cout<< weapon->renderChar();
+        i++;
+        if (6+2*i> Window::WIDTH/2 -3 && Window::HEIGHT/2-2){
+            z++;
+            i = 0;
+        }
+    }
 
-void InventoryWindow::onInput(ConsoleHandler::KeyEvent *evt) {
-    if (evt->getKey() == KEY_E || evt->getKey() == KEY_ESC) close();
 }
+    void InventoryWindow::onInput(ConsoleHandler::KeyEvent *evt) {
+        if (evt->getKey() == KEY_E || evt->getKey() == KEY_ESC) close();
+    }
 
-InventoryWindow::InventoryWindow(Window *prevWindow, Inventory *inventory) : ReturnableWindow(prevWindow) {
-    m_openedInventory = inventory;
-}
+    InventoryWindow::InventoryWindow(Window * prevWindow, Inventory * inventory) : ReturnableWindow(prevWindow) {
+            m_openedInventory = inventory;
+    }
+
+
 

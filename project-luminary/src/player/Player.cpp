@@ -8,7 +8,6 @@ Player::Player(Position position) : CharRenderable(new CharData(CharPalette::PLA
     m_position = position; //nastavuje Kata v ramci vykreslovani
     m_health = 100;
     m_inventory = new Inventory();
-    m_inventory->addHeal(new Heal("carrot", 25, (new CharBuilder('8'))->build()));
     m_attacks[0] = new PlayerAttack("Punch", 20);
     for(int i = 1; i < PLAYER_ATTACKS; i++){
         m_attacks[i] = nullptr;
