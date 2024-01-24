@@ -75,3 +75,8 @@ void Luminary::resetGame() {
 Game *Luminary::getLastGame() {
     return m_lastGame;
 }
+
+Luminary::~Luminary(){
+    delete m_lastGame;
+    delete m_activeWindow;
+}

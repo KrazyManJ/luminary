@@ -32,6 +32,8 @@ public:
     void clearWindowContent();
 
     Game* getLastGame();
+
+    ~Luminary();
 };
 
 

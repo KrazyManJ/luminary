@@ -4,5 +4,6 @@
 int main() {
     auto* luminary = new Luminary(new MainMenuWindow());
     luminary->startLoop();
+    delete luminary;
     return 0;
 }

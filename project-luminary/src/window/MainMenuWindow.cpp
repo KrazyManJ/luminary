@@ -54,7 +54,6 @@ void MainMenuWindow::onInput(ConsoleHandler::KeyEvent *evt) {
         }
         else if (m_menuCycler->getIndex() == 2) {
             Luminary::getInstance()->exit();
-            delete this;
         }
     }
     if (evt->getKey() == KEY_W) {
