@@ -8,6 +8,8 @@ public:
     static const char TORCH = 'Y';
     static const char ENEMY = '%';
     static const char CARROT = '"';
+    static const char FATHER = 'D';
+    static const char GHOST = '&';
 
 };
 
