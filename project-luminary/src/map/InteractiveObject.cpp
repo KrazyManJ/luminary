@@ -5,10 +5,8 @@ InteractiveObject::InteractiveObject(Position position, CharData *charData) : Ch
     m_position = position;
     m_interactable = true;
 }
-InteractiveObject::InteractiveObject(Position position) : CharRenderable(nullptr){
-    m_position = position;
-    m_interactable = true;
-}
+
+InteractiveObject::InteractiveObject(Position position) : InteractiveObject(position, nullptr){}
 
 Position InteractiveObject::getPosition() {
     return m_position;

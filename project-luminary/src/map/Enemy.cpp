@@ -6,6 +6,11 @@
 Enemy::Enemy(Position position, float health, unsigned int damage, CharData *charData) : InteractiveObject(position, charData) {
     m_health = health;
     m_damage = damage;
+    m_lootWeapon = nullptr;
+}
+
+Enemy::Enemy(Position position, float health, unsigned int damage, CharData *charData, Weapon *lootWeapon) : Enemy(position,health,damage,charData){
+    m_lootWeapon = lootWeapon;
 }
 
 float Enemy::getHealth() {

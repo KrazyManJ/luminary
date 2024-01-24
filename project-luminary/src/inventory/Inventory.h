@@ -7,7 +7,7 @@
 
 class Inventory {
 private:
-    std::vector<Weapon*> m_weapons; //nyni jako 2 vectory do budoucna jeden (typ Item*)
+    std::vector<Weapon*> m_weapons;
     std::vector<Heal*> m_heals;
 
 public:
