@@ -11,6 +11,13 @@ Game *GameCreator::createNewGame() {
         .map={.x=0,.y=0},
         .position={.x=24,.y=17}
     });
+    game->m_torchesOrder = {
+            new Torch(),
+            new Torch(),
+            new Torch(),
+            new Torch(),
+            new Torch(),
+    };
 
     std::map<char, std::function<MapObject*()>> charMappings = {
             {
@@ -261,8 +268,21 @@ Game *GameCreator::createNewGame() {
                                 );
                     }
             },
-
-
+            {
+                '0',[&game]() { return game->m_torchesOrder.at(0);},
+            },
+            {
+                '1',[&game]() { return game->m_torchesOrder.at(1);},
+            },
+            {
+                '2',[&game]() { return game->m_torchesOrder.at(2);},
+            },
+            {
+                '3',[&game]() { return game->m_torchesOrder.at(3);},
+            },
+            {
+                '4',[&game]() { return game->m_torchesOrder.at(4);},
+            }
 
 
     };
@@ -300,7 +320,7 @@ Game *GameCreator::createNewGame() {
             "llllllllkkkkklllllllllwllllllllllllllllllllllhhhhhhhhhhhhhhhhllllllwllllllwwllll\n"
             "llllllkkkkkkkkjllllwlllllllllllllllllhhhhhhhhh~~hh~hh~hhhh~hhhhhhhllllllllllllll\n"
             "lllljjjjjjjjjjjjlllllllllllliiiiiiiddddddddddddddddddhhh~hhhhhhhhhhhhhhlllllllll\n"
-            "llllllllllwlllllllwlllllliiiiiiiiiiddddddddddddddddddhhhhhh~~hh~hhhhhhhhhhhlllll\n"
+            "llllllllllwlllllllwlllllliiiiiiiiiiddddddddddddddd0ddhhhhhh~~hh~hhhhhhhhhhhlllll\n"
             "llllllwwlllllllllllllliiiiiiiiiiiiiddddddddddddddddddhhhhhhhhhhhhhhhhhhhhhhhhlll\n"
             "llllllllllllllllliiiiiiiiiiiiiiiiiiddddddddddddddddddhhhhhhhhh~hh~hhh~~hhhhhhlll\n"
             "iiiiiiiiiiiiiiiiiiiiiiiiiiiiilllllllhhh~~hh~hhhhhhhvvhhh~hh~hhhhhhhhhhhhhhhhllll\n"
@@ -340,7 +360,7 @@ Game *GameCreator::createNewGame() {
             "hhh~hhhh~hhhhhhilllllllliiiiiiiiiiiillllllwllkkkkllllwwwlllllljjjjjjjjlllwwwllll\n"
             "hhhhhh~hhhhhhhilwwwllllliiiiiiiiiiiiiilllllkjjkkjjklllllwllllllllqqlllwwllllllll\n"
             "hhh~hhhhhhhhhhillllwwllllliiiiiiiiiiiiilllkkkjjjjkkklllllllwlllllwwlllkkkkllllll\n"
-            "hhhhh~hhh~~hhhhhilllwllllliiiiiiiiiiiiiilljjkkkkkkjjllwllllkklllllllkkkkkjjjllll\n"
+            "hhhhh~hhh~~hhhhhilllwll1lliiiiiiiiiiiiiilljjkkkkkkjjllwllllkklllllllkkkkkjjjllll\n"
             "hhhhhhh~hhhhhhhhillllwwwllliiiiiiiiiiiiillljjjjjjjjlllllllkkkkllllljjjjjjjjjjlll\n"
             "hhh~~hhhhhhhhhhhilwwlllllllliiiiiiiiiiiiilllllqqllllllwlkjjkkjjkllllllllllllllll\n"
             "hhhhh~hhh~~hhhhhhiilwwwllwlliiiiiiiiiiiiillwwwwwlllwlllkkkjjjjkkklllwwlllwlwllll\n"
@@ -351,17 +371,17 @@ Game *GameCreator::createNewGame() {
     std::string MAP_4 =
             "hhhhhh~~hhhhhhhhhhhhillliiiiiiiiiiiiiillllllllllllllllllllllllllllllllllllllllll\n"
             "hhhhhhhh~hhh~hhhhhhhhilliiiiiiiiiiiiiilllllllwwwwlwlllllwwllllllllwwlllkkllwllll\n"
-            "ihhhhhhhhhh~hhhh~hhhhilllliiiiiiiiiiiiiillllllllllllkklllllwllwlllllllkkkkllllll\n"
-            "lihhh~~hhhhhhhhhhhhhhilllliiiiiiiiiiiiiiiiilwllwlllkkkkllllllwllllllkjjkkjjkllwl\n"
-            "llihhhhhhh~~hhh~hhhhhiwllliiiiiiiiiiiiiiiiillllllkjjkkjjkllllluuuuuuuuuujjkkklll\n"
-            "llihhhhhhhhhh~hhhhhhhilllllliiiiiiiiiiiiiiiiiiilkkkjjjjkkklluutttttttttuuukjllll\n"
-            "lllihhhhhh~hhhhhhhhhhilwlllliiiiiiiiiiiiiiiiiiiljjkkkkkkjjuuttttttttttttttuullll\n"
-            "lllihhhhhhh~hhh~~hhhhiillwwlllllkkiiiiiiiiiiiiilljjjjjjjjluttttttttttttttttuuull\n"
+            "hhhhhhhhhhh~hhhh~hhhhilllliiiiiiiiiiiiiillllllllllllkklllllwllwlllllllkkkkllllll\n"
+            "hhhhh~~hhhhhhhhhhhhhhilllliiiiiiiiiiiiiiiiilwllwlllkkkkllllllwllllllkjjkkjjkllwl\n"
+            "hhhhhhhhhh~~hhh~hhhhhiwllliiiiiiiiiiiiiiiiillllllkjjkkjjkllllluuuuuuuuuujjkkklll\n"
+            "hhhhhhhhhhhhh~hhhhhhhilllllliiiiiiiiiiiiiiiiiiilkkkjjjjkkklluutttttttttuuukjllll\n"
+            "iihhhhhhhh~hhhhhhhhhhilwlllliiiiiiiiiiiiiiiiiiiljjkkkkkkjjuuttttttttttttttuullll\n"
+            "lliihhhhhhh~hhh~~hhhhiillwwlllllkkiiiiiiiiiiiiilljjjjjjjjluttttttttttttttttuuull\n"
             "lllliihhhhhhh~hhhhhhhhhilllllllkkkkiiiiiiiiiiiiillllqqluuutttttttttttttttttttuul\n"
             "lllllihhhhhhhhhhhhhhhhhilllllkjjkkjjkiiiiiiiiiiillwllluutttttttttnnnnnttttttttuu\n"
             "lllwllihhh~~hhhh~hhhhhhhilwlkkkjjjjkkkiiiiiiiiiiilllluttttttttttnnnnnnnntttttttt\n"
             "llwlllihhhhhh~hhhh~hhhhhillljjkkkkkkjjiiiiiiiiiiilllutttttttttnnnnnnnnnnnttttttt\n"
-            "llllkkkiiihhhhh~~hhhhhhhilllljjjjjjjjllliiiiiiiiillluttkkkkjtnnnnnnnnnnnnntttttt\n"
+            "llllkkkiiihhhhh~~hhhhhhhilllljjjjjjjjllliiiiiiiiillluttkkkkjtnnnnnn2nnnnnntttttt\n"
             "llkkjjjjkkiihhhhhh~hh~hhhillllllqqlllllliiiiiiiiillljkkkkkkkjnnnnnnnnnnnnntttttt\n"
             "lkjjjjjjjjkkiGGGGGGGGGGGGGGlllwllllllliiiiiiiiiiilljjjjjkkkkkjlwlllllllwllllllll\n"
             "lllllllllllGGGiiiiiiiiiiiiGGGllllliiiiiiiiiiiiiillwllllllwlwwllllwlllwwllwllllll\n"
@@ -383,7 +403,7 @@ Game *GameCreator::createNewGame() {
             "lllkkkjjjjkkklllwllllllllllliiiiiiiiiiiiilllllkjjkkjjkllllllllllllllllllllliihhh\n"
             "llljjkkkkkkjjlllllllwlllliiiiiiiiiikkiillllllkkkjjjjkkklllllwwwlllllllwllllllihh\n"
             "lllljjjjjjjjlllllllliiiiiiiiiiiiiikkkklllllljjkkkkkkkkjjllwwllllllllllllllllllii\n"
-            "lllllllqqllllllliiiiiiiiiiiiiiiikjjkkjjkllllljjjjjjjjjjllllllllllllkklllwwllllll\n"
+            "lllllllqqllllllliiiiiiii3iiiiiiikjjkkjjkllllljjjjjjjjjjllllllllllllkklllwwllllll\n"
             "llllllllllllliiiiiiiiiiiiiiiiilkkkjjjjkkkllllllllqqllwwwlllwllllllkkkkllllwlllll\n"
             "lllwlllllliiiiiiiiiiiiiiilllllljjkkkkkkjjwllllwllllllllllwlllwllkjjkkjjkllllllll\n"
             "lllllwwliiiiiiiiiiiiiiiikkkllllljjjjjjjjllwwwlllkkkkllllwllllllkkkjjjjkkklllwlll\n"
@@ -419,15 +439,15 @@ Game *GameCreator::createNewGame() {
             "jjjjlllrrlrrkrrkrrkrrlrrurrlllllllrrurrrurrlllllllrrurrlrrlrrlrrlrrlrrlllllihhhh\n"
             "qllllllrrrrrrrrrrrrrrurrrrrlllllllrrrrrrrrrlllllllrrrrrurrrrrrrrrrrrrrlllllihhhh\n"
             "lllllllrrrrrrrrrrrrrrurrurrlllllllrrrnnnrrrlllllllrrurrurrrrrrrrrrrrrrlllllihh~h\n"
-            "lllllllrrrrrrrrrrrrrrurrrrrlllllllrrnnnnnrrlllllllrrrrrurrrrrkkrrrrrrrlllllihhhh\n"
-            "lllllllllllllllllllllrrrkkrrllllllrrnnnnnrrllllllrrrrrrrllllkkkkllllllllwllihhhh\n"
-            "llllllkklllllllwwllllllkkkkllllllllliiiiilllllllllllllllllkjjkkjjklllllllllih~hh\n"
-            "lllllkkkklllllllllwwlkjjkkjjkllllliiiiiiillllwlllwwwlllllkkkjjjjkkkllllllllihhhh\n"
-            "lllkjjkkjjklllllllllkkkjjjjkkklllliiiiiillllllllwlllllllljjkkkkkkjjllllwlllihhhh\n"
-            "llkkkjjjjkkkllllwllljjkkkkkkjjllllliiiiiiilllllllllllllllljjjjjjjjllllwwiiiihhhh\n"
-            "lljjkkkkkkjjlllllllwwjjjjjjjjlllllliiiiiiillllkkklllllwllllllqqllllllliihhhhhhhh\n"
-            "llljjjjjjjjlllllllllllllqqlwwllllliiiiiiillljjkkkkjlwwlllllllllllllwiihhhhhhhhhh\n"
-            "llllllqqlllllllllllllllllllllllllliiiiiiiiljjjjjkjjjlllllllllllllllihhhhhhhhhhhh\n";
+            "llllllkkrrrrrrrrrrrrrurrrrrlllllllrrnn4nnrrlllllllrrrrrurrrrrkkrrrrrrrlllllihhhh\n"
+            "lllllkkkkllllllllllllrrrkkrrllllllrrnnnnnrrllllllrrrrrrrllllkkkkllllllllwllihhhh\n"
+            "lllkjjkkjjkllllwwllllllkkkkllllllllliiiiilllllllllllllllllkjjkkjjklllllllllih~hh\n"
+            "llkkkjjjjkkkllllllwwlkjjkkjjkllllliiiiiiillllwlllwwwlllllkkkjjjjkkkllllllllihhhh\n"
+            "lljjkkkkkkjjllllllllkkkjjjjkkklllliiiiiillllllllwlllllllljjkkkkkkjjllllwlllihhhh\n"
+            "llljjjjjjjjlllllwllljjkkkkkkjjllllliiiiiiillllkkkllllllllljjjjjjjjllllwwiiiihhhh\n"
+            "llllllqqlllllllllllwwjjjjjjjjlllllliiiiiiillljkkkkkkllwllllllqqllllllliihhhhhhhh\n"
+            "llllllllllllllllllllllllqqlwwllllliiiiiiillljjjjjjjjjjlllllllllllllwiihhhhhhhhhh\n"
+            "lllllllllllllllllllllllllllllllllliiiiiiiilllllllllllllllllllllllllihhhhhhhhhhhh\n";
 
     std::string EMPTY_MAP;
     game->m_mapMatrix = {
@@ -472,7 +492,7 @@ Game *GameCreator::createNewGame() {
                     new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=21, .y=4},
                                    new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
 
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=50, .y=5},
+                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=47, .y=5},
                                    new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
 
                 })
@@ -491,7 +511,7 @@ Game *GameCreator::createNewGame() {
                     new Enemy({.x=37, .y=21},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
                             ->foreground(ColorPalette::YELLOW)->build()),
 
-                    new Enemy({.x=39, .y=23},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
+                    new Enemy({.x=38, .y=15},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
                             ->foreground(ColorPalette::YELLOW)->build()),
 
                     new Enemy({.x=38, .y=19},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)

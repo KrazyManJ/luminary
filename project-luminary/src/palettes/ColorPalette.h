@@ -8,7 +8,7 @@ public:
     static const unsigned int FG_PLAYER = 0xFCF8BC;
     static const unsigned int BG_PLAYER = 0xDB600D;
     static const unsigned int CARROT = 0xFF8000;
-    static const unsigned int UNLIT_TORCH = 0xa7f2e7;
+    static const unsigned int UNLIT_TORCH = 0x15222b;
     static const unsigned int LIT_TORCH = 0xeddf8e;
 
     //dark map
