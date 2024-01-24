@@ -19,6 +19,7 @@ void BattleWindow::render() {
         if(playerHealth > 0)
         {
             finishDialog = "Battle is over!!! You won!!! Press any key to continue...";
+            m_enemy->changeState();
         }else{
             finishDialog = "Battle is over!!! Game is over!!! Press any key to start again...";
             Luminary::getInstance()->resetGame();
