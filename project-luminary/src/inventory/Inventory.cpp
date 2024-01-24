@@ -22,6 +22,14 @@ Heal *Inventory::getHeal(unsigned int indexOfHeal) {
     return m_heals.at(indexOfHeal);
 }
 
+std::vector<Heal *> Inventory::getHeals() {
+    return m_heals;
+}
+
+std::vector<Weapon *> Inventory::getWeapons() {
+    return m_weapons;
+}
+
 Inventory::~Inventory() {
     for(Weapon* weapon: m_weapons){
         delete weapon;
