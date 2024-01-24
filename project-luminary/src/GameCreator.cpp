@@ -4,6 +4,8 @@
 #include "palettes/ColorPalette.h"
 #include "map/Enemy.h"
 #include "map/ItemEntity.h"
+#include "map/factory/EnemyFactory.h"
+#include "map/factory/HealFactory.h"
 
 
 Game *GameCreator::createNewGame() {
@@ -449,170 +451,87 @@ Game *GameCreator::createNewGame() {
             "llllllllllllllllllllllllqqlwwllllliiiiiiillljjjjjjjjjjlllllllllllllwiihhhhhhhhhh\n"
             "lllllllllllllllllllllllllllllllllliiiiiiiilllllllllllllllllllllllllihhhhhhhhhhhh\n";
 
+    EnemyFactory* enemyFactory = new EnemyFactory();
+    HealFactory* healFactory = new HealFactory();
+
     std::string EMPTY_MAP;
     game->m_mapMatrix = {
             {
                 new Map(MAP_1, charMappings, { //x sloupce, y radky
-                    new Enemy({.x=65,.y=7},50,50,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                    ->foreground(ColorPalette::YELLOW)->build()),
+                    enemyFactory->createEnemy({.x=65,.y=7}, EASY),
 
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=39, .y=12},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=42, .y=9},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=41, .y=11},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=44, .y=10},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=40, .y=10},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=43, .y=13},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
+                    healFactory->createHeal({.x=39, .y=12}),
+                    healFactory->createHeal({.x=42, .y=9}),
+                    healFactory->createHeal({.x=41, .y=11}),
+                    healFactory->createHeal({.x=44, .y=10}),
+                    healFactory->createHeal({.x=40, .y=10}),
+                    healFactory->createHeal({.x=43, .y=13}),
 
                 }),
                 new Map(MAP_2, charMappings,{
-                    new Enemy({.x=33, .y=5},60,60,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                    ->foreground(ColorPalette::YELLOW)->build()),
+                    enemyFactory->createEnemy({.x=33, .y=5}, EASY),
+                    enemyFactory->createEnemy({.x=27, .y=19}, EASY),
 
-                    new Enemy({.x=27, .y=19},60,60,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                    ->foreground(ColorPalette::YELLOW)->build()),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=55, .y=18},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=14, .y=15},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=21, .y=4},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=47, .y=5},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
+                    healFactory->createHeal({.x=55, .y=18}),
+                    healFactory->createHeal({.x=14, .y=15}),
+                    healFactory->createHeal({.x=21, .y=4}),
+                    healFactory->createHeal({.x=47, .y=5}),
 
                 })
             },
             {
                 new Map(MAP_6, charMappings,{
-                    new Enemy({.x=38, .y=17},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                    ->foreground(ColorPalette::YELLOW)->build()),
+                    enemyFactory->createEnemy({.x=38, .y=17}, HARD),
+                    enemyFactory->createEnemy({.x=39, .y=16}, HARD),
+                    enemyFactory->createEnemy({.x=37, .y=16}, HARD),
+                    enemyFactory->createEnemy({.x=37, .y=21}, MEDIUM),
+                    enemyFactory->createEnemy({.x=38, .y=15}, MEDIUM),
+                    enemyFactory->createEnemy({.x=38, .y=19}, MEDIUM),
 
-                    new Enemy({.x=39, .y=16},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                            ->foreground(ColorPalette::YELLOW)->build()),
-
-                    new Enemy({.x=37, .y=16},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                            ->foreground(ColorPalette::YELLOW)->build()),
-
-                    new Enemy({.x=37, .y=21},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                            ->foreground(ColorPalette::YELLOW)->build()),
-
-                    new Enemy({.x=38, .y=15},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                            ->foreground(ColorPalette::YELLOW)->build()),
-
-                    new Enemy({.x=38, .y=19},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                            ->foreground(ColorPalette::YELLOW)->build()),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=46, .y=15},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=56, .y=22},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=18, .y=18},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
+                    healFactory->createHeal({.x=46, .y=15}),
+                    healFactory->createHeal({.x=56, .y=22}),
+                    healFactory->createHeal({.x=18, .y=18}),
 
                 }),
                 new Map(MAP_3, charMappings,{
-//                    new Enemy({.x=30, .y=15},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-//                    ->foreground(ColorPalette::YELLOW)->build()),
-//
-//                    new Enemy({.x=28, .y=14},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-//                            ->foreground(ColorPalette::YELLOW)->build()),
-//
-//                    new Enemy({.x=32, .y=14},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-//                            ->foreground(ColorPalette::YELLOW)->build()),
+                    enemyFactory->createEnemy({.x=30, .y=15}, EASY),
+                    enemyFactory->createEnemy({.x=28, .y=14}, MEDIUM),
+                    enemyFactory->createEnemy({.x=32, .y=14}, MEDIUM),
 
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=45, .y=3},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=67, .y=21},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=3, .y=6},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                    new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=30, .y=17},
-                                   new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
+                    healFactory->createHeal({.x=45, .y=3}),
+                    healFactory->createHeal({.x=67, .y=21}),
+                    healFactory->createHeal({.x=3, .y=6}),
+                    healFactory->createHeal({.x=30, .y=17}),
 
                 })
             },
             {
                 new Map(MAP_5, charMappings,{
-                        new Enemy({.x=16, .y=14},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                                ->foreground(ColorPalette::YELLOW)->build()),
+                    enemyFactory->createEnemy({.x=16, .y=14}, HARD),
+                    enemyFactory->createEnemy({.x=33, .y=3}, MEDIUM),
+                    enemyFactory->createEnemy({.x=59, .y=16}, MEDIUM),
+                    enemyFactory->createEnemy({.x=35, .y=19}, MEDIUM),
+                    enemyFactory->createEnemy({.x=13, .y=10}, HARD),
 
-                        new Enemy({.x=33, .y=3},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                                ->foreground(ColorPalette::YELLOW)->build()),
+                    healFactory->createHeal({.x=57, .y=5}),
+                    healFactory->createHeal({.x=70, .y=14}),
+                    healFactory->createHeal({.x=40, .y=12}),
+                    healFactory->createHeal({.x=20, .y=4}),
+                    healFactory->createHeal({.x=20, .y=20}),
+                    healFactory->createHeal({.x=45, .y=16}),
 
-                        new Enemy({.x=59, .y=16},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                                ->foreground(ColorPalette::YELLOW)->build()),
-
-                        new Enemy({.x=35, .y=19},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                                ->foreground(ColorPalette::YELLOW)->build()),
-
-                        new Enemy({.x=13, .y=10},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                                ->foreground(ColorPalette::YELLOW)->build()),
-
-                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=57, .y=5},
-                                       new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=70, .y=14},
-                                       new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=40, .y=12},
-                                       new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=20, .y=4},
-                                       new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=20, .y=20},
-                                       new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=45, .y=16},
-                                       new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
                 }),
                 new Map(MAP_4, charMappings,{
-                        new Enemy({.x=67, .y=13},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                                ->foreground(ColorPalette::YELLOW)->build()),
+                    enemyFactory->createEnemy({.x=67, .y=13}, MEDIUM),
+                    enemyFactory->createEnemy({.x=69, .y=12}, MEDIUM),
+                    enemyFactory->createEnemy({.x=65, .y=12}, MEDIUM),
+                    enemyFactory->createEnemy({.x=67, .y=11}, MEDIUM),
 
-                        new Enemy({.x=69, .y=12},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                                ->foreground(ColorPalette::YELLOW)->build()),
-
-                        new Enemy({.x=65, .y=12},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                                ->foreground(ColorPalette::YELLOW)->build()),
-
-                        new Enemy({.x=67, .y=11},100,100,(new CharBuilder('%'))->background(ColorPalette::GREEN)
-                                ->foreground(ColorPalette::YELLOW)->build()),
-
-                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=58, .y=3},
-                                       new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=65, .y=23},
-                                       new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=32, .y=21},
-                                       new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=2, .y=9},
-                                       new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
-
-                        new ItemEntity(new Heal("Carrot",5,(new CharBuilder('"'))->build()) ,{.x=64, .y=16},
-                                       new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE)),
+                    healFactory->createHeal({.x=58, .y=3}),
+                    healFactory->createHeal({.x=65, .y=23}),
+                    healFactory->createHeal({.x=32, .y=21}),
+                    healFactory->createHeal({.x=2, .y=9}),
+                    healFactory->createHeal({.x=64, .y=16}),
 
                 })
             }
