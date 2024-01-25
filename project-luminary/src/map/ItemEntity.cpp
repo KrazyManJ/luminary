@@ -1,4 +1,3 @@
-#include <iostream>
 #include "ItemEntity.h"
 #include "../Game.h"
 
