@@ -5,6 +5,7 @@
 #include "window/InventoryWindow.h"
 #include "window/GameEndingWindow.h"
 #include "window/MainMenuWindow.h"
+#include "window/GameInfoBar.h"
 
 Game::Game(GamePosition playerStartPosition) {
     m_currentMapPos = playerStartPosition.map;
@@ -125,6 +126,10 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
         Luminary::getInstance()->openWindow(new InventoryWindow(this, m_player->getInventory()),true);
         return;
     }
+    if (evt->getKey() == KEY_Q){
+        Luminary::getInstance()->openWindow(new GameInfoBar(this), true);
+        return;
+    }
     std::map<unsigned int, MovementDirection> directions = {
             {KEY_W,    UP},
             {KEY_A,  LEFT},
@@ -195,4 +200,16 @@ GamePosition Game::getEndingPosition() {
 void Game::teleportPlayer(GamePosition position) {
     m_currentMapPos = position.map;
     m_player->setPosition(position.position);
+}
+
+std::vector<std::vector<Map *>> Game::getMapMatrix() {
+    return m_mapMatrix;
+}
+
+int Game::getWidth() {
+    int max = 0;
+    for (const std::vector<Map*>& mapRow : m_mapMatrix){
+        if (max < mapRow.size()) max = mapRow.size();
+    }
+    return max;
 }

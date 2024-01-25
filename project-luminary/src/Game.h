@@ -54,6 +54,10 @@ public:
     GamePosition getEndingPosition();
 
     void teleportPlayer(GamePosition position);
+
+    std::vector<std::vector<Map *>> getMapMatrix();
+
+    int getWidth();
 };
 
 

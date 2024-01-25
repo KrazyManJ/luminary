@@ -17,6 +17,7 @@
 #define KEY_E 101
 #define KEY_L 108
 #define KEY_U 117
+#define KEY_Q 113
 
 #include <string>
 #include "../structs/Position.h"
