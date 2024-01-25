@@ -10,12 +10,13 @@ class ItemEntity: public InteractiveObject{
 private:
     Item* m_item;
 
+    void pickUp(); //vrati samotny objekt itemu a smaze "vykreslovanou" ItemEntity
+    //pretezuje dedenou metodu pro vraceni vykreslovaneho znaku (v pripade, ze je "neviditelny" vrati prazdny znak)
+
 public:
+    std::string renderChar() override;
     ItemEntity(Item* item, Position position, CharData* charData); //konstruktor pro viditelne "itemy"
     ItemEntity(Item* item, Position position); //konstruktor pro neviditelne "itemy"
-    Item* pickUp(); //vrati samotny objekt itemu a smaze "vykreslovanou" ItemEntity
-    //pretezuje dedenou metodu pro vraceni vykreslovaneho znaku (v pripade, ze je "neviditelny" vrati prazdny znak)
-    std::string renderChar() override;
     void onPlayerProximity(Game *game) override;
     void onPlayerEnter(Game *game) override;
 };
