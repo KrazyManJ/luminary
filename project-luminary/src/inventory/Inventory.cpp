@@ -1,5 +1,9 @@
 #include "Inventory.h"
 
+Inventory::Inventory() {
+    m_nowEquiped = nullptr;
+}
+
 void Inventory::addWeapon(Weapon *newWeapon) {
     m_weapons.push_back(newWeapon);
 }
@@ -28,6 +32,14 @@ std::vector<Heal *> Inventory::getHeals() {
 
 std::vector<Weapon *> Inventory::getWeapons() {
     return m_weapons;
+}
+
+void Inventory::equipWeapon(Weapon *toEquip) {
+    m_nowEquiped = toEquip;
+}
+
+Weapon *Inventory::equipedWeapon() {
+    return m_nowEquiped;
 }
 
 Inventory::~Inventory() {

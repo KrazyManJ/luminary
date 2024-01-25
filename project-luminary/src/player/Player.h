@@ -16,7 +16,6 @@ class Player: public CharRenderable{
     float m_health;
     PlayerAttack* m_attacks[PLAYER_ATTACKS]; //jinak deklarovane pole ukazatelu
     Inventory* m_inventory;
-    Weapon* m_equipedWeapon;
 
 public:
     Player(Position position);
@@ -30,7 +29,6 @@ public:
     PlayerAttack** getAttacks();
     float getHealth();
     int getDamage(PlayerAttack* playerAttack);
-    void equipWeapon(Weapon* toEquip);
     ~Player(); //v ramci smazani hrace vymaze i inventar a utoky z pameti
 };
 

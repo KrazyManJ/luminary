@@ -7,7 +7,7 @@ BattleWindowAttacks::BattleWindowAttacks(Window *prevWindow, Player *player, Ene
 }
 
 void BattleWindowAttacks::render() {
-    ConsoleHandler::setCursorPosition(12,20);
+    ConsoleHandler::setCursorPosition(6,20);
     for(int i = 0; i < PLAYER_ATTACKS; i++){
         if(m_player->getAttacks()[i] != nullptr){
             if(m_battleAttacksCycler->getIndex() == i){
@@ -30,7 +30,7 @@ void BattleWindowAttacks::render() {
                 std::cout << "######";
             }
         }
-        std::cout << ConsoleHandler::getFormatChar(RESET) << "            ";
+        std::cout << ConsoleHandler::getFormatChar(RESET) << "           ";
     }
 }
 

@@ -12,7 +12,6 @@ Player::Player(Position position) : CharRenderable(new CharData(CharPalette::PLA
     for(int i = 1; i < PLAYER_ATTACKS; i++){
         m_attacks[i] = nullptr;
     }
-    m_equipedWeapon = nullptr;
 }
 
 void Player::setPosition(Position newPosition) {
@@ -76,12 +75,9 @@ float Player::getHealth() {
 }
 
 int Player::getDamage(PlayerAttack *playerAttack) {
-    if(m_equipedWeapon != nullptr) return playerAttack->getDamage() + m_equipedWeapon->getDamage();
+    Weapon* equiped = m_inventory->equipedWeapon();
+    if(equiped != nullptr) return playerAttack->getDamage() + equiped->getDamage();
     return playerAttack->getDamage();
-}
-
-void Player::equipWeapon(Weapon *toEquip) {
-    m_equipedWeapon = toEquip;
 }
 
 Player::~Player() {
