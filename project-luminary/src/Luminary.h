@@ -29,8 +29,6 @@ public:
 
     void resetGame();
 
-    void clearWindowContent();
-
     Game* getLastGame();
 
     void removeLastGame();

@@ -31,7 +31,7 @@ private:
 
     void end();
 
-    Game(GamePosition playerStartPosition);
+    explicit Game(GamePosition playerStartPosition);
 public:
 
     void render() override;

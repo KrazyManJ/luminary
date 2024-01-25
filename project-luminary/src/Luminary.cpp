@@ -51,15 +51,13 @@ Window *Luminary::getActiveWindow() {
 }
 
 void Luminary::openWindow(Window *window, bool keepPrevious) {
-    if (!keepPrevious) clearWindowContent();
+    if (!keepPrevious) {
+        ConsoleHandler::setCursorPosition(0, 0);
+        for (int i = 0; i < Window::HEIGHT; i++) std::cout << std::string(Window::WIDTH, ' ') << std::endl;
+        ConsoleHandler::setCursorPosition(0, 0);
+    }
     else ConsoleHandler::setCursorPosition(0, 0);
     m_activeWindow = window;
-}
-
-void Luminary::clearWindowContent() {
-    ConsoleHandler::setCursorPosition(0, 0);
-    for (int i = 0; i < Window::HEIGHT; i++) std::cout << std::string(Window::WIDTH, ' ') << std::endl;
-    ConsoleHandler::setCursorPosition(0, 0);
 }
 
 void Luminary::startNewGame() {
