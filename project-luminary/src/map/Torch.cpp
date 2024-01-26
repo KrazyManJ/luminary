@@ -4,7 +4,7 @@
 #include "../Game.h"
 #include "../palettes/ColorPalette.h"
 #include "../Luminary.h"
-#include "../window/GameDialog.h"
+#include "../window/game/GameDialog.h"
 
 Torch::Torch() : MapObject(
         new CharData('Y',ColorPalette::UNLIT_TORCH,ColorPalette::DAY_BLUE),

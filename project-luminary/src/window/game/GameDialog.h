@@ -2,7 +2,7 @@
 #define PROJECT_LUMINARY_GAMEDIALOG_H
 
 
-#include "ReturnableWindow.h"
+#include "../ReturnableWindow.h"
 
 class GameDialog : public ReturnableWindow {
 private:

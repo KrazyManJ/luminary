@@ -3,9 +3,9 @@
 #include "Luminary.h"
 #include "map/Enemy.h"
 #include "window/InventoryWindow.h"
-#include "window/GameEndingWindow.h"
+#include "window/game/GameEndingWindow.h"
 #include "window/MainMenuWindow.h"
-#include "window/GameInfoBar.h"
+#include "window/game/GameInfoBar.h"
 
 Game::Game(GamePosition playerStartPosition) {
     m_currentMapPos = playerStartPosition.map;

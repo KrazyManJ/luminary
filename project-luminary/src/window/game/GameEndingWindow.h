@@ -2,9 +2,9 @@
 #define PROJECT_LUMINARY_GAMEENDINGWINDOW_H
 
 
-#include "Window.h"
-#include "../Game.h"
-#include "ReturnableWindow.h"
+#include "../Window.h"
+#include "../../Game.h"
+#include "../ReturnableWindow.h"
 
 class GameEndingWindow : public ReturnableWindow {
 private:

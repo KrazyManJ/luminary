@@ -1,7 +1,7 @@
 #include "GameEndingWindow.h"
 #include "GameDialog.h"
-#include "../Luminary.h"
-#include "MainMenuWindow.h"
+#include "../../Luminary.h"
+#include "../MainMenuWindow.h"
 
 GameEndingWindow::GameEndingWindow(Game* game) : ReturnableWindow(new MainMenuWindow()) {
     m_game = game;

@@ -3,7 +3,7 @@
 #include "NPC.h"
 #include "../palettes/ColorPalette.h"
 #include "../Luminary.h"
-#include "../window/GameDialog.h"
+#include "../window/game/GameDialog.h"
 
 NPC::NPC(char character, std::string dialogue) : MapObject(
     new CharData(character, ColorPalette::FG_PLAYER, ColorPalette::NPC_PINK),
