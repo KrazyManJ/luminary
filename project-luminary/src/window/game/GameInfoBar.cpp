@@ -47,7 +47,7 @@ void GameInfoBar::render() {
     ConsoleHandler::setCursorPosition(Window::WIDTH/2+5,Window::HEIGHT-BAR_HEIGHT/2);
     std::cout
         << ConsoleHandler::getColorChar(0x1a2b47, BACKGROUND)
-        << "Strength:" << m_game->getPlayer()->getDamage();
+        << "Strength:" << m_game->getPlayer()->getDamageAvg();
 
 }
 
