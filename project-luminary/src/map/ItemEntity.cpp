@@ -10,8 +10,11 @@ ItemEntity::ItemEntity(Item *item, Position position) : ItemEntity(item, positio
 
 
 
-void ItemEntity::pickUp() {
+Item* ItemEntity::pickUp() {
+    auto * item = m_item;
+    makeUninteractable();
     delete this;
+    return item;
 }
 
 std::string ItemEntity::renderChar() {
@@ -26,12 +29,9 @@ void ItemEntity::onPlayerProximity(Game *game) {}
 
 void ItemEntity::onPlayerEnter(Game *game) {
     Inventory* playersInventory = game->getPlayer()->getInventory();
-    Heal* isHeal = dynamic_cast<Heal*>(m_item);
-    if(isHeal != nullptr){
-        playersInventory->addHeal(isHeal);
+    if(dynamic_cast<Heal*>(m_item) != nullptr){
+        playersInventory->addHeal(dynamic_cast<Heal*>(pickUp()));
     }else{
-        Weapon* weapon = dynamic_cast<Weapon*>(m_item);
-        playersInventory->addWeapon(weapon);
+        playersInventory->addWeapon(dynamic_cast<Weapon*>(pickUp()));
     }
-    pickUp();
 }

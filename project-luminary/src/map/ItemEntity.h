@@ -10,7 +10,7 @@ class ItemEntity: public InteractiveObject{
 private:
     Item* m_item;
 
-    void pickUp(); //vrati samotny objekt itemu a smaze "vykreslovanou" ItemEntity
+    Item* pickUp(); //vrati samotny objekt itemu a smaze "vykreslovanou" ItemEntity
     //pretezuje dedenou metodu pro vraceni vykreslovaneho znaku (v pripade, ze je "neviditelny" vrati prazdny znak)
 
 public:
