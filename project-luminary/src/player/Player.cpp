@@ -80,7 +80,7 @@ int Player::getDamage(PlayerAttack *playerAttack) {
     return playerAttack->getDamage();
 }
 
-float Player::getDamage() {
+float Player::getDamageAvg() {
     float damageAvg = 0;
     unsigned availableAttacks = 0;
     for(unsigned i = 0; i < PLAYER_ATTACKS; i++){
@@ -89,7 +89,8 @@ float Player::getDamage() {
             availableAttacks++;
         }
     }
-    return (damageAvg/(float)availableAttacks)+m_inventory->equipedWeapon()->getDamage();
+    if(m_inventory->equipedWeapon() != nullptr) return (damageAvg/(float)availableAttacks)+m_inventory->equipedWeapon()->getDamage();
+    return (damageAvg/(float)availableAttacks);
 }
 
 Player::~Player() {

@@ -29,7 +29,7 @@ public:
     PlayerAttack** getAttacks();
     float getHealth();
     int getDamage(PlayerAttack* playerAttack);
-    float getDamage();
+    float getDamageAvg();
     ~Player(); //v ramci smazani hrace vymaze i inventar a utoky z pameti
 };
 
