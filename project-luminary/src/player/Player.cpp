@@ -80,6 +80,18 @@ int Player::getDamage(PlayerAttack *playerAttack) {
     return playerAttack->getDamage();
 }
 
+float Player::getDamage() {
+    float damageAvg = 0;
+    unsigned availableAttacks = 0;
+    for(unsigned i = 0; i < PLAYER_ATTACKS; i++){
+        if(m_attacks[i] != nullptr){
+            damageAvg += m_attacks[i]->getDamage();
+            availableAttacks++;
+        }
+    }
+    return (damageAvg/(float)availableAttacks)+m_inventory->equipedWeapon()->getDamage();
+}
+
 Player::~Player() {
     delete m_inventory;
     for(int i = 0; i < PLAYER_ATTACKS - 1; i++){
