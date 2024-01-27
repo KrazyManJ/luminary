@@ -273,17 +273,17 @@ Game *GameCreator::createNewGame() {
             },
             {//ghost NPCs
                     'A', [] () {
-                        return new NPC('&', "Ooooooo... It's been so loooong since we've seen light... Oooooooo");
+                        return new NPC('&', "Nooothing to see here, I am just a lowly ghooost... scared of the daark...");
                     }
             },
             {
                     'B', [] () {
-                        return new NPC('&', "It's been so long since we've seen light...");
+                        return new NPC('&', "If ooonly somebooody cooould defeat that monster and light the toooorch");
                     }
             },
             {
                     'C', [] () {
-                        return new NPC('&', "It's been so long since we've seen light...");
+                        return new NPC('&', "Ooooooo... It's been so loooong since we've seen light... Oooooooo");
                     }
             },
             { //dad
@@ -293,12 +293,23 @@ Game *GameCreator::createNewGame() {
             },
             {
                     'E', [] () {
-                        return new NPC('&', "It's been so long since we've seen light...");
+                        return new NPC('&', "Ooooooo... They say that when yooou light all of the toooorches,\n"
+                                            "soooomething... happens...");
                     }
             },
             {
                     'F', [] () {
-                        return new NPC('&', "It's been so long since we've seen light...");
+                        return new NPC('&', "Better be caaareful, the monsters get way strooonger past this poooint...");
+                    }
+            },
+            {
+                    'G', [] () {
+                        return new NPC('&', "Maaaybe if you had a weapooon, you could defeeeaat all these mooonsters!");
+                    }
+            },
+            {
+                    'H', [] () {
+                        return new NPC('&', "Sooometimes carrots are really hard to see, look carefully... Ooooo");
                     }
             },
             {
@@ -355,11 +366,11 @@ Game *GameCreator::createNewGame() {
             "llllllkkkkkkkkjllllwlllllllllllllllllhhhhhhhhh~~hh~hh~hhhh~hhhhhhhllllllllllllll\n"
             "lllljjjjjjjjjjjjlllllllllllliiiiiiiddddddddddddddddddhhh~hhhhhhhhhhhhhhlllllllll\n"
             "llllllllllwlllllllwlllllliiiiiiiiiiddddddddddddddd0ddhhhhhh~~hh~hhhhhhhhhhhlllll\n"
-            "llllllwwllAllllllllllliiiiiiiiiiiiiddddddddddddddddddhhhhhhhhhhhhhhhhhhhhhhhhlll\n"
+            "llllllwwlllllllllllllliiiiiiiiiiiiiddddddddddddddddddhhhhhhhhhhhhhhhhhhhhhhhhlll\n"
             "llllllllllllllllliiiiiiiiiiiiiiiiiiddddddddddddddddddhhhhhhhhh~hh~hhh~~hhhhhhlll\n"
             "iiiiiiiiiiiiiiiiiiiiiiiiiiiiilllllllhhh~~hh~hhhhhhhvvhhh~hh~hhhhhhhhhhhhhhhhllll\n"
-            "iiiiiiiiiiiiiiiiiiiiiiiiiillllllllllhhhhhhh~~hh~hhhhh~hhhhhhh~hh~hhhhhh~hhhhllll\n"
-            "iiiiiiiiiiiiiiiiiiiiiiiiiillllwlllllhhhhhhhhhhhhhh~hhhh~~hhhhhh~hhhh~hhhhhhhllll\n"
+            "iiiiiiiiiiiiiiiiiiiiBiiiiillllllllllhhhhhhh~~hh~hhhhh~hhhhhhh~hh~hhhhhh~hhhhllll\n"
+            "iiiiiiAiiiiiiiiiiiiiiiiiiillllwlllllhhhhhhhhhhhhhh~hhhh~~hhhhhh~hhhh~hhhhhhhllll\n"
             "iiiiiiiiiiiiiiiiiiiiiiiiiiiillllllwlllllhhhhhh~hhhhhhhhhh~~hhhhhhh~hhhhhhhllllll\n"
             "llllllllliiiiiiiiiiiiiiiiiiiiillllllllllllllhhhhhhh~~hhhhhh~hhh~hhhhhhhhhlllwlll\n"
             "llllllkklllllllliiiiiiiiiiiiiiiillwllllllllllllllhhhhhh~~hhhh~hhhh~h~hhhhllwllll\n"
@@ -368,7 +379,7 @@ Game *GameCreator::createNewGame() {
             "llkkkjjjjkkkllwwwwlliiiiiiiiiiiiilllllwlllkkkklllllwwlllllllhhhhhhhhhhlllllwllll\n"
             "lljjkkkkkkjjlllllllllliiiiiiiiiiiilwllllkjjkkjjkllllllwlllllllllllllllllllllllll\n"
             "llljjjjjjjjllllllllllliiiiiiiiiiiilllllkkkjjjjkkklllllllwwllllllwllllkklllwlllll\n"
-            "llllllqqllllllllllwllliiiiiiiiiiiillwlljjkkkkkkjjllwwllllllBllllllllkkkkllllllll\n"
+            "llllllqqllllllllllwllliiiiiiiiiiiillwlljjkkkkkkjjllwwlllllllllllllllkkkkllllllll\n"
             "llllllllllkkkkjlllwllliiiiiiiiiiiilllllljjjjjjjjllllllllllllllllllkjjkkjjklllwll\n"
             "lllwllllkkkkkkkkjlllliiiiiiiiiiiiilwwllllllqqllllwllllkkkkkjlllllkkkjjjjkkklllll\n"
             "lllllljjjjjjjjjjjjlliiiiiiiiiiiiilllwlllllllllllllllkkkkkkjjjllljjjkkkkkjjjjllll\n"
@@ -380,7 +391,7 @@ Game *GameCreator::createNewGame() {
             "llllllkkkklllllllwwlliiiiiiiiiiiiiillllwllllwwwwwwllwllllllllllwwwllllllllwwllll\n"
             "llllkkkkkjjjlllwllllliiiiiiiiiiiiiillwwlllllllwlllllllwllllllwwwlllllwllllllllll\n"
             "llljjjjjjjjjjlllllwlllliiiiiiiiiiiiillllllwwlllllwlllllllllllliiiiiiiiiiiiiiiiii\n"
-            "lllllllllllwwwlllllllwlliiiiiiiiiiiilllwwwllwllliiiiiiiiiiiiiihhhhhhhhhhhhhhhhhh\n"
+            "lllllllllllwwwlllllllwlliiiCiiiiiiiilllwwwllwllliiiiiiiiiiiiiihhhhhhhhhhhhhhhhhh\n"
             "lllllwwwwlllllwwlllllllliiiiiiiiiiiilllllllliiiihhhhhhhhh~hhhhhhhh~~hhhhhhhhhhhh\n"
             "llllllwlllwllllliiiiiiiaaiiiiiiiiiiaaiiiiiiihhhhh~~~hhh~hhhh~~h~hhhhh~hh~hhhhhhh\n"
             "lllllliiiiiiiiiihhhhhhhaaiiiiiiiiiiaahhhhhhhhhhhhhh~hhhhh~~hhhhhhh~hhh~hhhh~hhhh\n"
@@ -413,14 +424,14 @@ Game *GameCreator::createNewGame() {
             "lliihhhhhhh~hhh~~hhhhiillwwlllllkkiiiiiiiiiiiiilljjjjjjjjluttttttttttttttttuuull\n"
             "lllliihhhhhhh~hhhhhhhhhilllllllkkkkiiiiiiiiiiiiillllqqluuutttttttttttttttttttuul\n"
             "lllllihhhhhhhhhhhhhhhhhilllllkjjkkjjkiiiiiiiiiiillwllluutttttttttnnnnnttttttttuu\n"
-            "lllwllihhh~~hhhh~hhhhhhhilwlkkkjjjjkkkiiiiiiiiiiilllluttttttttttnnnnnnnntttttttt\n"
+            "lllwllihhh~~hhhh~hhhhhhhilwlkkkjjjjkkkiiiiiEiiiiilllluttttttttttnnnnnnnntttttttt\n"
             "llwlllihhhhhh~hhhh~hhhhhillljjkkkkkkjjiiiiiiiiiiilllutttttttttnnnnnnnnnnnttttttt\n"
             "llllkkkiiihhhhh~~hhhhhhhilllljjjjjjjjllliiiiiiiiillluttkkkkjtnnnnnn2nnnnnntttttt\n"
             "llkkjjjjkkiihhhhhh~hh~hhhillllllqqlllllliiiiiiiiillljkkkkkkkjnnnnnnnnnnnnntttttt\n"
             "lkjjjjjjjjkkiaaaaaaaaaaaaaalllwllllllliiiiiiiiiiilljjjjjkkkkkjlwlllllllwllllllll\n"
             "lllllllllllaaaiiiiiiiiiiiiaaallllliiiiiiiiiiiiiillwllllllwlwwllllwlllwwllwllllll\n"
             "lllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiilllllwlwwlllllwllllwllllkkllwlll\n"
-            "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiillllllllllllllllllwllllkkkklllll\n"
+            "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiFiiiiiiiiiiiiiillllllllllllllllllwllllkkkklllll\n"
             "iiiiiiiiiiiiiaaaaaaaaaaaaaaiiiiiiiiiiiiiiiilllllllkklllllwwwlllllllllkjjkkjjklll\n"
             "iiiiiiiiiiiaaahh~~hhhhhhhiaaalllllwlwlwwllwllllljkkkkjlllllwllllwlllkkkjjjjkkkll\n"
             "iiiikkillllllihhhh~hhhhhhilllllllllwlllllllllllkjjkkjjkllllllllllllljjkkkkkkjjll\n"
@@ -447,7 +458,7 @@ Game *GameCreator::createNewGame() {
             "jkkklllliiiiiiiiiiiijjkkkkkkkjjllllllllliiiiiiiiiiiillllllllllllllllllllwwwlllll\n"
             "kkjjllllliiiiiiiiiiiijjjjjjjjjlllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiillllwllllllllll\n"
             "jjjwwllllliiiiiiiiiiiillqqqlllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiillllllllll\n"
-            "lllllwllllliiiiiiiiiiiillllllliiiiiiiiiiiiiiiiiiiiikkiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
+            "lllllwllllliiiiiiiiiiiillllllliiiiiiiiiiiiiiiiiiiiikkiiiiiiiiiiiiiiiiiiGiiiiiiii\n"
             "llllwlllllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiilkkkklllliiiiiiiiiiiiiiiiiiiiii\n"
             "llllllllllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiillllkjjkkjjklliiiiiiiiikkiiiiiiiiiii\n"
             "llllllkkklllllliiiiiiiiiiiiiiiiiiiiiiiiiiilllllkkkjjjjkkkllllllllikkkkiiiiiiiiii\n"
@@ -479,7 +490,7 @@ Game *GameCreator::createNewGame() {
             "llkkkjjjjkkkllllllwwlkjjkkjjkllllliiiiiiillllwlllwwwlllllkkkjjjjkkkllllllllihhhh\n"
             "lljjkkkkkkjjllllllllkkkjjjjkkklllliiiiiillllllllwlllllllljjkkkkkkjjllllwlllihhhh\n"
             "llljjjjjjjjlllllwllljjkkkkkkjjllllliiiiiiillllkkkllllllllljjjjjjjjllllwwiiiihhhh\n"
-            "llllllqqlllllllllllwwjjjjjjjjlllllliiiiiiillljkkkkkkllwllllllqqllllllliihhhhhhhh\n"
+            "llllllqqllllHllllllwwjjjjjjjjlllllliiiiiiillljkkkkkkllwllllllqqllllllliihhhhhhhh\n"
             "llllllllllllllllllllllllqqlwwllllliiiiiiillljjjjjjjjjjlllllllllllllwiihhhhhhhhhh\n"
             "lllllllllllllllllllllllllllllllllliiiiiiiilllllllllllllllllllllllllihhhhhhhhhhhh\n";
 
@@ -531,6 +542,8 @@ Game *GameCreator::createNewGame() {
                     healFactory->createHeal({.x=18, .y=18}, VISIBLE),
                     healFactory->createHeal({.x=20, .y=24}, MAGIC),
                     healFactory->createHeal({.x=4, .y=15}, INVISIBLE),
+                    healFactory->createHeal({.x=34, .y=10}, INVISIBLE),
+                    healFactory->createHeal({.x=47, .y=12}, INVISIBLE),
 
                 }),
                 new Map(MAP_3, charMappings,{
@@ -543,6 +556,8 @@ Game *GameCreator::createNewGame() {
                     healFactory->createHeal({.x=3, .y=6}, VISIBLE),
                     healFactory->createHeal({.x=30, .y=17}, VISIBLE),
                     healFactory->createHeal({.x=74, .y=2}, INVISIBLE),
+                    healFactory->createHeal({.x=8, .y=5}, INVISIBLE),
+                    healFactory->createHeal({.x=60, .y=20}, INVISIBLE),
 
                 })
             },
@@ -561,6 +576,8 @@ Game *GameCreator::createNewGame() {
                     healFactory->createHeal({.x=20, .y=20}, VISIBLE),
                     healFactory->createHeal({.x=45, .y=16}, VISIBLE),
                     healFactory->createHeal({.x=4, .y=10}, INVISIBLE),
+                    healFactory->createHeal({.x=60, .y=12}, INVISIBLE),
+                    healFactory->createHeal({.x=30, .y=20}, INVISIBLE),
 
                 }),
                 new Map(MAP_4, charMappings,{
@@ -575,6 +592,8 @@ Game *GameCreator::createNewGame() {
                     healFactory->createHeal({.x=2, .y=9}, VISIBLE),
                     healFactory->createHeal({.x=64, .y=16}, VISIBLE),
                     healFactory->createHeal({.x=50, .y=2}, INVISIBLE),
+                    healFactory->createHeal({.x=35, .y=15}, INVISIBLE),
+                    healFactory->createHeal({.x=60, .y=20}, INVISIBLE),
 
                 })
             }
