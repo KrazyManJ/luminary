@@ -5,10 +5,12 @@
 #include "Window.h"
 #include "ReturnableWindow.h"
 #include "../inventory/Inventory.h"
+#include "../utils/Cycler.h"
 
 class InventoryWindow : public ReturnableWindow {
 private:
     Inventory* m_openedInventory;
+    Cycler* m_InventoryCycler;
 public:
     InventoryWindow(Window *prevWindow, Inventory* inventory);
 
