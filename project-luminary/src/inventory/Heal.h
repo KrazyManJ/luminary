@@ -8,7 +8,7 @@ class Heal : public Item {
 private:
     float m_healValue;
 public:
-    Heal(std::string name, float m_healValue, CharData *charData);
+    Heal(std::string name, float healValue, CharData *charData);
 
     float getHealValue();
 };

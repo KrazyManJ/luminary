@@ -7,7 +7,7 @@ class Weapon : public Item{
 private:
     float m_damageValue;
 public:
-    Weapon(std::string name, float m_damageValue,CharData* charData );
+    Weapon(std::string name, float damageValue, CharData* charData);
 
     float getDamage();
 };

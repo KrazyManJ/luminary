@@ -2,7 +2,7 @@
 #define PROJECT_LUMINARY_MOVEMENT_H
 
 enum MovementDirection{
-    RIGHT, LEFT, UP, DOWN
+    UP, DOWN, LEFT, RIGHT
 };
 
 #endif //PROJECT_LUMINARY_MOVEMENT_H
