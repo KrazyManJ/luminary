@@ -6,27 +6,29 @@
 GameEndingWindow::GameEndingWindow(Game* game) : ReturnableWindow(new MainMenuWindow()) {
     m_game = game;
     m_step = 0;
+    m_currentWindow = new GameDialog("I did it! I lit up the world!", nullptr);
 }
 
 void GameEndingWindow::render() {
     m_game->render();
-    switch (m_step) {
-        case 0:
-            (new GameDialog("I did it! I lit up the world!", nullptr))->render();
-            break;
-        case 1:
-            m_game->teleportPlayer(m_game->getEndingPosition());
-            m_game->render();
-            (new GameDialog("Now my home is not in dark anymore!", nullptr))->render();
-            break;
-        default:
-            close();
-            Luminary::getInstance()->removeLastGame();
-            Luminary::getInstance()->getActiveWindow()->render();
-            break;
-    }
+    m_currentWindow->render();
 }
 
 void GameEndingWindow::onInput(ConsoleHandler::KeyEvent *evt) {
-    if (evt->getKey() == KEY_ENTER) m_step++;
+    if (evt->getKey() != KEY_ENTER) return;
+    m_step++;
+    switch (m_step) {
+        case 0:
+            break;
+        case 1:
+            m_game->teleportPlayer(m_game->getEndingPosition());
+            delete m_currentWindow;
+            m_currentWindow = new GameDialog("Now my home is not in dark anymore!", nullptr);
+            break;
+        default:
+            close();
+            delete m_currentWindow;
+            Luminary::getInstance()->removeLastGame();
+            break;
+    }
 }

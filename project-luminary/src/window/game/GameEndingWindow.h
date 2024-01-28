@@ -10,6 +10,7 @@ class GameEndingWindow : public ReturnableWindow {
 private:
     Game* m_game;
     int m_step;
+    Window* m_currentWindow;
 public:
     GameEndingWindow(Game* game);
 
