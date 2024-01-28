@@ -25,7 +25,7 @@ std::string Torch::renderChar(bool isLightened) {
     if (isLit()) {
         return m_lightCharData->toFullChar();
     } else {
-        return m_data->toFullChar();
+        return m_charData->toFullChar();
     }
 }
 

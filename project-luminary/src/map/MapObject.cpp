@@ -11,7 +11,7 @@ std::string MapObject::renderChar(bool isLightened){
         return m_lightCharData->toFullChar();
     }
     else {
-        return m_data->toFullChar();
+        return m_charData->toFullChar();
     }
 }
 

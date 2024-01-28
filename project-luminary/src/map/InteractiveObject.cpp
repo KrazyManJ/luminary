@@ -20,7 +20,7 @@ std::string InteractiveObject::renderChar() {
     }
 }
 bool InteractiveObject::isTransparent(){
-    if (m_data != nullptr) {
+    if (m_charData != nullptr) {
         return false;
     } else {
         return true;

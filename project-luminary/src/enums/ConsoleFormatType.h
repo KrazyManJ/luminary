@@ -4,9 +4,9 @@
 enum ConsoleFormatType {
     RESET = 0,
     ITALIC = 3,
-    UNDERLINE = 4,
     BLINKING = 5,
     INVERTED = 7,
+    UNDERLINE = 4,
     STRIKETHROUGH = 9
 };
 

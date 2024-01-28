@@ -5,7 +5,7 @@
 
 #include "../Enemy.h"
 #include "../../enums/EnemyType.h"
-#include "../../console/CharBuilder.h"
+#include "../../console/CharFactory.h"
 #include "../../palettes/ColorPalette.h"
 
 class EnemyFactory {

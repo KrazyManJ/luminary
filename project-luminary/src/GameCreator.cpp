@@ -1,6 +1,6 @@
 
 #include "GameCreator.h"
-#include "console/CharBuilder.h"
+#include "console/CharFactory.h"
 #include "palettes/ColorPalette.h"
 #include "map/Enemy.h"
 #include "map/ItemEntity.h"
@@ -26,8 +26,8 @@ Game *GameCreator::createNewGame() {
             {
                     'a', []() {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::DARK_BLUE)->build(), //dark
-                                (new CharBuilder())->background(ColorPalette::ORANGE)->build(), //light
+                                (new CharFactory())->background(ColorPalette::DARK_BLUE)->create(), //dark
+                                (new CharFactory())->background(ColorPalette::ORANGE)->create(), //light
                                 true
                                 );
                     }
@@ -35,8 +35,8 @@ Game *GameCreator::createNewGame() {
             { // for entrances
                     'n', []() {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::DARK_BLUE)->build(), //dark
-                                (new CharBuilder())->background(ColorPalette::DARK_GREY)->build(), //light
+                                (new CharFactory())->background(ColorPalette::DARK_BLUE)->create(), //dark
+                                (new CharFactory())->background(ColorPalette::DARK_GREY)->create(), //light
                                 false
                                 );
                     }
@@ -44,8 +44,8 @@ Game *GameCreator::createNewGame() {
             { //water
                     'h', []() {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::BLUE)->build(),
-                                (new CharBuilder())->background(ColorPalette::DAY_BLUE)->build(),
+                                (new CharFactory())->background(ColorPalette::BLUE)->create(),
+                                (new CharFactory())->background(ColorPalette::DAY_BLUE)->create(),
                                 true
                                 );
                     }
@@ -53,8 +53,8 @@ Game *GameCreator::createNewGame() {
             { //wall
                     'r', []() {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::BLUE)->build(),
-                                (new CharBuilder())->background(ColorPalette::HOUSE)->build(),
+                                (new CharFactory())->background(ColorPalette::BLUE)->create(),
+                                (new CharFactory())->background(ColorPalette::HOUSE)->create(),
                                 true
                                 );
                     }
@@ -62,8 +62,8 @@ Game *GameCreator::createNewGame() {
             { //planter
                     'o', []() {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::BLUE)->build(),
-                                (new CharBuilder())->background(ColorPalette::TRUNK)->build(),
+                                (new CharFactory())->background(ColorPalette::BLUE)->create(),
+                                (new CharFactory())->background(ColorPalette::TRUNK)->create(),
                                 false
                                 );
                     }
@@ -71,8 +71,8 @@ Game *GameCreator::createNewGame() {
             {
                     'i', []() {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::LIGHT_BLUE)->build(),
-                                (new CharBuilder())->background(ColorPalette::PATH)->build(),
+                                (new CharFactory())->background(ColorPalette::LIGHT_BLUE)->create(),
+                                (new CharFactory())->background(ColorPalette::PATH)->create(),
                                 false
                                 );
                     }
@@ -80,8 +80,8 @@ Game *GameCreator::createNewGame() {
             {
                     's', []() {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::LIGHT_BLUE)->build(),
-                                (new CharBuilder())->background(ColorPalette::DAY_BLUE)->build(),
+                                (new CharFactory())->background(ColorPalette::LIGHT_BLUE)->create(),
+                                (new CharFactory())->background(ColorPalette::DAY_BLUE)->create(),
                                 false
                                 );
                     }
@@ -89,8 +89,8 @@ Game *GameCreator::createNewGame() {
             {
                     'j', []() {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::DARK_GREEN)->build(),
-                                (new CharBuilder())->background(ColorPalette::GREEN)->build(),
+                                (new CharFactory())->background(ColorPalette::DARK_GREEN)->create(),
+                                (new CharFactory())->background(ColorPalette::GREEN)->create(),
                                 true
                                 );
                     }
@@ -98,8 +98,8 @@ Game *GameCreator::createNewGame() {
             {
                     'k', []() {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::GREEN)->build(),
-                                (new CharBuilder())->background(ColorPalette::TREE_GREEN)->build(),
+                                (new CharFactory())->background(ColorPalette::GREEN)->create(),
+                                (new CharFactory())->background(ColorPalette::TREE_GREEN)->create(),
                                 true
                                 );
                     }
@@ -107,8 +107,8 @@ Game *GameCreator::createNewGame() {
             {
                     'l', [] () {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::BG_COLOR)->build(),
-                                (new CharBuilder())->background(ColorPalette::DAY_GREEN)->build(),
+                                (new CharFactory())->background(ColorPalette::BG_COLOR)->create(),
+                                (new CharFactory())->background(ColorPalette::DAY_GREEN)->create(),
                                 false
                                 );
                     }
@@ -117,8 +117,10 @@ Game *GameCreator::createNewGame() {
             {
                     'w', []() {
                         return new MapObject(
-                                (new CharBuilder('w'))->background(ColorPalette::BG_COLOR)->foreground(ColorPalette::BLUE)->build(),
-                                (new CharBuilder('w'))->background(ColorPalette::DAY_GREEN)->foreground(ColorPalette::GREEN)->build(),
+                                (new CharFactory('w'))->background(ColorPalette::BG_COLOR)->foreground(
+                                        ColorPalette::BLUE)->create(),
+                                (new CharFactory('w'))->background(ColorPalette::DAY_GREEN)->foreground(
+                                        ColorPalette::GREEN)->create(),
                                 false
                                 );
                     }
@@ -126,10 +128,12 @@ Game *GameCreator::createNewGame() {
             {
                     '~', [] () {
                         return new MapObject(
-                                (new CharBuilder('~'))->background(ColorPalette::BLUE)->foreground(ColorPalette::LIGHT_BLUE)
-                                ->format(BLINKING)->build(),
-                                (new CharBuilder('~'))->background(ColorPalette::DAY_BLUE)->foreground(ColorPalette::LIGHT_BLUE)
-                                ->format(BLINKING)->build(),
+                                (new CharFactory('~'))->background(ColorPalette::BLUE)->foreground(
+                                                ColorPalette::LIGHT_BLUE)
+                                        ->format(BLINKING)->create(),
+                                (new CharFactory('~'))->background(ColorPalette::DAY_BLUE)->foreground(
+                                                ColorPalette::LIGHT_BLUE)
+                                        ->format(BLINKING)->create(),
                                 true
                                 );
                     }
@@ -137,10 +141,12 @@ Game *GameCreator::createNewGame() {
             {
                     'c', [] () {
                         return new MapObject(
-                                (new CharBuilder('"'))->background(ColorPalette::DAY_GREEN)->foreground(ColorPalette::CARROT)
-                                ->format(INVERTED)->format(BLINKING)->build(),
-                                (new CharBuilder('"'))->background(ColorPalette::CARROT)->foreground(ColorPalette::DAY_GREEN)
-                                ->format(BLINKING)->build(),
+                                (new CharFactory('"'))->background(ColorPalette::DAY_GREEN)->foreground(
+                                                ColorPalette::CARROT)
+                                        ->format(INVERTED)->format(BLINKING)->create(),
+                                (new CharFactory('"'))->background(ColorPalette::CARROT)->foreground(
+                                                ColorPalette::DAY_GREEN)
+                                        ->format(BLINKING)->create(),
                                 true
                                 );
                     }
@@ -148,8 +154,10 @@ Game *GameCreator::createNewGame() {
             {
                     'd', [] () {
                         return new MapObject(
-                                (new CharBuilder('_'))->background(ColorPalette::LIGHT_BLUE)->foreground(ColorPalette::DARK_BLUE)->build(),
-                                (new CharBuilder('_'))->background(ColorPalette::TRUNK)->foreground(ColorPalette::BROWN)->build(),
+                                (new CharFactory('_'))->background(ColorPalette::LIGHT_BLUE)->foreground(
+                                        ColorPalette::DARK_BLUE)->create(),
+                                (new CharFactory('_'))->background(ColorPalette::TRUNK)->foreground(
+                                        ColorPalette::BROWN)->create(),
                                 false
                         );
                     }
@@ -157,8 +165,10 @@ Game *GameCreator::createNewGame() {
             { //planter
                     'p', [] () {
                         return new MapObject(
-                                (new CharBuilder('_'))->background(ColorPalette::BLUE)->foreground(ColorPalette::DARK_BLUE)->build(),
-                                (new CharBuilder('_'))->background(ColorPalette::TRUNK)->foreground(ColorPalette::ORANGE)->build(),
+                                (new CharFactory('_'))->background(ColorPalette::BLUE)->foreground(
+                                        ColorPalette::DARK_BLUE)->create(),
+                                (new CharFactory('_'))->background(ColorPalette::TRUNK)->foreground(
+                                        ColorPalette::ORANGE)->create(),
                                 false
                                 );
                     }
@@ -166,8 +176,10 @@ Game *GameCreator::createNewGame() {
             {
                     '|', [] () {
                         return new MapObject(
-                                (new CharBuilder('|'))->background(ColorPalette::LIGHT_BLUE)->foreground(ColorPalette::DARK_BLUE)->build(),
-                                (new CharBuilder('|'))->background(ColorPalette::DAY_BLUE)->foreground(ColorPalette::BLUE)->build(),
+                                (new CharFactory('|'))->background(ColorPalette::LIGHT_BLUE)->foreground(
+                                        ColorPalette::DARK_BLUE)->create(),
+                                (new CharFactory('|'))->background(ColorPalette::DAY_BLUE)->foreground(
+                                        ColorPalette::BLUE)->create(),
                                 false
                                 );
                     }
@@ -175,8 +187,10 @@ Game *GameCreator::createNewGame() {
             {
                     '_', [] () {
                         return new MapObject(
-                                (new CharBuilder('_'))->background(ColorPalette::LIGHT_BLUE)->foreground(ColorPalette::DARK_BLUE)->build(),
-                                (new CharBuilder('_'))->background(ColorPalette::DAY_BLUE)->foreground(ColorPalette::BLUE)->build(),
+                                (new CharFactory('_'))->background(ColorPalette::LIGHT_BLUE)->foreground(
+                                        ColorPalette::DARK_BLUE)->create(),
+                                (new CharFactory('_'))->background(ColorPalette::DAY_BLUE)->foreground(
+                                        ColorPalette::BLUE)->create(),
                                 false
                                 );
                     }
@@ -184,8 +198,10 @@ Game *GameCreator::createNewGame() {
             {
                     'g', [] () {
                         return new MapObject(
-                                (new CharBuilder('\\'))->background(ColorPalette::DARK_BLUE)->foreground(ColorPalette::BLUE)->build(),
-                                (new CharBuilder('\\'))->background(ColorPalette::ROOF)->foreground(ColorPalette::ORANGE)->build(),
+                                (new CharFactory('\\'))->background(ColorPalette::DARK_BLUE)->foreground(
+                                        ColorPalette::BLUE)->create(),
+                                (new CharFactory('\\'))->background(ColorPalette::ROOF)->foreground(
+                                        ColorPalette::ORANGE)->create(),
                                 true
                                 );
                     }
@@ -193,8 +209,10 @@ Game *GameCreator::createNewGame() {
             {
                     '=', [] () {
                         return new MapObject(
-                                (new CharBuilder('='))->background(ColorPalette::DARK_BLUE)->foreground(ColorPalette::BLUE)->build(),
-                                (new CharBuilder('='))->background(ColorPalette::ROOF)->foreground(ColorPalette::ORANGE)->build(),
+                                (new CharFactory('='))->background(ColorPalette::DARK_BLUE)->foreground(
+                                        ColorPalette::BLUE)->create(),
+                                (new CharFactory('='))->background(ColorPalette::ROOF)->foreground(
+                                        ColorPalette::ORANGE)->create(),
                                 true
                                 );
                     }
@@ -202,8 +220,10 @@ Game *GameCreator::createNewGame() {
             {
                     'm', [] () {
                         return new MapObject(
-                                (new CharBuilder('/'))->background(ColorPalette::DARK_BLUE)->foreground(ColorPalette::BLUE)->build(),
-                                (new CharBuilder('/'))->background(ColorPalette::ROOF)->foreground(ColorPalette::ORANGE)->build(),
+                                (new CharFactory('/'))->background(ColorPalette::DARK_BLUE)->foreground(
+                                        ColorPalette::BLUE)->create(),
+                                (new CharFactory('/'))->background(ColorPalette::ROOF)->foreground(
+                                        ColorPalette::ORANGE)->create(),
                                 true
                                 );
                     }
@@ -211,8 +231,8 @@ Game *GameCreator::createNewGame() {
             {
                     'q', [] () {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::TRUNK_GREEN)->build(),
-                                (new CharBuilder())->background(ColorPalette::TRUNK)->build(),
+                                (new CharFactory())->background(ColorPalette::TRUNK_GREEN)->create(),
+                                (new CharFactory())->background(ColorPalette::TRUNK)->create(),
                                 true
                                 );
                     }
@@ -220,8 +240,8 @@ Game *GameCreator::createNewGame() {
             {
                     't', [] () {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::DARK_GREEN)->build(),
-                                (new CharBuilder())->background(ColorPalette::LIGHT_GREY)->build(),
+                                (new CharFactory())->background(ColorPalette::DARK_GREEN)->create(),
+                                (new CharFactory())->background(ColorPalette::LIGHT_GREY)->create(),
                                 true
                                 );
                     }
@@ -229,8 +249,8 @@ Game *GameCreator::createNewGame() {
             {
                     'u', [] () {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::DARK_BLUE)->build(),
-                                (new CharBuilder())->background(ColorPalette::DARK_GREY)->build(),
+                                (new CharFactory())->background(ColorPalette::DARK_BLUE)->create(),
+                                (new CharFactory())->background(ColorPalette::DARK_GREY)->create(),
                                 true
                                 );
                     }
@@ -238,8 +258,8 @@ Game *GameCreator::createNewGame() {
             {
                     'v', [] () {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::DARK_BLUE)->build(),
-                                (new CharBuilder())->background(ColorPalette::BROWN)->build(),
+                                (new CharFactory())->background(ColorPalette::DARK_BLUE)->create(),
+                                (new CharFactory())->background(ColorPalette::BROWN)->create(),
                                 true
                                 );
                     }
@@ -247,8 +267,8 @@ Game *GameCreator::createNewGame() {
             {
                     'y', [] () {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::LIGHT_BLUE)->build(),
-                                (new CharBuilder())->background(ColorPalette::LIGHT_GREY)->build(),
+                                (new CharFactory())->background(ColorPalette::LIGHT_BLUE)->create(),
+                                (new CharFactory())->background(ColorPalette::LIGHT_GREY)->create(),
                                 true
                                 );
                     }
@@ -256,8 +276,8 @@ Game *GameCreator::createNewGame() {
             { //fire
                     'x', [] () {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::BLUE)->build(),
-                                (new CharBuilder())->background(ColorPalette::YELLOW)->build(),
+                                (new CharFactory())->background(ColorPalette::BLUE)->create(),
+                                (new CharFactory())->background(ColorPalette::YELLOW)->create(),
                                 true
                                 );
                     }
@@ -265,8 +285,8 @@ Game *GameCreator::createNewGame() {
             { //fire
                     'z', [] () {
                         return new MapObject(
-                                (new CharBuilder())->background(ColorPalette::BLUE)->build(),
-                                (new CharBuilder())->background(ColorPalette::ORANGE)->build(),
+                                (new CharFactory())->background(ColorPalette::BLUE)->create(),
+                                (new CharFactory())->background(ColorPalette::ORANGE)->create(),
                                 true
                                 );
                     }

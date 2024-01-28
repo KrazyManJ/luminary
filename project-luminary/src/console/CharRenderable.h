@@ -5,7 +5,7 @@
 
 class CharRenderable {
 protected:
-    CharData* m_data;
+    CharData* m_charData;
     CharRenderable(CharData* charData);
 public:
     virtual std::string renderChar();

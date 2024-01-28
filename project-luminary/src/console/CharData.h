@@ -9,8 +9,8 @@
 class CharData {
 private:
     char m_character;
-    unsigned int m_backgroundColor;
     unsigned int m_foregroundColor;
+    unsigned int m_backgroundColor;
     std::vector<ConsoleFormatType> m_formats;
 public:
     CharData(char character, unsigned int foregroundColor, unsigned int backgroundColor);

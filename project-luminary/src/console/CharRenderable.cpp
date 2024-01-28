@@ -1,11 +1,11 @@
 #include "CharRenderable.h"
 
 CharRenderable::CharRenderable(CharData* charData){
-    m_data = charData;
+    m_charData = charData;
 }
 
 std::string CharRenderable::renderChar(){
-    return m_data->toFullChar();
+    return m_charData->toFullChar();
 }
 
 
