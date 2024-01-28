@@ -12,7 +12,7 @@ private:
     int m_step;
     Window* m_currentWindow;
 public:
-    GameEndingWindow(Game* game);
+    explicit GameEndingWindow(Game* game);
 
     void render() override;
 

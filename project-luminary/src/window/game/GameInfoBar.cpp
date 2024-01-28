@@ -1,9 +1,7 @@
 #include <iostream>
 #include "GameInfoBar.h"
 
-GameInfoBar::GameInfoBar(Game *game) : ReturnableWindow(game) {
-    m_game = game;
-}
+GameInfoBar::GameInfoBar(Game *game) : GameReturnableWindow(game) {}
 
 void GameInfoBar::render() {
     const unsigned short BAR_HEIGHT = 3;

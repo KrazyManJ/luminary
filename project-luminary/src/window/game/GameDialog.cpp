@@ -11,6 +11,7 @@ void GameDialog::render() {
             << std::string(Window::WIDTH-2,' ');
     }
     ConsoleHandler::setCursorPosition(4,Y_DIALOG_POS+2);
+    std::cout << ConsoleHandler::getFormatChar(ITALIC);
     if (m_faded) {
         std::cout << m_text;
 
@@ -21,6 +22,7 @@ void GameDialog::render() {
         }
         m_faded = true;
     }
+    std::cout << ConsoleHandler::getFormatChar(RESET);
     ConsoleHandler::setCursorPosition(70,Y_DIALOG_POS+4);
     std::cout
         << ConsoleHandler::getFormatChar(BLINKING)
@@ -32,8 +34,7 @@ void GameDialog::onInput(ConsoleHandler::KeyEvent *evt) {
     if (evt->getKey() == KEY_ENTER) close(true);
 }
 
-GameDialog::GameDialog(std::string text, Game *game) : ReturnableWindow(game) {
+GameDialog::GameDialog(std::string text, Game *game) : GameReturnableWindow(game) {
     m_faded = false;
     m_text = text;
-    m_game = game;
 }

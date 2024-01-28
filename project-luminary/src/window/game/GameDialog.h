@@ -2,14 +2,13 @@
 #define PROJECT_LUMINARY_GAMEDIALOG_H
 
 
-#include "../ReturnableWindow.h"
 #include "../../Game.h"
+#include "GameReturnableWindow.h"
 
-class GameDialog : public ReturnableWindow {
+class GameDialog : public GameReturnableWindow {
 private:
     bool m_faded;
     std::string m_text;
-    Game* m_game;
 public:
     GameDialog(std::string text, Game *game);
 

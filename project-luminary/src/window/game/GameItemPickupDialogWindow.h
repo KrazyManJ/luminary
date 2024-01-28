@@ -2,12 +2,11 @@
 #define PROJECT_LUMINARY_GAMEITEMPICKUPDIALOGWINDOW_H
 
 
-#include "../ReturnableWindow.h"
 #include "../../Game.h"
+#include "GameReturnableWindow.h"
 
-class GameItemPickupDialogWindow : public ReturnableWindow {
+class GameItemPickupDialogWindow : public GameReturnableWindow {
 private:
-    Game* m_game;
     Item* m_item;
 public:
     GameItemPickupDialogWindow(Game* game, Item* item);

@@ -1,8 +1,7 @@
 #include <iostream>
 #include "GameItemPickupDialogWindow.h"
 
-GameItemPickupDialogWindow::GameItemPickupDialogWindow(Game *game, Item *item) : ReturnableWindow(game) {
-    m_game = game;
+GameItemPickupDialogWindow::GameItemPickupDialogWindow(Game *game, Item *item) :GameReturnableWindow(game) {
     m_item = item;
 }
 

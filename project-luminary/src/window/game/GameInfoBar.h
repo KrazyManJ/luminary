@@ -2,12 +2,10 @@
 #define PROJECT_LUMINARY_GAMEINFOBAR_H
 
 
-#include "../ReturnableWindow.h"
 #include "../../Game.h"
+#include "GameReturnableWindow.h"
 
-class GameInfoBar : public ReturnableWindow {
-private:
-    Game* m_game;
+class GameInfoBar : public GameReturnableWindow {
 public:
     GameInfoBar(Game *game);
 
