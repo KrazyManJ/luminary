@@ -16,3 +16,8 @@ void Cycler::goDown() {
 unsigned int Cycler::getIndex() {
     return m_index;
 }
+
+void Cycler::setMaxIndex(unsigned int newMaxIndex) {
+    m_max = newMaxIndex;
+    m_index = (m_index > m_max) ? m_max : m_index;
+}
