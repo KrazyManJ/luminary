@@ -324,7 +324,7 @@ Game *GameCreator::createNewGame() {
             },
             {
                     'G', [] () {
-                        return new NPC('&', "Maaaybe if you had a weapooon, you could defeeeaat all these mooonsters!");
+                        return new NPC('&', "Maaaybe if you had a weapooon, you could defeeeaat all these mooo  nsters!");
                     }
             },
             {
@@ -399,12 +399,12 @@ Game *GameCreator::createNewGame() {
             "llkkkjjjjkkkllwwwwlliiiiiiiiiiiiilllllwlllkkkklllllwwlllllllhhhhhhhhhhlllllwllll\n"
             "lljjkkkkkkjjlllllllllliiiiiiiiiiiilwllllkjjkkjjkllllllwlllllllllllllllllllllllll\n"
             "llljjjjjjjjllllllllllliiiiiiiiiiiilllllkkkjjjjkkklllllllwwllllllwllllkklllwlllll\n"
-            "llllllqqllllllllllwllliiiiiiiiiiiillwlljjkkkkkkjjllwwlllllllllllllllkkkkllllllll\n"
-            "llllllllllkkkkjlllwllliiiiiiiiiiiilllllljjjjjjjjllllllllllllllllllkjjkkjjklllwll\n"
-            "lllwllllkkkkkkkkjlllliiiiiiiiiiiiilwwllllllqqllllwllllkkkkkjlllllkkkjjjjkkklllll\n"
-            "lllllljjjjjjjjjjjjlliiiiiiiiiiiiilllwlllllllllllllllkkkkkkjjjllljjjkkkkkjjjjllll\n"
-            "lllwlllllllwlllllllliiiiiiiiiiiiillllllwlwlllllwllljjjjjjjjjjjlllljjjjjjjjllllll\n"
-            "lllllllllllllllllllliiiiiiiiiiiiillllllllllllllllllllllllllllllllllllqqlllllllll\n";
+            "illlllqqllllllllllwllliiiiiiiiiiiillwlljjkkkkkkjjllwwlllllllllllllllkkkkllllllll\n"
+            "hiilllllllkkkkjlllwllliiiiiiiiiiiilllllljjjjjjjjllllllllllllllllllkjjkkjjklllwll\n"
+            "hhhiilllkkkkkkkkjlllliiiiiiiiiiiiilwwllllllqqllllwllllkkkkkjlllllkkkjjjjkkklllll\n"
+            "hh~hiijjjjjjjjjjjjlliiiiiiiiiiiiilllwlllllllllllllllkkkkkkjjjllljjjkkkkkjjjjllll\n"
+            "h~hhhhiilllwlllllllliiiiiiiiiiiiillllllwlwlllllwllljjjjjjjjjjjlllljjjjjjjjllllll\n"
+            "hhhhhhiilllllllllllliiiiiiiiiiiiillllllllllllllllllllllllllllllllllllqqlllllllll\n";
 
     std::string MAP_3 =
             "lllllllllllllllllllliiiiiiiiiiiiilllllllllllllllllllllllllllllllllllllllllllllll\n"
@@ -478,8 +478,8 @@ Game *GameCreator::createNewGame() {
             "jkkklllliiiiiiiiiiiijjkkkkkkkjjllllllllliiiiiiiiiiiillllllllllllllllllllwwwlllll\n"
             "kkjjllllliiiiiiiiiiiijjjjjjjjjlllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiillllwllllllllll\n"
             "jjjwwllllliiiiiiiiiiiillqqqlllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiillllllllll\n"
-            "lllllwllllliiiiiiiiiiiillllllliiiiiiiiiiiiiiiiiiiiikkiiiiiiiiiiiiiiiiiiGiiiiiiii\n"
-            "llllwlllllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiilkkkklllliiiiiiiiiiiiiiiiiiiiii\n"
+            "lllllwllllliiiiiiiiiiiillllllliiiiiiiiiiiiiiiiiiiiikkiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
+            "llllwlllllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiilkkkklllliiiiiiiiiiiiiGiiiiiiii\n"
             "llllllllllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiillllkjjkkjjklliiiiiiiiikkiiiiiiiiiii\n"
             "llllllkkklllllliiiiiiiiiiiiiiiiiiiiiiiiiiilllllkkkjjjjkkkllllllllikkkkiiiiiiiiii\n"
             "llllkkkkkjjlllllllliiiiiiiiiiiiiiiiiiillllwwllljjkkkkkkjjlllllllkjjkkjjklwwlllll\n"
@@ -534,8 +534,11 @@ Game *GameCreator::createNewGame() {
 
                 }),
                 new Map(MAP_2, charMappings,{
-                    enemyFactory->createEnemy({.x=33, .y=5}, EASY),
+//                    enemyFactory->createEnemy({.x=33, .y=5}, EASY),
                     enemyFactory->createEnemy({.x=27, .y=19}, EASY),
+                    enemyFactory->createEnemy({.x=33, .y=5}, ATTACK, nullptr, new PlayerAttack("Pounce", 25)),
+                    enemyFactory->createEnemy({.x=60, .y=19}, ARMED, new Weapon("Light Axe", 10,(new CharFactory('P'))
+                    ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::ORANGE)->create())),
 
                     healFactory->createHeal({.x=55, .y=18}, VISIBLE),
                     healFactory->createHeal({.x=14, .y=15}, VISIBLE),
@@ -553,23 +556,26 @@ Game *GameCreator::createNewGame() {
                     enemyFactory->createEnemy({.x=38, .y=17}, HARD),
                     enemyFactory->createEnemy({.x=39, .y=16}, HARD),
                     enemyFactory->createEnemy({.x=37, .y=16}, HARD),
-                    enemyFactory->createEnemy({.x=37, .y=21}, MEDIUM),
+//                    enemyFactory->createEnemy({.x=37, .y=21}, MEDIUM),
+                    enemyFactory->createEnemy({.x=37, .y=21}, ATTACK, nullptr, new PlayerAttack("DESTROY", 35)),
                     enemyFactory->createEnemy({.x=38, .y=15}, MEDIUM),
                     enemyFactory->createEnemy({.x=38, .y=19}, MEDIUM),
+
 
                     healFactory->createHeal({.x=46, .y=15}, VISIBLE),
                     healFactory->createHeal({.x=56, .y=22}, VISIBLE),
                     healFactory->createHeal({.x=18, .y=18}, VISIBLE),
-                    healFactory->createHeal({.x=20, .y=24}, MAGIC),
+                    healFactory->createHeal({.x=20, .y=23}, MAGIC),
                     healFactory->createHeal({.x=4, .y=15}, INVISIBLE),
                     healFactory->createHeal({.x=34, .y=10}, INVISIBLE),
                     healFactory->createHeal({.x=47, .y=12}, INVISIBLE),
 
                 }),
                 new Map(MAP_3, charMappings,{
-                    enemyFactory->createEnemy({.x=30, .y=15}, EASY),
+                    enemyFactory->createEnemy({.x=32, .y=14}, EASY),
                     enemyFactory->createEnemy({.x=28, .y=14}, MEDIUM),
-                    enemyFactory->createEnemy({.x=32, .y=14}, MEDIUM),
+                    enemyFactory->createEnemy({.x=30, .y=15}, ARMED, new Weapon("Sickle of Light", 15,(new CharFactory('?'))
+                            ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::ORANGE)->create())),
 
                     healFactory->createHeal({.x=45, .y=3}, VISIBLE),
                     healFactory->createHeal({.x=67, .y=21}, VISIBLE),
@@ -585,9 +591,11 @@ Game *GameCreator::createNewGame() {
                 new Map(MAP_5, charMappings,{
                     enemyFactory->createEnemy({.x=16, .y=14}, HARD),
                     enemyFactory->createEnemy({.x=33, .y=3}, MEDIUM),
-                    enemyFactory->createEnemy({.x=59, .y=16}, MEDIUM),
-                    enemyFactory->createEnemy({.x=35, .y=19}, MEDIUM),
+                    enemyFactory->createEnemy({.x=34, .y=17}, MEDIUM),
                     enemyFactory->createEnemy({.x=13, .y=10}, HARD),
+                    enemyFactory->createEnemy({.x=67, .y=17}, ARMED, new Weapon("Lightsaber", 25,(new CharFactory('!'))
+                            ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::ORANGE)->create())),
+
 
                     healFactory->createHeal({.x=57, .y=5}, VISIBLE),
                     healFactory->createHeal({.x=70, .y=14}, VISIBLE),
@@ -602,9 +610,11 @@ Game *GameCreator::createNewGame() {
                 }),
                 new Map(MAP_4, charMappings,{
                     enemyFactory->createEnemy({.x=67, .y=13}, MEDIUM),
-                    enemyFactory->createEnemy({.x=69, .y=12}, MEDIUM),
+//                    enemyFactory->createEnemy({.x=69, .y=12}, MEDIUM),
                     enemyFactory->createEnemy({.x=65, .y=12}, MEDIUM),
-                    enemyFactory->createEnemy({.x=67, .y=11}, MEDIUM),
+                    enemyFactory->createEnemy({.x=67, .y=11}, ARMED, new Weapon("Glowing Bow", 20,(new CharFactory('{'))
+                    ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::ORANGE)->create())),
+                    enemyFactory->createEnemy({.x=69, .y=12}, ATTACK, nullptr, new PlayerAttack("Charge", 30)),
 
                     healFactory->createHeal({.x=58, .y=3}, VISIBLE),
                     healFactory->createHeal({.x=65, .y=23}, VISIBLE),

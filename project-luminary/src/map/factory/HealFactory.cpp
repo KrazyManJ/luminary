@@ -6,15 +6,15 @@
 
 
 ItemEntity* HealFactory::createHeal(Position position, HealType type) {
+    CharData* Carrot = new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE);
+    CharData* MagicCarrot = new CharData('"', ColorPalette::GREEN, ColorPalette::MAGIC_CARROT);
     switch(type) {
         case VISIBLE:
-            return new ItemEntity(new Heal("Carrot", 5, (new CharFactory('"'))->create()), position,
-                                  new CharData('"', ColorPalette::GREEN, ColorPalette::ORANGE));
+            return new ItemEntity(new Heal("Carrot", 5, Carrot), position, Carrot);
         case INVISIBLE:
-            return new ItemEntity(new Heal("Carrot", 5, (new CharFactory())->create()), position);
+            return new ItemEntity(new Heal("Carrot", 5, Carrot), position);
         case MAGIC:
-            return new ItemEntity(new Heal("Magic Carrot", 20, (new CharFactory('"'))->create()), position,
-                                  new CharData('"', ColorPalette::GREEN, ColorPalette::MAGIC_CARROT));
+            return new ItemEntity(new Heal("Magic Carrot", 20, MagicCarrot), position, MagicCarrot);
         default:
             return nullptr;
     }

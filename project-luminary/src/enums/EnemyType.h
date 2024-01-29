@@ -6,7 +6,9 @@
 enum EnemyType {
     EASY,
     MEDIUM,
-    HARD
+    HARD,
+    ARMED,
+    ATTACK
 };
 
 #endif //PROJECT_LUMINARY_ENEMYTYPE_H

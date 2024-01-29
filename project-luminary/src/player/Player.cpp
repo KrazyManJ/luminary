@@ -8,7 +8,7 @@ Player::Player(Position position) : CharRenderable(new CharData(CharPalette::PLA
     m_position = position; //nastavuje se v ramci vykreslovani
     m_health = PLAYER_MAX_HEALTH;
     m_inventory = new Inventory();
-    m_attacks[0] = new PlayerAttack("Punch", 20);
+    m_attacks[0] = new PlayerAttack("Punch", 10);
     for(int i = 1; i < PLAYER_ATTACKS; i++){
         m_attacks[i] = nullptr;
     }
