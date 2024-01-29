@@ -370,13 +370,13 @@ Game *GameCreator::createNewGame() {
             "llllllkkllllmmmmarrrrrrrrrrrrrraggggllpopoppplllllliiiiiiiiiiiiiiiiiiiiiiiiiiiii\n"
             "lllllkkkklllmmarrrrrr_|__|_rrrrrraggllopppopolllllliiiiiiiiiilllllllllllliiiiiii\n"
             "lllkjjkkjjklllrrrrrrrs|ss|srrrrrrrllllopopppplllliiiiiiiiiilllllllwwwwllllllliii\n"
-            "llkkkjjjjkkkllrrrrrrrrrrrrrrrrrrrrlllloopoopolllliiiiiiiiiilllllwwwkkwllllllllll\n"
-            "lljjkkkkkkjjllr__|__raaaaaar__|__rllllppoppoplllliiiiDiiiiilllllllkkkkllllllllll\n"
+            "llkkkjjjjkkkllrrrrrrrrrrrrrrrrrrrrlllloopoopolDlliiiiiiiiiilllllwwwkkwllllllllll\n"
+            "lljjkkkkkkjjllr__|__raaaaaar__|__rllllppoppoplllliiiiiiiiiilllllllkkkkllllllllll\n"
             "llljjjjjjjjlllrss|ssraaaaairss|ssrllllllllllllllliiiiiiiiiilllllkjjkkjjkllllllll\n"
             "llllllqqllllllrrrrrrraaaaaarrrrrrrllllwwllllllliiiiiiiiiillllllkkkjjjjkkklllllll\n"
             "llllllwllllwlllllllliiiiiiiilllllllllwwlllwlllliiiiiiiiiilllllljjkkkkkkjjlllllll\n"
             "llllllllwwwwwwwllllliiiiiiiiillllllllllllllllliiiiiiiiiiillllllljjjjjjjjllllwlll\n"
-            "llllllwlllwwlllllllllliiiiiiiiillllllllllllliiiiiiiiiiiiilllllwwlllqqlllllllllll\n"
+            "llllllwlllwwlllllllllliiiiiiiiillllllllllllliiiiiiHiiiiiilllllwwlllqqlllllllllll\n"
             "llllllllllllllwwlllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiillllllllllllllllllllliiii\n"
             "iiiillllllllllllllllllllliiiiiiiiiiiiiiiiiiiiiiiiiiillllllwwlllwlllllliiiiiihhhh\n"
             "hhhhiiiiiilllllwwwllllllllliiiiiiiiiiiiiiiiiiiiiiillllllwwwwwlllliiiiihhhhhhh~hh\n"
@@ -412,15 +412,15 @@ Game *GameCreator::createNewGame() {
             "hhhhhhiilllllllllllliiiiiiiiiiiiillllllllllllllllllllllllllllllllllllqqlllllllll\n";
 
     std::string MAP_3 =
-            "lllllllllllllllllllliiiiiiiiiiiiilllllllllllllllllllllllllllllllllllllllllllllll\n"
-            "llllllkkkklllllllwwlliiiiiiiiiiiiiillllwllllwwwwwwllwllllllllllwwwllllllllwwllll\n"
-            "llllkkkkkjjjlllwllllliiiiiiiiiiiiiillwwlllllllwlllllllwllllllwwwlllllwllllllllll\n"
-            "llljjjjjjjjjjlllllwlllliiiiiiiiiiiiillllllwwlllllwlllllllllllliiiiiiiiiiiiiiiiii\n"
-            "lllllllllllwwwlllllllwlliiiCiiiiiiiilllwwwllwllliiiiiiiiiiiiiihhhhhhhhhhhhhhhhhh\n"
-            "lllllwwwwlllllwwlllllllliiiiiiiiiiiilllllllliiiihhhhhhhhh~hhhhhhhh~~hhhhhhhhhhhh\n"
-            "llllllwlllwllllliiiiiiiaaiiiiiiiiiiaaiiiiiiihhhhh~~~hhh~hhhh~~h~hhhhh~hh~hhhhhhh\n"
-            "lllllliiiiiiiiiihhhhhhhaaiiiiiiiiiiaahhhhhhhhhhhhhh~hhhhh~~hhhhhhh~hhh~hhhh~hhhh\n"
-            "iiiiiihhhhhhhhhhhhh~~hhaaiiiiiiiiiiaahhh~~h~~hhhhhh~hhh~hhhh~hhh~hhh~~hhhhhhhhhh\n"
+            "hhhhhhiilllllllllllliiiiiiiiiiiiilllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "hhhhhhkkkklllllllwwlliiiiiiiiiiiiiillllwllllwwwwwwllwllllllllllwwwllllllllwwllll\n"
+            "hhhhkkkkkjjjlllwllllliiiiiiiiiiiiiillwwlllllllwlllllllwllllllwwwlllllwllllllllll\n"
+            "hhijjjjjjjjjjlllllwlllliiiiiiiiiiiiillllllwwlllllwlllllllllllliiiiiiiiiiiiiiiiii\n"
+            "hilllllllllwwwlllllllwlliiiCiiiiiiiilllwwwllwllliiiiiiiiiiiiiihhhhhhhhhhhhhhhhhh\n"
+            "hilllwwwwlllllwwlllllllliiiiiiiiiiiilllllllliiiihhhhhhhhh~hhhhhhhh~~hhhhhhhhhhhh\n"
+            "hhilllwlllwllllliiiiiiiaaiiiiiiiiiiaaiiiiiiihhhhh~~~hhh~hhhh~~h~hhhhh~hh~hhhhhhh\n"
+            "hhiilliiiiiiiiiihhhhhhhaaiiiiiiiiiiaahhhhhhhhhhhhhh~hhhhh~~hhhhhhh~hhh~hhhh~hhhh\n"
+            "hhhhiihhhhhhhhhhhhh~~hhaaiiiiiiiiiiaahhh~~h~~hhhhhh~hhh~hhhh~hhh~hhh~~hhhhhhhhhh\n"
             "hhhhhhhhh~~hhh~hhhhhhhhaaiiiiiiiiiiaahhhhhhhhhhhhhhhhhhhhhhhhhhhhh~hhhhhhh~hhhhh\n"
             "hhh~~hhhhhhhh~hhhh~hhhhaaiiiiiiiiiiaahhhhh~~hh~hhhh~~~~hhhh~~hhhhkk~hhhhhhhhhhhh\n"
             "hhhhh~~hh~hhhhhh~~hhhhhaaiiiiiiiiiiaahhhhhhh~~hhhhhhhh~hhhhhhhhhkkkkhhhhiiiiiiii\n"
@@ -515,7 +515,7 @@ Game *GameCreator::createNewGame() {
             "llkkkjjjjkkkllllllwwlkjjkkjjkllllliiiiiiillllwlllwwwlllllkkkjjjjkkkllllllllihhhh\n"
             "lljjkkkkkkjjllllllllkkkjjjjkkklllliiiiiillllllllwlllllllljjkkkkkkjjllllwlllihhhh\n"
             "llljjjjjjjjlllllwllljjkkkkkkjjllllliiiiiiillllkkkllllllllljjjjjjjjllllwwiiiihhhh\n"
-            "llllllqqllllHllllllwwjjjjjjjjlllllliiiiIiillljkkkkkkllwllllllqqllllllliihhhhhhhh\n"
+            "llllllqqlllllllllllwwjjjjjjjjlllllliiiiIiillljkkkkkkllwllllllqqllllllliihhhhhhhh\n"
             "llllllllllllllllllllllllqqlwwllllliiiiiiillljjjjjjjjjjlllllllllllllwiihhhhhhhhhh\n"
             "lllllllllllllllllllllllllllllllllliiiiiiiilllllllllllllllllllllllllihhhhhhhhhhhh\n";
 
@@ -541,7 +541,7 @@ Game *GameCreator::createNewGame() {
                 new Map(MAP_2, charMappings,{
 //                    enemyFactory->createEnemy({.x=33, .y=5}, EASY),
                     enemyFactory->createEnemy({.x=27, .y=19}, EASY),
-                    enemyFactory->createEnemy({.x=33, .y=5}, ATTACK, nullptr, new PlayerAttack("Pounce", 25)),
+                    enemyFactory->createEnemy({.x=33, .y=5}, ATTACK, nullptr, new PlayerAttack("Pounce", 15)),
                     enemyFactory->createEnemy({.x=60, .y=19}, ARMED, new Weapon("Light Axe", 10,(new CharFactory('P'))
                     ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::NPC_PINK)->create())),
 
@@ -562,7 +562,7 @@ Game *GameCreator::createNewGame() {
                     enemyFactory->createEnemy({.x=39, .y=16}, HARD),
                     enemyFactory->createEnemy({.x=37, .y=16}, HARD),
 //                    enemyFactory->createEnemy({.x=37, .y=21}, MEDIUM),
-                    enemyFactory->createEnemy({.x=37, .y=21}, ATTACK, nullptr, new PlayerAttack("DESTROY", 35)),
+                    enemyFactory->createEnemy({.x=37, .y=21}, ATTACK, nullptr, new PlayerAttack("DESTROY", 25)),
                     enemyFactory->createEnemy({.x=38, .y=15}, MEDIUM),
                     enemyFactory->createEnemy({.x=38, .y=19}, MEDIUM),
 
@@ -619,7 +619,7 @@ Game *GameCreator::createNewGame() {
                     enemyFactory->createEnemy({.x=65, .y=12}, MEDIUM),
                     enemyFactory->createEnemy({.x=67, .y=11}, ARMED, new Weapon("Glowing Bow", 20,(new CharFactory('{'))
                     ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::NPC_PINK)->create())),
-                    enemyFactory->createEnemy({.x=69, .y=12}, ATTACK, nullptr, new PlayerAttack("Charge", 30)),
+                    enemyFactory->createEnemy({.x=69, .y=12}, ATTACK, nullptr, new PlayerAttack("Charge", 20)),
 
                     healFactory->createHeal({.x=58, .y=3}, VISIBLE),
                     healFactory->createHeal({.x=65, .y=23}, VISIBLE),

@@ -14,10 +14,10 @@ Enemy* EnemyFactory::createEnemy(Position position, EnemyType type, Weapon* weap
             return new Enemy(position, 100, 45, (new CharFactory('%'))->background(ColorPalette::GREEN)
                     ->foreground(ColorPalette::YELLOW)->create());
         case ARMED:
-            return new Enemy(position, 75, 30, (new CharFactory('%'))->background(ColorPalette::GREEN)
+            return new Enemy(position, 55, 20, (new CharFactory('%'))->background(ColorPalette::GREEN)
                     ->foreground(ColorPalette::YELLOW)->create(), weapon);
         case ATTACK:
-            return new Enemy(position, 75, 30, (new CharFactory('%'))->background(ColorPalette::GREEN)
+            return new Enemy(position, 55, 25, (new CharFactory('%'))->background(ColorPalette::GREEN)
                     ->foreground(ColorPalette::YELLOW)->create(), playerAttack);
         default:
             return nullptr;
