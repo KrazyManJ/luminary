@@ -412,9 +412,9 @@ Game *GameCreator::createNewGame() {
             "hhhhhhiilllllllllllliiiiiiiiiiiiillllllllllllllllllllllllllllllllllllqqlllllllll\n";
 
     std::string MAP_3 =
-            "hhhhhhiilllllllllllliiiiiiiiiiiiilllllllllllllllllllllllllllllllllllllllllllllll\n"
-            "hhhhhhkkkklllllllwwlliiiiiiiiiiiiiillllwllllwwwwwwllwllllllllllwwwllllllllwwllll\n"
-            "hhhhkkkkkjjjlllwllllliiiiiiiiiiiiiillwwlllllllwlllllllwllllllwwwlllllwllllllllll\n"
+            "hh~hhhiilllllllllllliiiiiiiiiiiiilllllllllllllllllllllllllllllllllllllllllllllll\n"
+            "h~hh~hkkkklllllllwwlliiiiiiiiiiiiiillllwllllwwwwwwllwllllllllllwwwllllllllwwllll\n"
+            "hh~hkkkkkjjjlllwllllliiiiiiiiiiiiiillwwlllllllwlllllllwllllllwwwlllllwllllllllll\n"
             "hhijjjjjjjjjjlllllwlllliiiiiiiiiiiiillllllwwlllllwlllllllllllliiiiiiiiiiiiiiiiii\n"
             "hilllllllllwwwlllllllwlliiiCiiiiiiiilllwwwllwllliiiiiiiiiiiiiihhhhhhhhhhhhhhhhhh\n"
             "hilllwwwwlllllwwlllllllliiiiiiiiiiiilllllllliiiihhhhhhhhh~hhhhhhhh~~hhhhhhhhhhhh\n"
@@ -429,14 +429,14 @@ Game *GameCreator::createNewGame() {
             "hhhhh~~hhhhhhhhhhiiiiiiaaiiiiiiiiiiaalllwwllllkkllllllllllllljjkkkkkkjjllllwllll\n"
             "hhh~hhhh~hhhhhhilllllllliiiiiiiiiiiillllllwllkkkkllllwwwlllllljjjjjjjjlllwwwllll\n"
             "hhhhhh~hhhhhhhilwwwllllliiiiiiiiiiiiiilllllkjjkkjjklllllwllllllllqqlllwwllllllll\n"
-            "hhh~hhhhhhhhhhillllwwllllliiiiiiiiiiiiilllkkkjjjjkkklllllllwlllllwwlllkkkkllllll\n"
-            "hhhhh~hhh~~hhhhhilllwll1lliiiiiiiiiiiiiilljjkkkkkkjjllwllllkklllllllkkkkkjjjllll\n"
-            "hhhhhhh~hhhhhhhhillllwwwllliiiiiiiiiiiiillljjjjjjjjlllllllkkkkllllljjjjjjjjjjlll\n"
-            "hhh~~hhhhhhhhhhhilwwlllllllliiiiiiiiiiiiilllllqqllllllwlkjjkkjjkllllllllllllllll\n"
-            "hhhhh~hhh~~hhhhhhiilwwwllwlliiiiiiiiiiiiillwwwwwlllwlllkkkjjjjkkklllwwlllwlwllll\n"
-            "hhhhhhh~hhh~~hhhhiillllwwllliiiiiiiiiiiiillllllwwlllllljjkkkkkkjjllllwwwwlllllll\n"
-            "hhh~~hhhh~hhhh~hhhhiillllliiiiiiiiiiiiiilllllllllllwwllljjjjjjjjllllwllllllwwlll\n"
-            "hhhhhhhhhhhhhhhhhhhiillliiiiiiiiiiiiiillllwwllwllllllllllllqqlllllllllllllllllll\n";
+            "hhh~hhhhhhhhhhillllwwllllliiiiiiiiiiiiilllkkkjjjjkkklllllllkkllllwwlllkkkkllllll\n"
+            "hhhhh~hhh~~hhhhhilllwll1lliiiiiiiiiiiiiilljjkkkkkkjjllwlllkkkkllllllkkkkkjjjllll\n"
+            "hhhhhhh~hhhhhhhhillllwwwllliiiiiiiiiiiiillljjjjjjjjlllllkjjkkjjkllljjjjjjjjjjlll\n"
+            "hhh~~hhhhhhhhhhhilwwlllllllliiiiiiiiiiiiilllllqqllllllwkkkjjjjkkklllllllllllllll\n"
+            "hhhhh~hhh~~hhhhhhiilwwwllwlliiiiiiiiiiiiillwwwwwlllwllljjkkkkkkjjlllwwlllwlwllll\n"
+            "hhhhhhh~hhh~~hhhhiillllwwllliiiiiiiiiiiiillllllwwllllllljjjjjjjjlllllwwwwlllllll\n"
+            "hhh~~hhhh~hhhh~hhhhiillllliiiiiiiiiiiiiilllllllllllwwllllllqqlllllllwllllllwwlll\n"
+            "hhhhhhhhhhhhhhhhhhhiillliiiiiiiiiiiiiillllwwllwlllllllllllllllllllllllllllllllll\n";
 
     std::string MAP_4 =
             "hhhhhh~~hhhhhhhhhhhhillliiiiiiiiiiiiiillllllllllllllllllllllllllllllllllllllllll\n"
@@ -535,7 +535,11 @@ Game *GameCreator::createNewGame() {
                     healFactory->createHeal({.x=40, .y=10}, VISIBLE),
                     healFactory->createHeal({.x=43, .y=13}, VISIBLE),
                     healFactory->createHeal({.x=8, .y=5}, INVISIBLE),
+                    healFactory->createHeal({.x=9, .y=5}, INVISIBLE),
+                    healFactory->createHeal({.x=60, .y=15}, INVISIBLE),
                     healFactory->createHeal({.x=6, .y=18}, INVISIBLE),
+                    healFactory->createHeal({.x=7, .y=18}, INVISIBLE),
+                    healFactory->createHeal({.x=9, .y=18}, INVISIBLE),
 
                 }),
                 new Map(MAP_2, charMappings,{
@@ -548,11 +552,14 @@ Game *GameCreator::createNewGame() {
                     healFactory->createHeal({.x=55, .y=18}, VISIBLE),
                     healFactory->createHeal({.x=14, .y=15}, VISIBLE),
                     healFactory->createHeal({.x=21, .y=4}, VISIBLE),
+                    healFactory->createHeal({.x=23, .y=2}, VISIBLE),
                     healFactory->createHeal({.x=47, .y=5}, VISIBLE),
                     healFactory->createHeal({.x=33, .y=10}, MAGIC),
                     healFactory->createHeal({.x=20, .y=2}, INVISIBLE),
+                    healFactory->createHeal({.x=21, .y=2}, INVISIBLE),
                     healFactory->createHeal({.x=75, .y=3}, INVISIBLE),
                     healFactory->createHeal({.x=12, .y=24}, INVISIBLE),
+                    healFactory->createHeal({.x=13, .y=24}, INVISIBLE),
 
                 })
             },
@@ -569,6 +576,8 @@ Game *GameCreator::createNewGame() {
 
                     healFactory->createHeal({.x=46, .y=15}, VISIBLE),
                     healFactory->createHeal({.x=56, .y=22}, VISIBLE),
+                    healFactory->createHeal({.x=60, .y=21}, VISIBLE),
+                    healFactory->createHeal({.x=53, .y=19}, VISIBLE),
                     healFactory->createHeal({.x=18, .y=18}, VISIBLE),
                     healFactory->createHeal({.x=20, .y=23}, MAGIC),
                     healFactory->createHeal({.x=4, .y=15}, INVISIBLE),
@@ -584,11 +593,13 @@ Game *GameCreator::createNewGame() {
 
                     healFactory->createHeal({.x=45, .y=3}, VISIBLE),
                     healFactory->createHeal({.x=67, .y=21}, VISIBLE),
-                    healFactory->createHeal({.x=3, .y=6}, VISIBLE),
+                    healFactory->createHeal({.x=69, .y=23}, VISIBLE),
+                    healFactory->createHeal({.x=4, .y=5}, VISIBLE),
                     healFactory->createHeal({.x=30, .y=17}, VISIBLE),
                     healFactory->createHeal({.x=74, .y=2}, INVISIBLE),
                     healFactory->createHeal({.x=8, .y=5}, INVISIBLE),
                     healFactory->createHeal({.x=60, .y=20}, INVISIBLE),
+                    healFactory->createHeal({.x=61, .y=21}, INVISIBLE),
 
                 })
             },
@@ -605,8 +616,10 @@ Game *GameCreator::createNewGame() {
                     healFactory->createHeal({.x=57, .y=5}, VISIBLE),
                     healFactory->createHeal({.x=70, .y=14}, VISIBLE),
                     healFactory->createHeal({.x=40, .y=12}, VISIBLE),
+                    healFactory->createHeal({.x=41, .y=16}, VISIBLE),
                     healFactory->createHeal({.x=20, .y=4}, VISIBLE),
                     healFactory->createHeal({.x=20, .y=20}, VISIBLE),
+                    healFactory->createHeal({.x=25, .y=28}, VISIBLE),
                     healFactory->createHeal({.x=45, .y=16}, VISIBLE),
                     healFactory->createHeal({.x=4, .y=10}, INVISIBLE),
                     healFactory->createHeal({.x=60, .y=12}, INVISIBLE),
@@ -622,7 +635,9 @@ Game *GameCreator::createNewGame() {
                     enemyFactory->createEnemy({.x=69, .y=12}, ATTACK, nullptr, new PlayerAttack("Charge", 20)),
 
                     healFactory->createHeal({.x=58, .y=3}, VISIBLE),
+                    healFactory->createHeal({.x=45, .y=23}, MAGIC),
                     healFactory->createHeal({.x=65, .y=23}, VISIBLE),
+                    healFactory->createHeal({.x=70, .y=21}, VISIBLE),
                     healFactory->createHeal({.x=32, .y=21}, VISIBLE),
                     healFactory->createHeal({.x=2, .y=9}, VISIBLE),
                     healFactory->createHeal({.x=64, .y=16}, VISIBLE),
