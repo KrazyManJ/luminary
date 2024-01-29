@@ -20,8 +20,10 @@ void BattleWindow::render() {
         {
             finishDialog = "Battle is over!!! You won!!! Press any key to continue...";
             m_enemy->makeUninteractable();
-            if(m_enemy->hasLoot()){
-                m_player->getInventory()->addWeapon(m_enemy->getLoot());
+            if(m_enemy->hasWeapon()){
+                m_player->getInventory()->addWeapon(m_enemy->getWeapon());
+            }else if(m_enemy->hasAttack()){
+                m_player->addAttack(m_enemy->getAttack());
             }
         }else{
             finishDialog = "Battle is over!!! Game is over!!! Press any key to start again...";
