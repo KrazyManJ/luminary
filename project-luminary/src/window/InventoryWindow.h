@@ -13,6 +13,8 @@ private:
     Player* m_player;
     Inventory* m_openedInventory;
     Cycler* m_InventoryCycler;
+
+    void updateCycler();
 public:
     InventoryWindow(Window *prevWindow, Player* player);
 

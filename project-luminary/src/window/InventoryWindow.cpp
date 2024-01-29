@@ -1,8 +1,7 @@
 #include <iostream>
 #include "InventoryWindow.h"
-#include "../utils/Cycler.h"
 #include <vector>
-//#include "Item.h"
+
 void InventoryWindow::render() {
 
     const unsigned short MARGIN_WIDTH = 4;
@@ -150,9 +149,9 @@ void InventoryWindow::onInput(ConsoleHandler::KeyEvent *evt) {
     if (evt->getKey() == KEY_ENTER){
         if (m_InventoryCycler->getIndex() < m_openedInventory->getHeals().size()){
             m_openedInventory->useHeal(m_InventoryCycler->getIndex(),m_player);
+            updateCycler();
         } else {
-            auto* weapon = m_openedInventory->getWeapons().at(m_InventoryCycler->getIndex()-m_openedInventory->getHeals().size());
-            m_openedInventory->equipWeapon(weapon);
+            m_openedInventory->equipWeapon(m_InventoryCycler->getIndex()-m_openedInventory->getHeals().size());
         }
     }
 }
@@ -160,8 +159,10 @@ void InventoryWindow::onInput(ConsoleHandler::KeyEvent *evt) {
 InventoryWindow::InventoryWindow(Window *prevWindow, Player *player) : ReturnableWindow(prevWindow) {
     m_player = player;
     m_openedInventory = m_player->getInventory();
-    m_InventoryCycler = new Cycler (m_openedInventory->getHeals().size()+m_openedInventory->getWeapons().size()-1);
+    m_InventoryCycler = new Cycler (0);
+    updateCycler();
 }
 
-
-
+void InventoryWindow::updateCycler() {
+    m_InventoryCycler->setMaxIndex(m_openedInventory->getHeals().size()+m_openedInventory->getWeapons().size()-1);
+}
