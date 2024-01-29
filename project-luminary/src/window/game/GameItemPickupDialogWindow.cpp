@@ -19,7 +19,6 @@ void GameItemPickupDialogWindow::render() {
 
 void GameItemPickupDialogWindow::onInput(ConsoleHandler::KeyEvent *evt) {
     Game* game = m_game;
-    close();
+    close(true);
     game->onInput(evt);
-    game->render();
 }
