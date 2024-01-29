@@ -8,6 +8,7 @@
 class GameItemPickupDialogWindow : public GameReturnableWindow {
 private:
     Item* m_item;
+    int m_time;
 public:
     GameItemPickupDialogWindow(Game* game, Item* item);
 
