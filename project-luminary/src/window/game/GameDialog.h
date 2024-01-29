@@ -9,8 +9,13 @@ class GameDialog : public GameReturnableWindow {
 private:
     bool m_faded;
     std::string m_text;
+    bool m_fullScreen;
+
+    void renderClassic();
+
+    void renderFullScreen();
 public:
-    GameDialog(std::string text, Game *game);
+    GameDialog(std::string text, Game *game, bool fullScreen = false);
 
     void render() override;
 

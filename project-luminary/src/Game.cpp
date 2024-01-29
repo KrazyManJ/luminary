@@ -190,7 +190,7 @@ bool Game::areAllTorchesLitUp() {
 
 void Game::end() {
     Luminary::getInstance()->getActiveWindow()->render();
-    Luminary::getInstance()->openWindow(new GameEndingWindow(this));
+    Luminary::getInstance()->openWindow(new GameEndingWindow(this), true);
 }
 
 GamePosition Game::getEndingPosition() {
