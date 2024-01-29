@@ -26,6 +26,10 @@ Heal *Inventory::getHeal(unsigned int indexOfHeal) {
     return m_heals.at(indexOfHeal);
 }
 
+Weapon *Inventory::getWeapon(unsigned int indexOfWeapon) {
+    return m_weapons.at(indexOfWeapon);
+}
+
 std::vector<Heal *> Inventory::getHeals() {
     return m_heals;
 }
@@ -40,6 +44,17 @@ void Inventory::equipWeapon(Weapon *toEquip) {
 
 Weapon *Inventory::equipedWeapon() {
     return m_nowEquiped;
+}
+
+bool Inventory::useHeal(unsigned int indexOfHeal, Player* player) {
+    auto * heal = getHeal(indexOfHeal);
+    if(heal->getHealValue() + player->getHealth() <= PLAYER_MAX_HEALTH){
+        player->useHeal(heal);
+        deleteHeal(indexOfHeal);
+        return true;
+    }else{
+        return false;
+    }
 }
 
 Inventory::~Inventory() {

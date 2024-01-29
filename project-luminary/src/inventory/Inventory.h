@@ -4,6 +4,9 @@
 #include <vector>
 #include "Heal.h"
 #include "Weapon.h"
+#include "../player/Player.h"
+
+class Player;
 
 class Inventory {
 private:
@@ -19,10 +22,12 @@ public:
     void addWeapon(Weapon* newWeapon); //prida zbran do inventare (do budoucna ziskatelne ve svete)
     void addHeal(Heal* newHeal); //prida leceni do inventare (do budoucna ziskatelne ve svete)
     Heal* getHeal(unsigned int indexOfHeal); //vrati konkretni leceni na konkretni zadane pozici
+    Weapon * getWeapon(unsigned int indexOfWeapon);
     std::vector<Heal*> getHeals();
     std::vector<Weapon*> getWeapons();
     void equipWeapon(Weapon* toEquip);
     Weapon* equipedWeapon();
+    bool useHeal(unsigned int indexOfHeal, Player* player);
     ~Inventory(); //v ramci smazani inventare vymaze i leceni a zbrane v nem ulozene z pameti
 };
 
