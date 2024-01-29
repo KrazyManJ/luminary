@@ -9,6 +9,7 @@
 
 class InventoryWindow : public ReturnableWindow {
 private:
+    const unsigned short SLOTS_IN_ROW = 15;
     Inventory* m_openedInventory;
     Cycler* m_InventoryCycler;
 public:
