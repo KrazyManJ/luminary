@@ -338,6 +338,11 @@ Game *GameCreator::createNewGame() {
                 }
             },
             {
+                    'J', [] () {
+                        return new NPC('&', "Try pressing E or Q... Soooomething maaaagical haaappens...");
+                    }
+            },
+            {
                 '0',[&game]() { return game->m_torchesOrder.at(0);},
             },
             {
@@ -377,7 +382,7 @@ Game *GameCreator::createNewGame() {
             "llllllwllllwlllllllliiiiiiiilllllllllwwlllwlllliiiiiiiiiilllllljjkkkkkkjjlllllll\n"
             "llllllllwwwwwwwllllliiiiiiiiillllllllllllllllliiiiiiiiiiillllllljjjjjjjjllllwlll\n"
             "llllllwlllwwlllllllllliiiiiiiiillllllllllllliiiiiiHiiiiiilllllwwlllqqlllllllllll\n"
-            "llllllllllllllwwlllllliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiillllllllllllllllllllliiii\n"
+            "llllllllllllllwwlllllliiiiiiiJiiiiiiiiiiiiiiiiiiiiiiiiillllllllllllllllllllliiii\n"
             "iiiillllllllllllllllllllliiiiiiiiiiiiiiiiiiiiiiiiiiillllllwwlllwlllllliiiiiihhhh\n"
             "hhhhiiiiiilllllwwwllllllllliiiiiiiiiiiiiiiiiiiiiiillllllwwwwwlllliiiiihhhhhhh~hh\n"
             "hhhhhhhhhhiiiiiiiiiiillwlllllllllllllllllllllllllllllwllllliiiiiihhhhhhhhh~hhhhh\n"
