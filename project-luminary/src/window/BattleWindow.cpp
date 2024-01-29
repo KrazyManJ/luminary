@@ -15,16 +15,18 @@ void BattleWindow::render() {
     if(playerHealth <= 0 or enemyHealth <= 0)
     {
         close();
-        std::string finishDialog;
+        std::string finishDialog = "";
         if(playerHealth > 0)
         {
-            finishDialog = "Battle is over!!! You won!!! Press any key to continue...";
             m_enemy->makeUninteractable();
             if(m_enemy->hasWeapon()){
                 m_player->getInventory()->addWeapon(m_enemy->getWeapon());
+                finishDialog = "Wow you gain a weapon! ";
             }else if(m_enemy->hasAttack()){
                 m_player->addAttack(m_enemy->getAttack());
+                finishDialog = "Wow you gain an attack! ";
             }
+            finishDialog += "Battle is over!!! You won!!! Press any key to continue...";
         }else{
             finishDialog = "Battle is over!!! Game is over!!! Press any key to start again...";
             Luminary::getInstance()->resetGame();

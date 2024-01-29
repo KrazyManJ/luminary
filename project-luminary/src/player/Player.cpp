@@ -32,13 +32,8 @@ void Player::dealDamage(unsigned int incomingDamage) {
     m_health -= incomingDamage;
 }
 
-bool Player::useHeal(Heal* heal) {
-    if(m_health + heal->getHealValue() <= PLAYER_MAX_HEALTH){
-        m_health += heal->getHealValue();
-        return true;
-    }else{
-        return false;
-    }
+void Player::useHeal(Heal* toUse) {
+    m_health += toUse->getHealValue();
 }
 
 Inventory* Player::getInventory() {

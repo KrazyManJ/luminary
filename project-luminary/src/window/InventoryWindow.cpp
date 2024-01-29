@@ -79,6 +79,44 @@ void InventoryWindow::render() {
         ;
         itemIndex++;
     }
+
+    const unsigned short DETAILS_X_POSITION = Window::WIDTH/2+2;
+
+    // if inventory has selected heal
+    if (m_InventoryCycler->getIndex() < m_openedInventory->getHeals().size()){
+        auto* heal = m_openedInventory->getHeals().at(m_InventoryCycler->getIndex());
+        ConsoleHandler::setCursorPosition(DETAILS_X_POSITION,MARGIN_HEIGHT+4);
+        std::cout << heal->getName() << std::string(10, ' ');
+
+        ConsoleHandler::setCursorPosition(DETAILS_X_POSITION,MARGIN_HEIGHT+6);
+        std::cout
+            << "Heal value: "
+            << ConsoleHandler::getColorChar(0x00FF00,FOREGROUND)
+            << heal->getHealValue()
+            << ConsoleHandler::getFormatChar(RESET)
+        ;
+        std::cout << std::string(10, ' ');
+
+        ConsoleHandler::setCursorPosition(DETAILS_X_POSITION,MARGIN_HEIGHT+14);
+        std::cout << "Hit enter to use heal.   ";
+    }
+    else {
+        auto* weapon = m_openedInventory->getWeapons().at(m_InventoryCycler->getIndex()-m_openedInventory->getHeals().size());
+        ConsoleHandler::setCursorPosition(DETAILS_X_POSITION,MARGIN_HEIGHT+4);
+        std::cout << weapon->getName() << std::string(10, ' ');
+
+        ConsoleHandler::setCursorPosition(DETAILS_X_POSITION,MARGIN_HEIGHT+6);
+        std::cout
+                << "Damage: "
+                << ConsoleHandler::getColorChar(0xFF0000,FOREGROUND)
+                << weapon->getDamage()
+                << ConsoleHandler::getFormatChar(RESET)
+        ;
+        std::cout << std::string(10, ' ');
+
+        ConsoleHandler::setCursorPosition(DETAILS_X_POSITION,MARGIN_HEIGHT+14);
+        std::cout << "Hit enter to equip.     ";
+    }
 }
 
 void InventoryWindow::onInput(ConsoleHandler::KeyEvent *evt) {
@@ -103,6 +141,15 @@ void InventoryWindow::onInput(ConsoleHandler::KeyEvent *evt) {
         for (int i = 0; i < SLOTS_IN_ROW; i++)
             m_InventoryCycler->goDown();
         return;
+    }
+    if (evt->getKey() == KEY_ENTER){
+        if (m_InventoryCycler->getIndex() < m_openedInventory->getHeals().size()){
+            auto* heal = m_openedInventory->getHeals().at(m_InventoryCycler->getIndex());
+            //use heal
+        } else {
+            auto* weapon = m_openedInventory->getWeapons().at(m_InventoryCycler->getIndex()-m_openedInventory->getHeals().size());
+            //equip weapon
+        }
     }
 }
 

@@ -11,6 +11,8 @@
 #define PLAYER_ATTACKS 4
 #define PLAYER_MAX_HEALTH 100
 
+class Inventory;
+
 class Player: public CharRenderable{
     Position m_position;
     float m_health;
@@ -22,7 +24,7 @@ public:
     void setPosition(Position newPosition); //nastavuje pozici hrace (v ramci pohybu)
     void addAttack(PlayerAttack* newAttack); //pridava novy utok (pokud jej hrac ziska)
     void dealDamage(unsigned int incomingDamage); //metoda, ktera se bude vyuzivat pro vypocet zdravi v ramci souboje
-    bool useHeal(Heal* heal);
+    void useHeal(Heal* toUse);
     Inventory* getInventory(); //preda aktualni stav inventare hrace (v budoucnu aplikovano pro inventar)
     void makeMovement(MovementDirection movementDirection); //na zaklade predaneho smeru pohybu zmeni souradnice
     Position getPosition(); //vraci aktualni pozici hrace
