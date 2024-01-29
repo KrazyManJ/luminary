@@ -34,8 +34,7 @@ void BattleWindow::render() {
         std::string fullRender;
 //        std::string fightBackground = ConsoleHandler::getColorChar(0x38A8AB, BACKGROUND) + ' ' + ConsoleHandler::getFormatChar(RESET);
         for(unsigned int renderPositionY = 1; renderPositionY <= Window::HEIGHT; renderPositionY++){
-            fullRender.append(std::string(4,' '));
-            fullRender.append(std::string(Window::WIDTH-20, (renderPositionY == 4 || renderPositionY == 18) ? '-' : ' ')).append("\n");
+            fullRender.append(std::string(Window::WIDTH-1, (renderPositionY == 4 || renderPositionY == 18) ? '-' : ' ')).append("\n");
 //            if(renderPositionY == 2 || renderPositionY == 20) fullRender.append(std::string(Window::WIDTH, '-')).append("\n");
 //            else if(renderPositionY > 2 && renderPositionY < 20){
 //                for(unsigned renderPositionX = 1; renderPositionX <= Window::WIDTH; renderPositionX++){
@@ -51,17 +50,17 @@ void BattleWindow::render() {
         std::cout << fullRender << std::endl;
         std::string label = "| Battle |";
         unsigned int lenghtOfLabel = label.length();
-        ConsoleHandler::setCursorPosition((Window::WIDTH/2)-(lenghtOfLabel/2)-5,3);
+        ConsoleHandler::setCursorPosition((Window::WIDTH/2)-(lenghtOfLabel/2),3);
         std::cout << label;
-        ConsoleHandler::setCursorPosition(13,6);
+        ConsoleHandler::setCursorPosition(18,6);
         std::cout << playerHealth << " HP";
-        ConsoleHandler::setCursorPosition(15,8);
+        ConsoleHandler::setCursorPosition(20,8);
         std::cout << m_player->renderChar();
-        ConsoleHandler::setCursorPosition(Window::WIDTH-27,6);
+        ConsoleHandler::setCursorPosition((Window::WIDTH/2)+(lenghtOfLabel/2)+11,6);
         std::cout << enemyHealth << " HP";
-        ConsoleHandler::setCursorPosition(Window::WIDTH-25,8);
+        ConsoleHandler::setCursorPosition((Window::WIDTH/2)+(lenghtOfLabel/2)+13,8);
         std::cout << m_enemy->renderChar();
-        ConsoleHandler::setCursorPosition(18,20);
+        ConsoleHandler::setCursorPosition(25,20);
         std::string choises[AMOUNT_OF_CHOISES] = {"Attack", "Open inventory"};
         for(unsigned int i = 0; i < AMOUNT_OF_CHOISES; i++){
             if(m_battleCycler->getIndex() == i){
@@ -92,6 +91,6 @@ void BattleWindow::onInput(ConsoleHandler::KeyEvent *evt) {
             Luminary::getInstance()->openWindow(battleWindowAttacks, true);
         }
         else if(index == 1)
-            Luminary::getInstance()->openWindow(new InventoryWindow(this,m_player->getInventory()),true);
+            Luminary::getInstance()->openWindow(new InventoryWindow(this,m_player->getInventory()));
     }
 }
