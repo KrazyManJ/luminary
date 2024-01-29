@@ -95,6 +95,6 @@ void BattleWindow::onInput(ConsoleHandler::KeyEvent *evt) {
             Luminary::getInstance()->openWindow(battleWindowAttacks, true);
         }
         else if(index == 1)
-            Luminary::getInstance()->openWindow(new InventoryWindow(this,m_player->getInventory()));
+            Luminary::getInstance()->openWindow(new InventoryWindow(this,m_player));
     }
 }
