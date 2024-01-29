@@ -314,7 +314,7 @@ Game *GameCreator::createNewGame() {
             {
                     'E', [] () {
                         return new NPC('&', "Ooooooo... They say that when yooou light all of the toooorches,\n"
-                                            "soooomething... happens...");
+                                            "   soooomething... happens...");
                     }
             },
             {
@@ -324,7 +324,7 @@ Game *GameCreator::createNewGame() {
             },
             {
                     'G', [] () {
-                        return new NPC('&', "Maaaybe if you had a weapooon, you could defeeeaat all these mooo  nsters!");
+                        return new NPC('&', "Maaaybe if you had a weapooon, you could defeeeaat all these mooonsters!");
                     }
             },
             {
@@ -568,7 +568,6 @@ Game *GameCreator::createNewGame() {
                     enemyFactory->createEnemy({.x=38, .y=17}, HARD),
                     enemyFactory->createEnemy({.x=39, .y=16}, HARD),
                     enemyFactory->createEnemy({.x=37, .y=16}, HARD),
-//                    enemyFactory->createEnemy({.x=37, .y=21}, MEDIUM),
                     enemyFactory->createEnemy({.x=37, .y=21}, ATTACK, nullptr, new PlayerAttack("DESTROY", 25)),
                     enemyFactory->createEnemy({.x=38, .y=15}, MEDIUM),
                     enemyFactory->createEnemy({.x=38, .y=19}, MEDIUM),
@@ -576,7 +575,7 @@ Game *GameCreator::createNewGame() {
 
                     healFactory->createHeal({.x=46, .y=15}, VISIBLE),
                     healFactory->createHeal({.x=56, .y=22}, VISIBLE),
-                    healFactory->createHeal({.x=60, .y=21}, VISIBLE),
+                    healFactory->createHeal({.x=65, .y=23}, VISIBLE),
                     healFactory->createHeal({.x=53, .y=19}, VISIBLE),
                     healFactory->createHeal({.x=18, .y=18}, VISIBLE),
                     healFactory->createHeal({.x=20, .y=23}, MAGIC),
@@ -616,7 +615,7 @@ Game *GameCreator::createNewGame() {
                     healFactory->createHeal({.x=57, .y=5}, VISIBLE),
                     healFactory->createHeal({.x=70, .y=14}, VISIBLE),
                     healFactory->createHeal({.x=40, .y=12}, VISIBLE),
-                    healFactory->createHeal({.x=41, .y=16}, VISIBLE),
+                    healFactory->createHeal({.x=41, .y=17}, VISIBLE),
                     healFactory->createHeal({.x=20, .y=4}, VISIBLE),
                     healFactory->createHeal({.x=20, .y=20}, VISIBLE),
                     healFactory->createHeal({.x=25, .y=28}, VISIBLE),
@@ -635,9 +634,9 @@ Game *GameCreator::createNewGame() {
                     enemyFactory->createEnemy({.x=69, .y=12}, ATTACK, nullptr, new PlayerAttack("Charge", 20)),
 
                     healFactory->createHeal({.x=58, .y=3}, VISIBLE),
-                    healFactory->createHeal({.x=45, .y=23}, MAGIC),
+                    healFactory->createHeal({.x=44, .y=23}, MAGIC),
                     healFactory->createHeal({.x=65, .y=23}, VISIBLE),
-                    healFactory->createHeal({.x=70, .y=21}, VISIBLE),
+                    healFactory->createHeal({.x=59, .y=21}, VISIBLE),
                     healFactory->createHeal({.x=32, .y=21}, VISIBLE),
                     healFactory->createHeal({.x=2, .y=9}, VISIBLE),
                     healFactory->createHeal({.x=64, .y=16}, VISIBLE),

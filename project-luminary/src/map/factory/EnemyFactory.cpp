@@ -15,7 +15,7 @@ Enemy* EnemyFactory::createEnemy(Position position, EnemyType type, Weapon* weap
                     ->foreground(ColorPalette::YELLOW)->create());
         case ARMED:
             return new Enemy(position, 40, 20, (new CharFactory('%'))->background(ColorPalette::YELLOW)
-                    ->foreground(ColorPalette::YELLOW)->create(), weapon);
+                    ->foreground(ColorPalette::UNLIT_TORCH)->create(), weapon);
         case ATTACK:
             return new Enemy(position, 40, 25, (new CharFactory('%'))->background(ColorPalette::ORANGE)
                     ->foreground(ColorPalette::YELLOW)->create(), playerAttack);
