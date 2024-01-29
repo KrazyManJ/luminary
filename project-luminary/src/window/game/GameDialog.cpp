@@ -4,7 +4,7 @@
 
 
 void GameDialog::renderClassic() {
-    const short Y_DIALOG_POS = m_game->getPlayer()->getPosition().y < Window::HEIGHT/2 ? 19 : 2;
+    const short Y_DIALOG_POS = m_game->getPlayer()->getPosition().y < Window::HEIGHT/1.5 ? 19 : 2;
     for (int i = Y_DIALOG_POS; i < Y_DIALOG_POS+6; i++){
         ConsoleHandler::setCursorPosition(2,i);
         std::cout

@@ -48,7 +48,7 @@ void InventoryWindow::render() {
     std::cout << "Weapons:";
 
     //fill grid with items
-    //weapons write
+    //heals write
     int itemIndex = 0;
     for (int i = 0; i < m_openedInventory->getHeals().size(); i++){
         ConsoleHandler::setCursorPosition(X_GRID_START+(i%SLOTS_IN_ROW)*2+1, HEALS_POSITION_Y+1+(i/SLOTS_IN_ROW)*2);
@@ -64,7 +64,7 @@ void InventoryWindow::render() {
         itemIndex++;
     }
 
-    // heals write
+    // weapons write
     for (int i = 0; i < m_openedInventory->getWeapons().size(); i++){
         ConsoleHandler::setCursorPosition(X_GRID_START+(i%SLOTS_IN_ROW)*2+1, WEAPONS_POSITION_Y+1+(i/SLOTS_IN_ROW)*2);
         if (m_InventoryCycler->getIndex() == itemIndex)
@@ -72,6 +72,9 @@ void InventoryWindow::render() {
                 << ConsoleHandler::getFormatChar(BLINKING)
                 << ConsoleHandler::getFormatChar(INVERTED)
             ;
+        auto* weapon = m_openedInventory->getWeapons().at(i);
+        if (m_openedInventory->equipedWeapon() == weapon)
+            std::cout << ConsoleHandler::getFormatChar(ITALIC);
         std::cout
             << m_openedInventory->getWeapons().at(i)->renderChar()
             << ConsoleHandler::getFormatChar(RESET)
