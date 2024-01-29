@@ -4,7 +4,11 @@
 
 
 void GameDialog::renderClassic() {
-    const short Y_DIALOG_POS = m_game->getPlayer()->getPosition().y < Window::HEIGHT/1.5 ? 19 : 2;
+    short Y_DIALOG_POS;
+    if (m_lower)
+        Y_DIALOG_POS = 19;
+    else
+        Y_DIALOG_POS = m_game->getPlayer()->getPosition().y < Window::HEIGHT/1.5 ? 19 : 2;
     for (int i = Y_DIALOG_POS; i < Y_DIALOG_POS+6; i++){
         ConsoleHandler::setCursorPosition(2,i);
         std::cout
@@ -69,4 +73,9 @@ GameDialog::GameDialog(std::string text, Game *game, bool fullScreen) : GameRetu
     m_faded = false;
     m_text = text;
     m_fullScreen = fullScreen;
+    m_lower = false;
+}
+
+GameDialog::GameDialog(std::string text, Game *game, bool lower, bool fullScreen): GameDialog(text, game, fullScreen) {
+    m_lower = lower;
 }

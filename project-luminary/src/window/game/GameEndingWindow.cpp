@@ -6,7 +6,7 @@
 GameEndingWindow::GameEndingWindow(Game* game) : ReturnableWindow(new MainMenuWindow()) {
     m_game = game;
     m_step = 0;
-    m_currentWindow = new GameDialog("I did it! I lit up the world!", m_game);
+    m_currentWindow = new GameDialog("I did it! I lit up the world!", m_game, true, false);
 }
 
 void GameEndingWindow::render() {
@@ -27,7 +27,7 @@ void GameEndingWindow::onInput(ConsoleHandler::KeyEvent *evt) {
         case 2:
             m_game->teleportPlayer(m_game->getEndingPosition());
             delete m_currentWindow;
-            m_currentWindow = new GameDialog("Now my home is not in dark anymore!", m_game);
+            m_currentWindow = new GameDialog("Now my home is not in dark anymore!", m_game, true, false);
             break;
         default:
             close();
