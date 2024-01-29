@@ -32,6 +32,8 @@ std::string Torch::renderChar(bool isLightened) {
 void Torch::onCollision(Game *game) {
     if (!game->lightUpTorch(this))
         Luminary::getInstance()->openWindow(new GameDialog(
-                "Oh, this does not seem to work, maybe I've skipped some torches..."
+                isLit()
+                ? "This looks like it has been lit up..."
+                : "Oh, this does not seem to work, maybe I've skipped some torches..."
     ,game), true);
 }
