@@ -20,11 +20,9 @@ void GameItemPickupDialogWindow::render() {
 
 void GameItemPickupDialogWindow::onInput(ConsoleHandler::KeyEvent *evt) {
     Game* game = m_game;
-    if (m_time > 0) {
+    if (m_time > 0)
         m_time--;
-    }
-    else {
+    else
         close(true);
-    }
     game->onInput(evt);
 }

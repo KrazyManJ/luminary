@@ -123,7 +123,7 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
         return;
     }
     if (evt->getKey() == KEY_E){
-        Luminary::getInstance()->openWindow(new InventoryWindow(this, m_player->getInventory()),true);
+        Luminary::getInstance()->openWindow(new InventoryWindow(this, m_player),true);
         return;
     }
     if (evt->getKey() == KEY_Q){
