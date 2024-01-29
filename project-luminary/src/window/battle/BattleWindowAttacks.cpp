@@ -48,6 +48,11 @@ void BattleWindowAttacks::onInput(ConsoleHandler::KeyEvent *evt) {
             m_enemy->dealDamage(m_player->getDamage(m_player->getAttacks()[index]));
             m_player->dealDamage(m_enemy->getDamage());
             close();
+            return;
         }
+    }
+    if (evt->getKey() == KEY_E || evt->getKey() == KEY_ESC) {
+        close();
+        return;
     }
 }

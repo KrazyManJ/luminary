@@ -13,6 +13,7 @@ class BattleWindow : public ReturnableWindow{
     Player* m_player;
     Enemy* m_enemy;
     Cycler* m_battleCycler;
+    bool m_end;
 public:
     BattleWindow(Window* prevWindow, Player* player, Enemy* enemy);
     void render() override;

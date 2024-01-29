@@ -7,6 +7,7 @@ BattleWindow::BattleWindow(Window* prevWindow, Player* player, Enemy* enemy) : R
     m_player = player;
     m_enemy = enemy;
     m_battleCycler = new Cycler(AMOUNT_OF_CHOISES-1);
+    m_end = false;
 }
 
 void BattleWindow::render() {
@@ -14,7 +15,6 @@ void BattleWindow::render() {
     float enemyHealth = m_enemy->getHealth();
     if(playerHealth <= 0 or enemyHealth <= 0)
     {
-        close();
         std::string finishDialog = "";
         if(playerHealth > 0)
         {
@@ -31,6 +31,7 @@ void BattleWindow::render() {
             finishDialog = "Game is over!!! Press any key to start again...";
             Luminary::getInstance()->resetGame();
         }
+        m_end = true;
         ConsoleHandler::setCursorPosition(Window::WIDTH/2-finishDialog.size()/2,10);
         std::cout << finishDialog;
     }
@@ -81,6 +82,10 @@ void BattleWindow::render() {
 }
 
 void BattleWindow::onInput(ConsoleHandler::KeyEvent *evt) {
+    if (m_end) {
+        close();
+        return;
+    }
     if(evt->getKey() == KEY_D || evt->getKey() == KEY_ARROW_RIGHT){
         m_battleCycler->goUp();
         return;
