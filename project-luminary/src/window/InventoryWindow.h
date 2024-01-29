@@ -10,10 +10,11 @@
 class InventoryWindow : public ReturnableWindow {
 private:
     const unsigned short SLOTS_IN_ROW = 15;
+    Player* m_player;
     Inventory* m_openedInventory;
     Cycler* m_InventoryCycler;
 public:
-    InventoryWindow(Window *prevWindow, Inventory* inventory);
+    InventoryWindow(Window *prevWindow, Player* player);
 
     void render() override;
 

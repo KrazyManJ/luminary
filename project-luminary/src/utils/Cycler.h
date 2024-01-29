@@ -14,6 +14,8 @@ public:
     void goDown();
 
     unsigned int getIndex();
+
+    void setMaxIndex(unsigned int newMaxIndex);
 };
 
 

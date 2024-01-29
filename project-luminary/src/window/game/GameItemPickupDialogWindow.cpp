@@ -3,6 +3,7 @@
 
 GameItemPickupDialogWindow::GameItemPickupDialogWindow(Game *game, Item *item) :GameReturnableWindow(game) {
     m_item = item;
+    m_time = 2;
 }
 
 void GameItemPickupDialogWindow::render() {
@@ -19,6 +20,9 @@ void GameItemPickupDialogWindow::render() {
 
 void GameItemPickupDialogWindow::onInput(ConsoleHandler::KeyEvent *evt) {
     Game* game = m_game;
-    close(true);
+    if (m_time > 0)
+        m_time--;
+    else
+        close(true);
     game->onInput(evt);
 }

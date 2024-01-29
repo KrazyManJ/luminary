@@ -123,7 +123,7 @@ void Game::onInput(ConsoleHandler::KeyEvent *evt) {
         return;
     }
     if (evt->getKey() == KEY_E){
-        Luminary::getInstance()->openWindow(new InventoryWindow(this, m_player->getInventory()),true);
+        Luminary::getInstance()->openWindow(new InventoryWindow(this, m_player),true);
         return;
     }
     if (evt->getKey() == KEY_Q){
@@ -190,7 +190,7 @@ bool Game::areAllTorchesLitUp() {
 
 void Game::end() {
     Luminary::getInstance()->getActiveWindow()->render();
-    Luminary::getInstance()->openWindow(new GameEndingWindow(this));
+    Luminary::getInstance()->openWindow(new GameEndingWindow(this), true);
 }
 
 GamePosition Game::getEndingPosition() {
