@@ -38,8 +38,8 @@ std::vector<Weapon *> Inventory::getWeapons() {
     return m_weapons;
 }
 
-void Inventory::equipWeapon(Weapon *toEquip) {
-    m_nowEquiped = toEquip;
+void Inventory::equipWeapon(unsigned int indexOfWeapon) {
+    m_nowEquiped = getWeapon(indexOfWeapon);
 }
 
 Weapon *Inventory::equipedWeapon() {

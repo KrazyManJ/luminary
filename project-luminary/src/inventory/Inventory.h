@@ -25,7 +25,7 @@ public:
     Weapon * getWeapon(unsigned int indexOfWeapon);
     std::vector<Heal*> getHeals();
     std::vector<Weapon*> getWeapons();
-    void equipWeapon(Weapon* toEquip);
+    void equipWeapon(unsigned int indexOfWeapon);
     Weapon* equipedWeapon();
     bool useHeal(unsigned int indexOfHeal, Player* player);
     ~Inventory(); //v ramci smazani inventare vymaze i leceni a zbrane v nem ulozene z pameti
