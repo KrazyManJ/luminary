@@ -82,6 +82,10 @@ void InventoryWindow::render() {
 
     const unsigned short DETAILS_X_POSITION = Window::WIDTH/2+2;
 
+    // details
+
+    if (m_openedInventory->getHeals().empty() && m_openedInventory->getWeapons().empty()) return;
+
     // if inventory has selected heal
     if (m_InventoryCycler->getIndex() < m_openedInventory->getHeals().size()){
         auto* heal = m_openedInventory->getHeals().at(m_InventoryCycler->getIndex());
@@ -142,20 +146,21 @@ void InventoryWindow::onInput(ConsoleHandler::KeyEvent *evt) {
             m_InventoryCycler->goDown();
         return;
     }
+    if (m_openedInventory->getHeals().empty() && m_openedInventory->getWeapons().empty()) return;
     if (evt->getKey() == KEY_ENTER){
         if (m_InventoryCycler->getIndex() < m_openedInventory->getHeals().size()){
-            auto* heal = m_openedInventory->getHeals().at(m_InventoryCycler->getIndex());
-            //use heal
+            m_openedInventory->useHeal(m_InventoryCycler->getIndex(),m_player);
         } else {
             auto* weapon = m_openedInventory->getWeapons().at(m_InventoryCycler->getIndex()-m_openedInventory->getHeals().size());
-            //equip weapon
+            m_openedInventory->equipWeapon(weapon);
         }
     }
 }
 
-InventoryWindow::InventoryWindow(Window *prevWindow, Inventory *inventory) : ReturnableWindow(prevWindow) {
-    m_openedInventory = inventory;
-    m_InventoryCycler = new Cycler (inventory->getHeals().size()+inventory->getWeapons().size()-1);
+InventoryWindow::InventoryWindow(Window *prevWindow, Player *player) : ReturnableWindow(prevWindow) {
+    m_player = player;
+    m_openedInventory = m_player->getInventory();
+    m_InventoryCycler = new Cycler (m_openedInventory->getHeals().size()+m_openedInventory->getWeapons().size()-1);
 }
 
 
