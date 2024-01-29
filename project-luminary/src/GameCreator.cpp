@@ -306,7 +306,7 @@ Game *GameCreator::createNewGame() {
                         return new NPC('&', "Ooooooo... It's been so loooong since we've seen light... Oooooooo");
                     }
             },
-            { //dad
+            { //dad NPC
                     'D', [] () {
                         return new NPC('D',"There you are, son! Another day in the darkness...");
                     }
@@ -331,6 +331,11 @@ Game *GameCreator::createNewGame() {
                     'H', [] () {
                         return new NPC('&', "Sooometimes carrots are really hard to see, look carefully... Ooooo");
                     }
+            },
+            {
+                    'I', [] () {
+                        return new NPC('&', "Oooo there it is! The big tooorch can light the whooole wooorld!");
+                }
             },
             {
                 '0',[&game]() { return game->m_torchesOrder.at(0);},
@@ -510,7 +515,7 @@ Game *GameCreator::createNewGame() {
             "llkkkjjjjkkkllllllwwlkjjkkjjkllllliiiiiiillllwlllwwwlllllkkkjjjjkkkllllllllihhhh\n"
             "lljjkkkkkkjjllllllllkkkjjjjkkklllliiiiiillllllllwlllllllljjkkkkkkjjllllwlllihhhh\n"
             "llljjjjjjjjlllllwllljjkkkkkkjjllllliiiiiiillllkkkllllllllljjjjjjjjllllwwiiiihhhh\n"
-            "llllllqqllllHllllllwwjjjjjjjjlllllliiiiiiillljkkkkkkllwllllllqqllllllliihhhhhhhh\n"
+            "llllllqqllllHllllllwwjjjjjjjjlllllliiiiIiillljkkkkkkllwllllllqqllllllliihhhhhhhh\n"
             "llllllllllllllllllllllllqqlwwllllliiiiiiillljjjjjjjjjjlllllllllllllwiihhhhhhhhhh\n"
             "lllllllllllllllllllllllllllllllllliiiiiiiilllllllllllllllllllllllllihhhhhhhhhhhh\n";
 
@@ -538,7 +543,7 @@ Game *GameCreator::createNewGame() {
                     enemyFactory->createEnemy({.x=27, .y=19}, EASY),
                     enemyFactory->createEnemy({.x=33, .y=5}, ATTACK, nullptr, new PlayerAttack("Pounce", 25)),
                     enemyFactory->createEnemy({.x=60, .y=19}, ARMED, new Weapon("Light Axe", 10,(new CharFactory('P'))
-                    ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::ORANGE)->create())),
+                    ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::NPC_PINK)->create())),
 
                     healFactory->createHeal({.x=55, .y=18}, VISIBLE),
                     healFactory->createHeal({.x=14, .y=15}, VISIBLE),
@@ -575,7 +580,7 @@ Game *GameCreator::createNewGame() {
                     enemyFactory->createEnemy({.x=32, .y=14}, EASY),
                     enemyFactory->createEnemy({.x=28, .y=14}, MEDIUM),
                     enemyFactory->createEnemy({.x=30, .y=15}, ARMED, new Weapon("Sickle of Light", 15,(new CharFactory('?'))
-                            ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::ORANGE)->create())),
+                            ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::NPC_PINK)->create())),
 
                     healFactory->createHeal({.x=45, .y=3}, VISIBLE),
                     healFactory->createHeal({.x=67, .y=21}, VISIBLE),
@@ -594,7 +599,7 @@ Game *GameCreator::createNewGame() {
                     enemyFactory->createEnemy({.x=34, .y=17}, MEDIUM),
                     enemyFactory->createEnemy({.x=13, .y=10}, HARD),
                     enemyFactory->createEnemy({.x=67, .y=17}, ARMED, new Weapon("Lightsaber", 25,(new CharFactory('!'))
-                            ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::ORANGE)->create())),
+                            ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::NPC_PINK)->create())),
 
 
                     healFactory->createHeal({.x=57, .y=5}, VISIBLE),
@@ -613,7 +618,7 @@ Game *GameCreator::createNewGame() {
 //                    enemyFactory->createEnemy({.x=69, .y=12}, MEDIUM),
                     enemyFactory->createEnemy({.x=65, .y=12}, MEDIUM),
                     enemyFactory->createEnemy({.x=67, .y=11}, ARMED, new Weapon("Glowing Bow", 20,(new CharFactory('{'))
-                    ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::ORANGE)->create())),
+                    ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::NPC_PINK)->create())),
                     enemyFactory->createEnemy({.x=69, .y=12}, ATTACK, nullptr, new PlayerAttack("Charge", 30)),
 
                     healFactory->createHeal({.x=58, .y=3}, VISIBLE),
