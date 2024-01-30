@@ -13,6 +13,7 @@ private:
     Player* m_player;
     Inventory* m_openedInventory;
     Cycler* m_InventoryCycler;
+    std::string m_responseMessage;
 
     void updateCycler();
 public:
