@@ -82,12 +82,20 @@ void InventoryWindow::render() {
         itemIndex++;
     }
 
-    const unsigned short DETAILS_X_POSITION = Window::WIDTH/2+2;
+    // response message
 
-    // details
+    const unsigned short RESPONSE_MSG_Y_POS = 21;
+
+    ConsoleHandler::setCursorPosition(Window::WIDTH/2-m_responseMessage.size()/2,RESPONSE_MSG_Y_POS);
+    std::cout << m_responseMessage;
+
+
+    m_responseMessage = "";
 
     if (m_openedInventory->getHeals().empty() && m_openedInventory->getWeapons().empty()) return;
 
+    // details
+    const unsigned short DETAILS_X_POSITION = Window::WIDTH/2+2;
     // if inventory has selected heal
     if (m_InventoryCycler->getIndex() < m_openedInventory->getHeals().size()){
         auto* heal = m_openedInventory->getHeals().at(m_InventoryCycler->getIndex());
@@ -121,7 +129,10 @@ void InventoryWindow::render() {
         std::cout << std::string(10, ' ');
 
         ConsoleHandler::setCursorPosition(DETAILS_X_POSITION,MARGIN_HEIGHT+14);
-        std::cout << "Hit enter to equip.     ";
+        if (weapon == m_openedInventory->equipedWeapon())
+            std::cout << "Equiped                 ";
+        else
+            std::cout << "Hit enter to equip.     ";
     }
 }
 
@@ -151,7 +162,8 @@ void InventoryWindow::onInput(ConsoleHandler::KeyEvent *evt) {
     if (m_openedInventory->getHeals().empty() && m_openedInventory->getWeapons().empty()) return;
     if (evt->getKey() == KEY_ENTER){
         if (m_InventoryCycler->getIndex() < m_openedInventory->getHeals().size()){
-            m_openedInventory->useHeal(m_InventoryCycler->getIndex(),m_player);
+            if (!m_openedInventory->useHeal(m_InventoryCycler->getIndex(),m_player))
+                m_responseMessage = "You cannot overheal yourself!";
             updateCycler();
         } else {
             m_openedInventory->equipWeapon(m_InventoryCycler->getIndex()-m_openedInventory->getHeals().size());
