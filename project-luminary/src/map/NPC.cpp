@@ -13,7 +13,5 @@ NPC::NPC(char character, std::string dialogue) : MapObject(
 }
 
 void NPC::onCollision(Game *game) {
-    Luminary::getInstance()->openWindow(new GameDialog(
-            m_dialogue
-            ,game), true);
+    Luminary::getInstance()->openWindow(new GameDialog(m_dialogue, game), true);
 }

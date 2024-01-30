@@ -9,6 +9,7 @@
 class NPC : public MapObject {
 private:
     std::string m_dialogue;
+
 public:
     NPC(char character, std::string dialogue);
 
