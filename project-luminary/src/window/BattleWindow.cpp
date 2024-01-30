@@ -6,8 +6,8 @@
 BattleWindow::BattleWindow(Window* prevWindow, Player* player, Enemy* enemy) : ReturnableWindow(prevWindow) {
     m_player = player;
     m_enemy = enemy;
-    m_battleCycler = new Cycler(AMOUNT_OF_CHOISES-1);
-    m_end = false;
+    m_battleCycler = new Cycler(AMOUNT_OF_CHOISES-1); //cycler zacina od 0
+    m_end = false; //defaultne ma prerenderovani stale pokracovat
 }
 
 void BattleWindow::render() {
@@ -18,7 +18,7 @@ void BattleWindow::render() {
         std::string finishDialog = "";
         if(playerHealth > 0)
         {
-            m_enemy->makeUninteractable();
+            m_enemy->makeUninteractable(); //aby zmizel z mapy
             if(m_enemy->hasWeapon()){
                 m_player->getInventory()->addWeapon(m_enemy->getWeapon());
                 finishDialog = "Wow you gained a weapon!!! ";
@@ -31,25 +31,15 @@ void BattleWindow::render() {
             finishDialog = "Game is over!!! Press any key to start again...";
             Luminary::getInstance()->resetGame();
         }
-        m_end = true;
+        m_end = true; //nastavi pro reakci na input mezi prepsanim na jine okno a smazanim aktualniho okna
         ConsoleHandler::setCursorPosition(Window::WIDTH/2-finishDialog.size()/2,10);
-        std::cout << finishDialog;
+        std::cout << finishDialog; //vypisujeme najednou kvuli efektivite
     }
     else{
         std::string fullRender;
-//        std::string fightBackground = ConsoleHandler::getColorChar(0x38A8AB, BACKGROUND) + ' ' + ConsoleHandler::getFormatChar(RESET);
         for(unsigned int renderPositionY = 1; renderPositionY <= Window::HEIGHT; renderPositionY++){
             fullRender.append(std::string(Window::WIDTH-1, (renderPositionY == 4 || renderPositionY == 18) ? '-' : ' ')).append("\n");
-//            if(renderPositionY == 2 || renderPositionY == 20) fullRender.append(std::string(Window::WIDTH, '-')).append("\n");
-//            else if(renderPositionY > 2 && renderPositionY < 20){
-//                for(unsigned renderPositionX = 1; renderPositionX <= Window::WIDTH; renderPositionX++){
-//                    fullRender.append(fightBackground,0);
-//                }
-//                fullRender.append("\n");
-//            }
-//            else{
-//                fullRender.append(std::string(Window::WIDTH,' ')).append("\n");
-//            }
+            //vsude "vyrenderuje prazdna pole" jinak -
         }
         ConsoleHandler::setCursorPosition(1,1);
         std::cout << fullRender << std::endl;
@@ -68,7 +58,7 @@ void BattleWindow::render() {
         ConsoleHandler::setCursorPosition(25,20);
         std::string choises[AMOUNT_OF_CHOISES] = {"Attack", "Open inventory"};
         for(unsigned int i = 0; i < AMOUNT_OF_CHOISES; i++){
-            if(m_battleCycler->getIndex() == i){
+            if(m_battleCycler->getIndex() == i){ //urcuje, jestli se ma dana moznost "oznacit" za "vybranou"
                 std::cout << ConsoleHandler::getFormatChar(BLINKING)
                           << ConsoleHandler::getFormatChar(INVERTED)
                           << ConsoleHandler::getColorChar(0xFFFF55, FOREGROUND)
@@ -82,7 +72,7 @@ void BattleWindow::render() {
 }
 
 void BattleWindow::onInput(ConsoleHandler::KeyEvent *evt) {
-    if (m_end) {
+    if (m_end) { //zabranuje pouziti nepovolenych vstupu
         close();
         return;
     }
