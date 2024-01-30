@@ -527,7 +527,6 @@ Game *GameCreator::createNewGame() {
     EnemyFactory* enemyFactory = new EnemyFactory();
     HealFactory* healFactory = new HealFactory();
 
-    std::string EMPTY_MAP;
     game->m_mapMatrix = {
             {
                 new Map(MAP_1, charMappings, { //x sloupce, y radky
@@ -548,7 +547,6 @@ Game *GameCreator::createNewGame() {
 
                 }),
                 new Map(MAP_2, charMappings,{
-//                    enemyFactory->createEnemy({.x=33, .y=5}, EASY),
                     enemyFactory->createEnemy({.x=27, .y=19}, EASY),
                     enemyFactory->createEnemy({.x=33, .y=5}, ATTACK, nullptr, new PlayerAttack("Pounce", 15)),
                     enemyFactory->createEnemy({.x=60, .y=19}, ARMED, new Weapon("Light Axe", 10,(new CharFactory('P'))
@@ -632,7 +630,6 @@ Game *GameCreator::createNewGame() {
                 }),
                 new Map(MAP_4, charMappings,{
                     enemyFactory->createEnemy({.x=67, .y=13}, MEDIUM),
-//                    enemyFactory->createEnemy({.x=69, .y=12}, MEDIUM),
                     enemyFactory->createEnemy({.x=65, .y=12}, MEDIUM),
                     enemyFactory->createEnemy({.x=67, .y=11}, ARMED, new Weapon("Glowing Bow", 20,(new CharFactory('{'))
                     ->foreground(ColorPalette::FG_PLAYER)->background(ColorPalette::NPC_PINK)->create())),
