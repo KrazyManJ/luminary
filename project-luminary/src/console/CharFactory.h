@@ -6,6 +6,7 @@
 class CharFactory {
 private:
     CharData* m_charData;
+
 public:
     CharFactory(char character = ' ');
 

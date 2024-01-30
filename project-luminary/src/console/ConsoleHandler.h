@@ -29,6 +29,7 @@ public:
     class KeyEvent {
     private:
         unsigned int m_key;
+
         bool m_arrowEscaped;
 
         KeyEvent(unsigned int key, bool arrowEscaped);
