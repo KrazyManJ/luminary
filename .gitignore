@@ -1,5 +1,4 @@
 # CLION PROJECT FOLDER
-exercise_lessons/**/*.idea
 **/.idea/discord.xml
 # CMAKE BUILD FOLDER
 cmake-build-debug
