@@ -1,4 +1,4 @@
-# Luminary
+# 🕯️ Luminary
 
 Luminary is a final university team project in the subject "Basics of Objective Oriented 
 Programming" made by myself and 3 other classmates:
@@ -14,7 +14,7 @@ RPG game like inventory management, battles, healing, etc.
 This project received evaluation of `15/15`(15 out of 15) points `+2` as bonus for
 it's complexity, modularity and over-all playing experience by our exercises teacher.
 
-## Lore
+## 🗣️ Lore
 
 *One day, all around the world, the light faded. Torches that once illuminated 
 the entire world went out, extinguished by insectoid creatures that devoured 
@@ -34,7 +34,7 @@ gear to better prepare him for the journey.*
 
 *The quest for light begins...*
 
-## Game showcase
+## 🖼️ Game showcase
 
 <p align="center">
     <img width="100%" src="assets/collecting_items.gif" alt="Player collecting items"/>
