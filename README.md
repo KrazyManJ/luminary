@@ -66,5 +66,5 @@ gear to better prepare him for the journey.*
 
 <p align="center">
     <img width="100%" src="assets/npc_dialog.gif" alt="Dialog with non-playable character"/>
-    <i>Dialogue with non-playable character</i>
+    <i>Dialog with non-playable character</i>
 </p>
