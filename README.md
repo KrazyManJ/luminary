@@ -58,13 +58,13 @@ gear to better prepare him for the journey.*
 ---
 
 <p align="center">
-    <img width="100%" src="assets/lightning_torch.gif" alt="Lightning torch"/>
-    <i>Lightning torch</i>
+    <img width="100%" src="assets/lighting_torch.gif" alt="Lighting torch"/>
+    <i>Lighting torch</i>
 </p>
 
 ---
 
 <p align="center">
     <img width="100%" src="assets/npc_dialog.gif" alt="Dialog with non-playable character"/>
-    <i>Dialog with non-playable character</i>
+    <i>Dialogue with non-playable character</i>
 </p>
