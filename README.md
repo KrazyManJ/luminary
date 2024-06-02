@@ -4,7 +4,7 @@ Luminary is a final university team project in the subject "Basics of Objective 
 Programming" made by myself and 3 other classmates:
 
 - [@KrazyManJ](https://github.com/KrazyManJ) - Project management, game functionality
-- [@mbbk13](https://github.com/mbbk13) - Game mechanics and logic
+- [@mbbk13](https://github.com/mbbk13) ([@mbbk159](https://github.com/mbbk159)) - Game mechanics and logic
 - @xplesova *(doesn't have github account)* - Game appearance and maps design
 - [@rnbwlex](https://github.com/rnbwlex) - Map design, inventory, main tester 
 
